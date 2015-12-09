@@ -17,6 +17,7 @@ class GameScene: SKScene {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(myLabel)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -24,6 +25,10 @@ class GameScene: SKScene {
         
         for touch in touches {
             let location = touch.locationInNode(self)
+            
+            if self.nodeAtPoint(location).name == "myButton" {
+                print("\(self.nodeAtPoint(location))")
+            }
             
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
             

@@ -14,6 +14,7 @@
 		C04078401C18760900D3EEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C040783E1C18760900D3EEE4 /* Main.storyboard */; };
 		C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04078411C18760900D3EEE4 /* Assets.xcassets */; };
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
+		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C04078411C18760900D3EEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04078441C18760900D3EEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */,
 				C04078461C18760900D3EEE4 /* Info.plist */,
+				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 				C04078391C18760900D3EEE4 /* GameScene.sks in Resources */,
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
+				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +295,7 @@
 				C040784B1C18760900D3EEE4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
