@@ -12,6 +12,6 @@ struct GameplayConfiguration {
     
     struct SceneManager {
         /// The duration of a transition between loaded scenes.
-        static let transitionDuration: NSTimeInterval = 2.0
+        static let transitionDuration: NSTimeInterval = 0.5
     }
 }
