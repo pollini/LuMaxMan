@@ -7,31 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91FFF78D1C2072E700B7EC45 /* LumaxManEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */; };
+		91FFF78F1C20747700B7EC45 /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF78E1C20747700B7EC45 /* InputComponent.swift */; };
+		91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF7911C20758100B7EC45 /* ControlInputSource.swift */; };
+		91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF7941C20766C00B7EC45 /* EntityNode.swift */; };
+		91FFF79C1C207B0800B7EC45 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF79B1C207B0800B7EC45 /* LevelScene.swift */; };
+		91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */; };
 		C04078371C18760900D3EEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04078361C18760900D3EEE4 /* AppDelegate.swift */; };
-		C040783B1C18760900D3EEE4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040783A1C18760900D3EEE4 /* GameScene.swift */; };
 		C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040783C1C18760900D3EEE4 /* GameViewController.swift */; };
 		C04078401C18760900D3EEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C040783E1C18760900D3EEE4 /* Main.storyboard */; };
 		C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04078411C18760900D3EEE4 /* Assets.xcassets */; };
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
-		C06C1C811C2057C70007264D /* LevelA.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C801C2057C70007264D /* LevelA.sks */; };
-		C06C1C831C2058860007264D /* LuMan_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C821C2058860007264D /* LuMan_v2.png */; };
-		C06C1C851C2059240007264D /* LevelAScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C1C841C2059240007264D /* LevelAScene.swift */; };
+		C06C1C811C2057C70007264D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C801C2057C70007264D /* Level1.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LumaxManEntity.swift; sourceTree = "<group>"; };
+		91FFF78E1C20747700B7EC45 /* InputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
+		91FFF7911C20758100B7EC45 /* ControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlInputSource.swift; sourceTree = "<group>"; };
+		91FFF7941C20766C00B7EC45 /* EntityNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityNode.swift; sourceTree = "<group>"; };
+		91FFF79B1C207B0800B7EC45 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LevelScene+Pause.swift"; sourceTree = "<group>"; };
 		C04078331C18760900D3EEE4 /* LuMaxMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuMaxMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04078361C18760900D3EEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C040783A1C18760900D3EEE4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C040783C1C18760900D3EEE4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C040783F1C18760900D3EEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C04078411C18760900D3EEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04078441C18760900D3EEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
-		C06C1C801C2057C70007264D /* LevelA.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelA.sks; sourceTree = "<group>"; };
-		C06C1C821C2058860007264D /* LuMan_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LuMan_v2.png; sourceTree = "<group>"; };
-		C06C1C841C2059240007264D /* LevelAScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelAScene.swift; sourceTree = "<group>"; };
+		C06C1C801C2057C70007264D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91FFF78A1C20718500B7EC45 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		91FFF78B1C20718B00B7EC45 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				91FFF78E1C20747700B7EC45 /* InputComponent.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		91FFF7901C20756900B7EC45 /* PlayerControl */ = {
+			isa = PBXGroup;
+			children = (
+				91FFF7911C20758100B7EC45 /* ControlInputSource.swift */,
+			);
+			name = PlayerControl;
+			sourceTree = "<group>";
+		};
+		91FFF7931C20765400B7EC45 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				91FFF7941C20766C00B7EC45 /* EntityNode.swift */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		91FFF7961C2078A300B7EC45 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				91FFF79B1C207B0800B7EC45 /* LevelScene.swift */,
+				91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */,
+				91FFF79F1C207C3600B7EC45 /* LevelScene States */,
+				91FFF7971C2078A800B7EC45 /* SKS */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		91FFF7971C2078A800B7EC45 /* SKS */ = {
+			isa = PBXGroup;
+			children = (
+				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
+				91FFF7991C20792300B7EC45 /* Level1 */,
+				91FFF79A1C20792900B7EC45 /* Level2 */,
+			);
+			name = SKS;
+			sourceTree = "<group>";
+		};
+		91FFF7991C20792300B7EC45 /* Level1 */ = {
+			isa = PBXGroup;
+			children = (
+				C06C1C801C2057C70007264D /* Level1.sks */,
+			);
+			name = Level1;
+			sourceTree = "<group>";
+		};
+		91FFF79A1C20792900B7EC45 /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Level2;
+			sourceTree = "<group>";
+		};
+		91FFF79F1C207C3600B7EC45 /* LevelScene States */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "LevelScene States";
+			sourceTree = "<group>";
+		};
+		91FFF7A01C207D6B00B7EC45 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C04078411C18760900D3EEE4 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		C040782A1C18760900D3EEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +153,17 @@
 		C04078351C18760900D3EEE4 /* LuMaxMan */ = {
 			isa = PBXGroup;
 			children = (
+				91FFF7961C2078A300B7EC45 /* Scenes */,
+				91FFF7931C20765400B7EC45 /* Nodes */,
+				91FFF7901C20756900B7EC45 /* PlayerControl */,
+				91FFF78B1C20718B00B7EC45 /* Components */,
+				91FFF78A1C20718500B7EC45 /* Entities */,
 				C04078361C18760900D3EEE4 /* AppDelegate.swift */,
-				C040783A1C18760900D3EEE4 /* GameScene.swift */,
 				C040783C1C18760900D3EEE4 /* GameViewController.swift */,
 				C040783E1C18760900D3EEE4 /* Main.storyboard */,
-				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */,
 				C04078461C18760900D3EEE4 /* Info.plist */,
-				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
-				C06C1C801C2057C70007264D /* LevelA.sks */,
-				C06C1C821C2058860007264D /* LuMan_v2.png */,
-				C06C1C841C2059240007264D /* LevelAScene.swift */,
+				91FFF7A01C207D6B00B7EC45 /* Assets */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
@@ -136,11 +225,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C06C1C831C2058860007264D /* LuMan_v2.png in Resources */,
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
-				C06C1C811C2057C70007264D /* LevelA.sks in Resources */,
+				C06C1C811C2057C70007264D /* Level1.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,10 +240,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C040783B1C18760900D3EEE4 /* GameScene.swift in Sources */,
+				91FFF78F1C20747700B7EC45 /* InputComponent.swift in Sources */,
+				91FFF78D1C2072E700B7EC45 /* LumaxManEntity.swift in Sources */,
 				C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */,
+				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,
 				C04078371C18760900D3EEE4 /* AppDelegate.swift in Sources */,
-				C06C1C851C2059240007264D /* LevelAScene.swift in Sources */,
+				91FFF79C1C207B0800B7EC45 /* LevelScene.swift in Sources */,
+				91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */,
+				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.LuMaxMan";
@@ -277,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.LuMaxMan";
