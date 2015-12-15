@@ -9,45 +9,37 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SceneManagerDelegate {
+    
+    /// A manager for coordinating scene resources and presentation.
+    var sceneManager: SceneManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let scene = SKScene(fileNamed:"Level1") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
-    }
-
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+        
+        // Load the initial home scene.
+        let skView = view as! SKView
+        sceneManager = SceneManager(presentingView: skView)
+        sceneManager.delegate = self
+        
+        sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+        
     }
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    
+    // MARK: SceneManagerDelegate
+    
+    func sceneManagerDidTransitionToScene(scene: SKScene) {
+        
+        // Fade out the app's initial loading `logoView` if it is visible.
+        /*UIView.animateWithDuration(0.2, delay: 0.0, options: [], animations: {
+            self.logoView.alpha = 0.0
+            }, completion: { _ in
+                self.logoView.hidden = true
+        })*/
     }
 }

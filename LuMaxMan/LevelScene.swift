@@ -8,6 +8,6 @@
 
 import SpriteKit
 
-class LevelScene: SKScene {
+class LevelScene: BaseScene {
     
 }

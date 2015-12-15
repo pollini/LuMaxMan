@@ -28,8 +28,6 @@ enum ControlInputDirection: Int {
 
 /// Delegate methods for responding to control input that applies to the game as a whole.
 protocol ControlInputSourceGameStateDelegate: class {
-    func controlInputSourceDidSelect(controlInputSource: ControlInputSourceType)
-    func controlInputSource(controlInputSource: ControlInputSourceType, didSpecifyDirection: ControlInputDirection)
     func controlInputSourceDidTogglePauseState(controlInputSource: ControlInputSourceType)
     
     #if DEBUG
