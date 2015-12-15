@@ -74,12 +74,6 @@ protocol ControlInputSourceDelegate: class {
      CounterClockwise: (1.0, 0.0)
      */
     func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateWithRelativeAngularDisplacement relativeAngularDisplacement: float2)
-    
-    /// Instructs the `ControlInputSourceDelegate` to cause the player to attack.
-    func controlInputSourceDidBeginAttacking(controlInputSource: ControlInputSourceType)
-    
-    /// Instructs the `ControlInputSourceDelegate` to end the player's attack.
-    func controlInputSourceDidFinishAttacking(controlInputSource: ControlInputSourceType)
 }
 
 /// A protocol to be adopted by classes that provide control input and notify their delegates when input is available.
