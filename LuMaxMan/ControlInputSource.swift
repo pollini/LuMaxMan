@@ -5,7 +5,7 @@
 //  Created by Alexander Holzer on 15/12/15.
 //
 //  Abstract:
-//  Protocols that manage and respond to control input for the `PlayerBot` and for the game as a whole.
+//  Protocols that manage and respond to control input
 
 import simd
 
@@ -81,8 +81,6 @@ protocol ControlInputSourceType: class {
     
     /// A delegate that receives information about actions that apply to the game as a whole.
     weak var gameStateDelegate: ControlInputSourceGameStateDelegate? { get set }
-    
-    var allowsStrafing: Bool { get }
     
     func resetControlState()
 }
