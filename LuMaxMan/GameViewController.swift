@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class GameViewController: UIViewController, SceneManagerDelegate {
     
@@ -15,6 +16,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
     var sceneManager: SceneManager!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Load the initial home scene.
@@ -25,7 +27,8 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         sceneManager.transitionToSceneWithSceneIdentifier(.Home)
         
     }
-
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
