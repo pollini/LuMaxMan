@@ -17,6 +17,9 @@
 		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
+		91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */; };
+		91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18F1C4695540015FE72 /* ColliderType.swift */; };
+		91B9C1921C4696D40015FE72 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */; };
 		91CA49941C20A29800AFA41A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49931C20A29800AFA41A /* SceneManager.swift */; };
 		91CA49961C20A2F800AFA41A /* SceneMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49951C20A2F800AFA41A /* SceneMetadata.swift */; };
 		91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49971C20AB6B00AFA41A /* BaseScene.swift */; };
@@ -66,6 +69,9 @@
 		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
+		91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
+		91B9C18F1C4695540015FE72 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
+		91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
 		91CA49931C20A29800AFA41A /* SceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		91CA49951C20A2F800AFA41A /* SceneMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneMetadata.swift; sourceTree = "<group>"; };
 		91CA49971C20AB6B00AFA41A /* BaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 				9101C0591C22EF44008F893C /* AnimationComponent.swift */,
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
 				9101C05F1C22F711008F893C /* IC States LumaxMan */,
+				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -296,6 +303,8 @@
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
 				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
 				9101C05B1C22EFA5008F893C /* Direction.swift */,
+				91B9C18F1C4695540015FE72 /* ColliderType.swift */,
+				91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
@@ -417,11 +426,14 @@
 				91CA49B61C20D83500AFA41A /* LevelSceneSuccessState.swift in Sources */,
 				91CA49941C20A29800AFA41A /* SceneManager.swift in Sources */,
 				C04078371C18760900D3EEE4 /* AppDelegate.swift in Sources */,
+				91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */,
 				91FFF79C1C207B0800B7EC45 /* LevelScene.swift in Sources */,
 				91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */,
 				91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */,
 				91CA49AC1C20D53700AFA41A /* GeometryExtensions.swift in Sources */,
 				84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */,
+				91B9C1921C4696D40015FE72 /* ContactNotifiableType.swift in Sources */,
+				91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */,
 				9101C0651C22F758008F893C /* LMMovingState.swift in Sources */,
 				91CA49B01C20D7F600AFA41A /* LevelSceneOverlayState.swift in Sources */,
 				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,

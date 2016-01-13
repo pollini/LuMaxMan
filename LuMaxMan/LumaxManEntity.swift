@@ -45,6 +45,13 @@ class LumaxManEntity: GKEntity {
         let inputComponent = InputComponent()
         addComponent(inputComponent)
         
+        let physicsComponent = PhysicsComponent(physicsBody: SKPhysicsBody(rectangleOfSize: LumaxManEntity.textureSize), colliderType: .LumaxMan)
+        
+        addComponent(physicsComponent)
+        
+        // Connect the `PhysicsComponent` and the `RenderComponent`.
+        renderComponent.node.physicsBody = physicsComponent.physicsBody
+        
         let movementComponent = MovementComponent()
         addComponent(movementComponent)
         
@@ -70,6 +77,11 @@ class LumaxManEntity: GKEntity {
     
     
     static func loadResources() {
+        ColliderType.definedCollisions[.LumaxMan] = [
+            .LumaxMan,
+            .Obstacle
+        ]
+        
         let atlasNames = [
             "LumaxManIdle",
             "LumaxManMoving",

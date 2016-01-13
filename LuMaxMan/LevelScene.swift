@@ -37,7 +37,7 @@ enum UniLayer: CGFloat {
     static var allLayers = [Floor, Obstacles, Characters, AboveCharacters, Top]
 }
 
-class LevelScene: BaseScene {
+class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
     
@@ -110,6 +110,12 @@ class LevelScene: BaseScene {
         loadUniLayers()
         
         addLumaxMan()
+        
+        // Gravity will be in the negative z direction; there is no x or y component.
+        physicsWorld.gravity = CGVector.zero
+        
+        // The scene will handle physics contacts itself.
+        physicsWorld.contactDelegate = self
         
         // Move to the active state
         stateMachine.enterState(LevelSceneActiveState.self)
@@ -333,15 +339,62 @@ class LevelScene: BaseScene {
         uniLayerNode.addChild(node)
     }
     
-        
-        func handleSwipes(sender:UISwipeGestureRecognizer) {
-            
-             gestureInput?.move(sender.direction)
-            
-            
-        }
-
     
+    func handleSwipes(sender:UISwipeGestureRecognizer) {
+        
+        gestureInput?.move(sender.direction)
+        
+        
+    }
+    
+    
+    // MARK: SKPhysicsContactDelegate
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+            ContactNotifiableType.contactWithEntityDidBegin(otherEntity)
+        }
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity) in
+            ContactNotifiableType.contactWithEntityDidEnd(otherEntity)
+        }
+    }
+    
+    // MARK: SKPhysicsContactDelegate convenience
+    
+    private func handleContact(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity) -> Void) {
+        // Get the `ColliderType` for each contacted body.
+        let colliderTypeA = ColliderType(rawValue: contact.bodyA.categoryBitMask)
+        let colliderTypeB = ColliderType(rawValue: contact.bodyB.categoryBitMask)
+        
+        // Determine which `ColliderType` should be notified of the contact.
+        let aWantsCallback = colliderTypeA.notifyOnContactWithColliderType(colliderTypeB)
+        let bWantsCallback = colliderTypeB.notifyOnContactWithColliderType(colliderTypeA)
+        
+        // Make sure that at least one of the entities wants to handle this contact.
+        assert(aWantsCallback || bWantsCallback, "Unhandled physics contact - A = \(colliderTypeA), B = \(colliderTypeB)")
+        
+        let entityA = (contact.bodyA.node as? EntityNode)?.entity
+        let entityB = (contact.bodyB.node as? EntityNode)?.entity
+        
+        /*
+        If `entityA` is a notifiable type and `colliderTypeA` specifies that it should be notified
+        of contact with `colliderTypeB`, call the callback on `entityA`.
+        */
+        if let notifiableEntity = entityA as? ContactNotifiableType, otherEntity = entityB where aWantsCallback {
+            contactCallback(notifiableEntity, otherEntity)
+        }
+        
+        /*
+        If `entityB` is a notifiable type and `colliderTypeB` specifies that it should be notified
+        of contact with `colliderTypeA`, call the callback on `entityB`.
+        */
+        if let notifiableEntity = entityB as? ContactNotifiableType, otherEntity = entityA where bWantsCallback {
+            contactCallback(notifiableEntity, otherEntity)
+        }
+    }
 }
 
 
