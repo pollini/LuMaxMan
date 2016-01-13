@@ -81,6 +81,4 @@ protocol ControlInputSourceType: class {
     
     /// A delegate that receives information about actions that apply to the game as a whole.
     weak var gameStateDelegate: ControlInputSourceGameStateDelegate? { get set }
-    
-    func resetControlState()
 }

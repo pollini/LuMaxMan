@@ -150,7 +150,13 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
         switch button.buttonIdentifier! {
         case .Home:
             sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+            /*
+        case .Highscore:
+            sceneManager.transitionToSceneWithSceneIdentifier(.Highscore)
             
+        case .Settings:
+            sceneManager.transitionToSceneWithSceneIdentifier(.Settings)
+            */
         case .ProceedToNextScene:
             sceneManager.transitionToSceneWithSceneIdentifier(.NextLevel)
             

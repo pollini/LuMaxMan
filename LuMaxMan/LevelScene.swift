@@ -41,6 +41,13 @@ class LevelScene: BaseScene {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
     
+    var leftSwipe: UISwipeGestureRecognizer!
+    var rightSwipe: UISwipeGestureRecognizer!
+    var upSwipe: UISwipeGestureRecognizer!
+    var downSwipe: UISwipeGestureRecognizer!
+    
+    
+    
     var uniNode: SKNode {
         return childNodeWithName("Uni")!
     }
@@ -63,6 +70,8 @@ class LevelScene: BaseScene {
         LevelSceneSuccessState(levelScene: self),
         LevelSceneFailState(levelScene: self)
         ])
+    
+    var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
     lazy var obstacleSpriteNodes: [SKSpriteNode] = self["\(UniLayer.Obstacles.nodePath)/*"] as! [SKSpriteNode]
     lazy var polygonObstacles: [GKPolygonObstacle] = SKNode.obstaclesFromNodePhysicsBodies(self.obstacleSpriteNodes)
@@ -104,6 +113,25 @@ class LevelScene: BaseScene {
         
         // Move to the active state
         stateMachine.enterState(LevelSceneActiveState.self)
+        
+        leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        
+        leftSwipe.direction = .Left
+        rightSwipe.direction = .Right
+        upSwipe.direction = .Up
+        downSwipe.direction = .Down
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(downSwipe)
+        
+        gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
+        
     }
     
     
@@ -304,6 +332,16 @@ class LevelScene: BaseScene {
         
         uniLayerNode.addChild(node)
     }
+    
+        
+        func handleSwipes(sender:UISwipeGestureRecognizer) {
+            
+             gestureInput?.move(sender.direction)
+            
+            
+        }
+
+    
 }
 
 

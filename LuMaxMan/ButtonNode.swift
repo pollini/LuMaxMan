@@ -19,6 +19,8 @@ protocol ButtonNodeResponderType: class {
 enum ButtonIdentifier: String {
     case Resume
     case Home
+    case Highscore
+    case Settings
     case ProceedToNextScene
     case Replay
     case Retry
@@ -27,7 +29,7 @@ enum ButtonIdentifier: String {
     
     /// Convenience array of all available button identifiers.
     static let allButtonIdentifiers: [ButtonIdentifier] = [
-        .Resume, .Home, .ProceedToNextScene, .Replay, .Retry, .Cancel, .GameCenter
+        .Resume, .Home, .Highscore, .Settings, .ProceedToNextScene, .Replay, .Retry, .Cancel, .GameCenter
     ]
 }
 

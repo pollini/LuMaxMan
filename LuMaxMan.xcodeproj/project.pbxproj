@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84967C901C467E27005D5CFD /* GestureControlInputSource.swift */; };
 		9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0591C22EF44008F893C /* AnimationComponent.swift */; };
 		9101C05C1C22EFA5008F893C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05B1C22EFA5008F893C /* Direction.swift */; };
 		9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05D1C22F702008F893C /* IntelligenceComponent.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84967C901C467E27005D5CFD /* GestureControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControlInputSource.swift; sourceTree = "<group>"; };
 		9101C0591C22EF44008F893C /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		9101C05B1C22EFA5008F893C /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		9101C05D1C22F702008F893C /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				91FFF7911C20758100B7EC45 /* ControlInputSource.swift */,
+				84967C901C467E27005D5CFD /* GestureControlInputSource.swift */,
 			);
 			name = PlayerControl;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */,
 				91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */,
 				91CA49AC1C20D53700AFA41A /* GeometryExtensions.swift in Sources */,
+				84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */,
 				9101C0651C22F758008F893C /* LMMovingState.swift in Sources */,
 				91CA49B01C20D7F600AFA41A /* LevelSceneOverlayState.swift in Sources */,
 				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,
