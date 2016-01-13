@@ -26,6 +26,7 @@ final class SceneManager {
         case Settings
         case CurrentLevel, NextLevel
         case Level(Int)
+        case backToMenu
     }
     
     // MARK: Properties
@@ -167,6 +168,9 @@ final class SceneManager {
             
         case .End:
             sceneMetadata = sceneConfigurationInfo.last!
+            
+        case .backToMenu:
+            sceneMetadata = sceneConfigurationInfo[1]
         }
         
         return sceneMetadata
