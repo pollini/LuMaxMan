@@ -333,7 +333,7 @@
 				TargetAttributes = {
 					C04078321C18760900D3EEE4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = C7PLUFBAM2;
+						DevelopmentTeam = 8K6WX9T8FK;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -532,7 +532,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -546,7 +546,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
