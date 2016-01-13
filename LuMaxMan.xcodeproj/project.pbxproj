@@ -49,6 +49,7 @@
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
 		C06C1C811C2057C70007264D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C801C2057C70007264D /* Level1.sks */; };
+		C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC0C7E1C467870008AE09D /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		C06C1C801C2057C70007264D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
+		C0FC0C7E1C467870008AE09D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				C04078351C18760900D3EEE4 /* LuMaxMan */,
+				C0FC0C801C4678CC008AE09D /* Frameworks */,
 				C04078341C18760900D3EEE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -285,6 +289,14 @@
 				9101C05B1C22EFA5008F893C /* Direction.swift */,
 			);
 			path = LuMaxMan;
+			sourceTree = "<group>";
+		};
+		C0FC0C801C4678CC008AE09D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0FC0C7E1C467870008AE09D /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +330,12 @@
 				TargetAttributes = {
 					C04078321C18760900D3EEE4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 8K6WX9T8FK;
+						DevelopmentTeam = C7PLUFBAM2;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -511,7 +528,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -525,7 +542,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
