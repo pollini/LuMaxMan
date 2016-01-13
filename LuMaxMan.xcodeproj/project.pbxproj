@@ -183,8 +183,8 @@
 				91CA49A71C20D12100AFA41A /* OrientationComponent.swift */,
 				9101C0591C22EF44008F893C /* AnimationComponent.swift */,
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
-				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
+				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 			);
 			name = Components;
 			sourceTree = "<group>";

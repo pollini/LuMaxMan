@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-class LumaxManEntity: GKEntity {
+class LumaxManEntity: GKEntity, ContactNotifiableType {
     
     /// The animations to use for a `LumaxMan`.
     static var animations: [AnimationState: [Direction: Animation]]?
@@ -26,6 +26,11 @@ class LumaxManEntity: GKEntity {
     var renderComponent: RenderComponent {
         guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A PlayerBot must have an RenderComponent.") }
         return renderComponent
+    }
+    
+    /// The `InputComponent` associated with this `LumaxMan`.
+    var inputComponent: InputComponent? {
+        return componentForClass(InputComponent.self)
     }
     
     override init() {
@@ -74,10 +79,23 @@ class LumaxManEntity: GKEntity {
         addComponent(intelligenceComponent)
     }
     
+    // MARK: Physics collision
+    
+    func contactWithEntityDidBegin(entity: GKEntity?) {
+        inputComponent?.updateDisplacement(float2(x: 0, y:0))
+    }
+    
+    func contactWithEntityDidEnd(entity: GKEntity?) {
+    }
     
     
     static func loadResources() {
         ColliderType.definedCollisions[.LumaxMan] = [
+            .LumaxMan,
+            .Obstacle
+        ]
+        
+        ColliderType.requestedContactNotifications[.LumaxMan] = [
             .LumaxMan,
             .Obstacle
         ]
