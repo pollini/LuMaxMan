@@ -243,13 +243,13 @@ class LevelScene: BaseScene {
         the original height of the scene, but its scaled width will vary based on
         the window's current aspect ratio.
         */
-        let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
+        //let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
         
         /*
         Find the root "floor" node in the scene (the container node for
         the level's background tiles).
         */
-        let floorNode = childNodeWithName(UniLayer.Floor.nodePath)!
+        //let floorNode = childNodeWithName(UniLayer.Floor.nodePath)!
         
         /*
         Calculate the accumulated frame of this node.
@@ -257,26 +257,26 @@ class LevelScene: BaseScene {
         child nodes, i.e. the total size of the entire contents of the node.
         This gives us the bounding rectangle for the level's environment.
         */
-        let floorContentRect = floorNode.calculateAccumulatedFrame()
+        //let floorContentRect = floorNode.calculateAccumulatedFrame()
         
         /*
         Work out how far within this rectangle to constrain the camera.
         We want to stop the camera when we get within 100pts of the edge of the screen,
         unless the level is so small that this inset would be outside of the level.
         */
-        let xInset = min((scaledSize.width / 2) - 100.0, floorContentRect.width / 2)
-        let yInset = min((scaledSize.height / 2) - 100.0, floorContentRect.height / 2)
+        //let xInset = min((scaledSize.width / 2) - 100.0, floorContentRect.width / 2)
+        //let yInset = min((scaledSize.height / 2) - 100.0, floorContentRect.height / 2)
         
         // Use these insets to create a smaller inset rectangle within which the camera must stay.
-        let insetContentRect = floorContentRect.insetBy(dx: xInset, dy: yInset)
+        //let insetContentRect = floorContentRect.insetBy(dx: xInset, dy: yInset)
         
         // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
-        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
-        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+        //let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
+        //let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
         
         // Constrain the camera within the inset rectangle.
-        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        levelEdgeConstraint.referenceNode = floorNode
+        //let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+        //levelEdgeConstraint.referenceNode = floorNode
         
         /*
         Add both constraints to the camera. The scene edge constraint is added
@@ -284,7 +284,7 @@ class LevelScene: BaseScene {
         The result is that the camera will follow the player, unless this would mean
         moving too close to the edge of the level.
         */
-        camera.constraints = [playerBotLocationConstraint, levelEdgeConstraint]
+        camera.constraints = [playerBotLocationConstraint/*, levelEdgeConstraint*/]
     }
     
     private func addLumaxMan() {
