@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0591C22EF44008F893C /* AnimationComponent.swift */; };
+		9101C05C1C22EFA5008F893C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05B1C22EFA5008F893C /* Direction.swift */; };
+		9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05D1C22F702008F893C /* IntelligenceComponent.swift */; };
+		9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0601C22F73A008F893C /* LMAppearState.swift */; };
+		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
+		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
+		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
 		91CA49941C20A29800AFA41A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49931C20A29800AFA41A /* SceneManager.swift */; };
 		91CA49961C20A2F800AFA41A /* SceneMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49951C20A2F800AFA41A /* SceneMetadata.swift */; };
 		91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49971C20AB6B00AFA41A /* BaseScene.swift */; };
@@ -45,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9101C0591C22EF44008F893C /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
+		9101C05B1C22EFA5008F893C /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		9101C05D1C22F702008F893C /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
+		9101C0601C22F73A008F893C /* LMAppearState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMAppearState.swift; sourceTree = "<group>"; };
+		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
+		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
+		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
 		91CA49931C20A29800AFA41A /* SceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		91CA49951C20A2F800AFA41A /* SceneMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneMetadata.swift; sourceTree = "<group>"; };
 		91CA49971C20AB6B00AFA41A /* BaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
@@ -95,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9101C05F1C22F711008F893C /* IC States LumaxMan */ = {
+			isa = PBXGroup;
+			children = (
+				9101C0601C22F73A008F893C /* LMAppearState.swift */,
+				9101C0641C22F758008F893C /* LMMovingState.swift */,
+				9101C0621C22F74E008F893C /* LMHitState.swift */,
+			);
+			name = "IC States LumaxMan";
+			sourceTree = "<group>";
+		};
 		91CA49911C20A26200AFA41A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +166,9 @@
 				91CA49A31C20CD0800AFA41A /* RenderComponent.swift */,
 				91CA49A51C20CDB600AFA41A /* MovementComponent.swift */,
 				91CA49A71C20D12100AFA41A /* OrientationComponent.swift */,
+				9101C0591C22EF44008F893C /* AnimationComponent.swift */,
+				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
+				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -223,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
+				9101C0661C22FBDE008F893C /* LumaxMan.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -254,6 +282,7 @@
 				91CA49911C20A26200AFA41A /* iOS */,
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
 				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
+				9101C05B1C22EFA5008F893C /* Direction.swift */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
@@ -289,6 +318,7 @@
 				TargetAttributes = {
 					C04078321C18760900D3EEE4 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 8K6WX9T8FK;
 					};
 				};
 			};
@@ -320,6 +350,7 @@
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
+				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
 				91CA49BA1C20DDE000AFA41A /* Level1.plist in Resources */,
 				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
 				C06C1C811C2057C70007264D /* Level1.sks in Resources */,
@@ -341,13 +372,17 @@
 				91CA49B41C20D82200AFA41A /* LevelSceneFailState.swift in Sources */,
 				91CA49B21C20D80A00AFA41A /* LevelScenePauseState.swift in Sources */,
 				91CA49A81C20D12100AFA41A /* OrientationComponent.swift in Sources */,
+				9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */,
 				91FFF78D1C2072E700B7EC45 /* LumaxManEntity.swift in Sources */,
 				91CA49A41C20CD0800AFA41A /* RenderComponent.swift in Sources */,
 				91CA49AE1C20D7C700AFA41A /* LevelSceneActiveState.swift in Sources */,
 				91CA49A01C20B1A600AFA41A /* MenuScene.swift in Sources */,
 				91CA49A61C20CDB600AFA41A /* MovementComponent.swift in Sources */,
+				9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */,
 				91CA499E1C20B05F00AFA41A /* GameplayConfiguration.swift in Sources */,
 				C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */,
+				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
+				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,
 				91CA49A21C20B38300AFA41A /* SceneOverlay.swift in Sources */,
 				91CA499A1C20AD4500AFA41A /* ButtonNode.swift in Sources */,
@@ -358,8 +393,10 @@
 				91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */,
 				91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */,
 				91CA49AC1C20D53700AFA41A /* GeometryExtensions.swift in Sources */,
+				9101C0651C22F758008F893C /* LMMovingState.swift in Sources */,
 				91CA49B01C20D7F600AFA41A /* LevelSceneOverlayState.swift in Sources */,
 				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,
+				9101C05C1C22EFA5008F893C /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,10 +508,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.LuMaxMan";
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -483,10 +522,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.LuMaxMan";
+				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
