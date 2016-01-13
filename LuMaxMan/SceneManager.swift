@@ -23,6 +23,7 @@ final class SceneManager {
     
     enum SceneIdentifier {
         case Home, End
+        case Settings
         case CurrentLevel, NextLevel
         case Level(Int)
     }
@@ -34,7 +35,7 @@ final class SceneManager {
     
     /// The next scene, assuming linear level progression.
     var nextSceneMetadata: SceneMetadata {
-        let homeScene = sceneConfigurationInfo.first!
+        let homeScene = sceneMetadataForSceneIdentifier(.Home)
         
         // If there is no current scene, we can only transition back to the home scene.
         guard let currentSceneMetadata = currentSceneMetadata else { return homeScene }
@@ -147,6 +148,9 @@ final class SceneManager {
         
         switch sceneIdentifier {
         case .Home:
+            sceneMetadata = sceneConfigurationInfo[1]
+            
+        case .Settings:
             sceneMetadata = sceneConfigurationInfo.first!
             
         case .CurrentLevel:

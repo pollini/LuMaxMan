@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84967C901C467E27005D5CFD /* GestureControlInputSource.swift */; };
+		84967C931C469357005D5CFD /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84967C921C469357005D5CFD /* SettingsScene.swift */; };
+		84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84967C961C4693D3005D5CFD /* SettingsScene.sks */; };
 		9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0591C22EF44008F893C /* AnimationComponent.swift */; };
 		9101C05C1C22EFA5008F893C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05B1C22EFA5008F893C /* Direction.swift */; };
 		9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05D1C22F702008F893C /* IntelligenceComponent.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		84967C901C467E27005D5CFD /* GestureControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControlInputSource.swift; sourceTree = "<group>"; };
+		84967C921C469357005D5CFD /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		84967C961C4693D3005D5CFD /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
 		9101C0591C22EF44008F893C /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		9101C05B1C22EFA5008F893C /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		9101C05D1C22F702008F893C /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				91CA49971C20AB6B00AFA41A /* BaseScene.swift */,
 				91CA49A11C20B38300AFA41A /* SceneOverlay.swift */,
 				91CA499F1C20B1A600AFA41A /* MenuScene.swift */,
+				84967C921C469357005D5CFD /* SettingsScene.swift */,
 				91FFF79B1C207B0800B7EC45 /* LevelScene.swift */,
 				91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */,
 				91FFF79F1C207C3600B7EC45 /* LevelScene States */,
@@ -217,6 +222,7 @@
 				91CA499B1C20AFD900AFA41A /* SceneConfiguration.plist */,
 				91CA49B71C20DD9300AFA41A /* LevelConfiguration.swift */,
 				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
+				84967C961C4693D3005D5CFD /* SettingsScene.sks */,
 				91CA49BB1C20EC5100AFA41A /* States */,
 				91FFF7991C20792300B7EC45 /* Level1 */,
 				91FFF79A1C20792900B7EC45 /* Level2 */,
@@ -368,6 +374,7 @@
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
+				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
@@ -404,6 +411,7 @@
 				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
 				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,
+				84967C931C469357005D5CFD /* SettingsScene.swift in Sources */,
 				91CA49A21C20B38300AFA41A /* SceneOverlay.swift in Sources */,
 				91CA499A1C20AD4500AFA41A /* ButtonNode.swift in Sources */,
 				91CA49B61C20D83500AFA41A /* LevelSceneSuccessState.swift in Sources */,
