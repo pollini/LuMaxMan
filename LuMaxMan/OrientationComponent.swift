@@ -19,4 +19,14 @@ class OrientationComponent: GKComponent {
             zRotation = (zRotation + twoPi) % twoPi
         }
     }
+    
+    var direction: Direction {
+        get {
+            return Direction(zRotation: zRotation)
+        }
+        
+        set {
+            zRotation = newValue.zRotation
+        }
+    }
 }

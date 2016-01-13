@@ -23,10 +23,11 @@ enum ButtonIdentifier: String {
     case Replay
     case Retry
     case Cancel
+    case GameCenter
     
     /// Convenience array of all available button identifiers.
     static let allButtonIdentifiers: [ButtonIdentifier] = [
-        .Resume, .Home, .ProceedToNextScene, .Replay, .Retry, .Cancel
+        .Resume, .Home, .ProceedToNextScene, .Replay, .Retry, .Cancel, .GameCenter
     ]
 }
 

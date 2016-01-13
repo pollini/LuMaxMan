@@ -18,6 +18,9 @@ struct LevelConfiguration {
     /// The file name identifier for this level. Used for loading files and assets.
     let fileName: String
     
+    /// The initial orientation of the `LumaxMan` when the level is first loaded.
+    let initialLumaxManOrientation: Direction
+    
     // MARK: Initialization
     
     init(fileName: String) {
@@ -27,6 +30,6 @@ struct LevelConfiguration {
         
         configurationInfo = NSDictionary(contentsOfURL: url) as! [String: AnyObject]
         
-        //let botConfigurations = configurationInfo["taskBotConfigurations"] as! [[String: AnyObject]]
+        initialLumaxManOrientation = Direction(string: configurationInfo["initialLumaxManOrientation"] as! String)
     }
 }

@@ -66,6 +66,12 @@ class MovementComponent: GKComponent {
         return orientationComponent
     }
     
+    /// The `AnimationComponent` for this component's entity.
+    var animationComponent: AnimationComponent {
+        guard let animationComponent = entity?.componentForClass(AnimationComponent.self) else { fatalError("A MovementComponent's entity must have an AnimationComponent") }
+        return animationComponent
+    }
+    
     /// Determines how quickly the entity is moved in points per second.
     var movementSpeed: CGFloat
     
@@ -85,9 +91,12 @@ class MovementComponent: GKComponent {
         let node = renderComponent.node
         let orientationComponent = self.orientationComponent
         
+        var animationState: AnimationState?
+        
         if let movement = nextRotation, newRotation = angleForRotatingNode(node, withRotationalMovement: movement, duration: deltaTime)  {
             // Update the node's `zRotation` with new rotation information.
             orientationComponent.zRotation = newRotation
+            animationState = .Idle
         }
         else {
             // Clear the rotation if a valid angle could not be created.
@@ -102,10 +111,26 @@ class MovementComponent: GKComponent {
             if nextRotation == nil {
                 orientationComponent.zRotation = CGFloat(atan2(movement.displacement.y, movement.displacement.x))
             }
+            animationState = .Moving
         }
         else {
             // Clear the translation if a valid point could not be created.
             nextTranslation = nil
+        }
+        
+        
+        /*
+        If an animation is required, and the `AnimationComponent` is running,
+        and the requested animation can be overwritten, update the `AnimationComponent`'s
+        requested animation state.
+        */
+        if let animationState = animationState {
+            // `animationComponent` is a computed property. Declare a local version so we don't compute it multiple times.
+            let animationComponent = self.animationComponent
+            
+            if animationStateCanBeOverwritten(animationComponent.currentAnimation?.animationState) && animationStateCanBeOverwritten(animationComponent.requestedAnimationState) {
+                animationComponent.requestedAnimationState = animationState
+            }
         }
     }
     
@@ -210,5 +235,21 @@ class MovementComponent: GKComponent {
         }
         
         return float2(x: dx, y: dy)
+    }
+    
+    
+    /**
+     Determine if the `animationState` can be overwritten. For example, if
+     an `.Attack` animation is being run, we do not want to replace this
+     with any sort of movement animation.
+     */
+    private func animationStateCanBeOverwritten(animationState: AnimationState?) -> Bool {
+        switch animationState {
+        case nil, .Idle?, .Moving?:
+            return true
+            
+        default:
+            return false
+        }
     }
 }
