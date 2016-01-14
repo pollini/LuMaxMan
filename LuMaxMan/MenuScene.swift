@@ -9,7 +9,8 @@
 class MenuScene: BaseScene {
     
     /// The "NEW GAME" button which allows the player to proceed to the first level.
-    var proceedButton: ButtonNode? {
-        return childNodeWithName(ButtonIdentifier.ProceedToNextScene.rawValue) as? ButtonNode
-    }
+    // If you need to access a button
+    //var proceedButton: ButtonNode? {
+    //    return childNodeWithName(ButtonIdentifier.ProceedToNextScene.rawValue) as? ButtonNode
+    //}
 }

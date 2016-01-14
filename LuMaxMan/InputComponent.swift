@@ -11,20 +11,35 @@ import SpriteKit
 import GameplayKit
 
 class InputComponent: GKComponent, ControlInputSourceDelegate {
-    
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateDisplacement displacement: float2) {
-        
+    // MARK: Properties
+    var translation: MovementKind? {
+        didSet {
+            applyTranslation(translation)
+        }
     }
     
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateAngularDisplacement angularDisplacement: float2) {
-        
+    var isEnabled = true {
+        didSet {
+            if isEnabled {
+                // Apply the current input state to the movement and beam components.
+                applyTranslation(translation)
+            }
+            else {
+                // Apply a state of no input to the movement and beam components.
+                applyTranslation(nil)
+            }
+        }
     }
     
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateWithRelativeDisplacement relativeDisplacement: float2) {
-        
+    // MARK: ControlInputSourceDelegate
+    
+    func updateDisplacement(displacement: float2) {
+        translation = MovementKind(displacement: displacement)
     }
     
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateWithRelativeAngularDisplacement relativeAngularDisplacement: float2) {
-        
+    func applyTranslation(translation: MovementKind?) {
+        if let movementComponent = entity?.componentForClass(MovementComponent.self) {
+            movementComponent.nextTranslation = translation
+        }
     }
 }

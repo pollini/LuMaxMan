@@ -33,6 +33,9 @@ struct SceneMetadata {
         case "MenuScene":
             sceneType = MenuScene.self
             
+        case "SettingsScene":
+            sceneType = SettingsScene.self
+            
         default:
             fatalError("Unidentified sceneType requested.")
         }

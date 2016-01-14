@@ -8,14 +8,20 @@
 
 import UIKit
 import SpriteKit
+import GameplayKit
 
 class GameViewController: UIViewController, SceneManagerDelegate {
     
     /// A manager for coordinating scene resources and presentation.
     var sceneManager: SceneManager!
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        if !LumaxManEntity.texturesLoaded {
+            LumaxManEntity.loadResources()
+        }
         
         // Load the initial home scene.
         let skView = view as! SKView
@@ -25,7 +31,8 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         sceneManager.transitionToSceneWithSceneIdentifier(.Home)
         
     }
-
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -37,9 +44,9 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         // Fade out the app's initial loading `logoView` if it is visible.
         /*UIView.animateWithDuration(0.2, delay: 0.0, options: [], animations: {
-            self.logoView.alpha = 0.0
-            }, completion: { _ in
-                self.logoView.hidden = true
+        self.logoView.alpha = 0.0
+        }, completion: { _ in
+        self.logoView.hidden = true
         })*/
     }
     
