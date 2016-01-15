@@ -158,7 +158,8 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
             sceneManager.transitionToSceneWithSceneIdentifier(.Settings)
             */
         case .ProceedToNextScene:
-            sceneManager.transitionToSceneWithSceneIdentifier(.NextLevel)
+            //sceneManager.transitionToSceneWithSceneIdentifier(.NextLevel)
+            sceneManager.transitionToSceneWithSceneIdentifier(.Level(2))
             
         case .Replay:
             sceneManager.transitionToSceneWithSceneIdentifier(.CurrentLevel)

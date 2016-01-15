@@ -51,6 +51,10 @@
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
 		C06C1C811C2057C70007264D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C801C2057C70007264D /* Level1.sks */; };
 		C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC0C7E1C467870008AE09D /* GameKit.framework */; };
+		C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C811C469797008AE09D /* EnemyEntity.swift */; };
+		C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */; };
+		C0FC0C901C492B56008AE09D /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C8F1C492B56008AE09D /* Level2.sks */; };
+		C0FC0C921C492B9D008AE09D /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C911C492B9D008AE09D /* Level2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +104,10 @@
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		C06C1C801C2057C70007264D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		C0FC0C7E1C467870008AE09D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C0FC0C811C469797008AE09D /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
+		C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyAgent.swift; sourceTree = "<group>"; };
+		C0FC0C8F1C492B56008AE09D /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level2.sks; path = Scenes/SKS/Level2/Level2.sks; sourceTree = "<group>"; };
+		C0FC0C911C492B9D008AE09D /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Level2.plist; path = Scenes/SKS/Level2/Level2.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +168,8 @@
 			children = (
 				91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */,
 				91CA499D1C20B05F00AFA41A /* GameplayConfiguration.swift */,
+				C0FC0C811C469797008AE09D /* EnemyEntity.swift */,
+				C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -236,6 +246,8 @@
 		91FFF79A1C20792900B7EC45 /* Level2 */ = {
 			isa = PBXGroup;
 			children = (
+				C0FC0C911C492B9D008AE09D /* Level2.plist */,
+				C0FC0C8F1C492B56008AE09D /* Level2.sks */,
 			);
 			name = Level2;
 			sourceTree = "<group>";
@@ -333,7 +345,7 @@
 				TargetAttributes = {
 					C04078321C18760900D3EEE4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 8K6WX9T8FK;
+						DevelopmentTeam = 7W9442D67W;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -375,6 +387,8 @@
 				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
 				C06C1C811C2057C70007264D /* Level1.sks in Resources */,
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
+				C0FC0C921C492B9D008AE09D /* Level2.plist in Resources */,
+				C0FC0C901C492B56008AE09D /* Level2.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +404,8 @@
 				91CA49961C20A2F800AFA41A /* SceneMetadata.swift in Sources */,
 				91CA49B81C20DD9300AFA41A /* LevelConfiguration.swift in Sources */,
 				91CA49B41C20D82200AFA41A /* LevelSceneFailState.swift in Sources */,
+				C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */,
+				C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */,
 				91CA49B21C20D80A00AFA41A /* LevelScenePauseState.swift in Sources */,
 				91CA49A81C20D12100AFA41A /* OrientationComponent.swift in Sources */,
 				9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */,
@@ -532,7 +548,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.project.LuMaxMan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -546,7 +562,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ios.praktikum.LuMaxMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.project.LuMaxMan";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

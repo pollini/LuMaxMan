@@ -21,4 +21,14 @@ struct GameplayConfiguration {
         static let appearDuration: NSTimeInterval = 0.5
         static let hitStateDuration: NSTimeInterval = 0.5
     }
+    
+    struct Enemy {
+        // The static settings for enemies.
+        static let movementSpeedWhenFollowing: CGFloat = 200.0
+        static let movementSpeedWhenEscaping: CGFloat = 150.0
+        // needed?
+        static let appearDuration: NSTimeInterval = 0.5
+        // needed?
+        static let hitStateDuration: NSTimeInterval = 0.5
+    }
 }
