@@ -274,6 +274,13 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		C001CAD61C22FDA00075843C /* GameKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameKit;
+			sourceTree = "<group>";
+		};
 		C040782A1C18760900D3EEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +306,7 @@
 				91FFF7901C20756900B7EC45 /* PlayerControl */,
 				91FFF7961C2078A300B7EC45 /* Scenes */,
 				91FFF7931C20765400B7EC45 /* Nodes */,
+				C001CAD61C22FDA00075843C /* GameKit */,
 				91CA49911C20A26200AFA41A /* iOS */,
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
 				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
