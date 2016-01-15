@@ -4,6 +4,12 @@
 <array>
 	<dict>
 		<key>sceneType</key>
+		<string>SettingsScene</string>
+		<key>fileName</key>
+		<string>SettingsScene</string>
+	</dict>
+	<dict>
+		<key>sceneType</key>
 		<string>MenuScene</string>
 		<key>fileName</key>
 		<string>MenuScene</string>

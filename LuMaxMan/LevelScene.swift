@@ -37,7 +37,7 @@ enum UniLayer: CGFloat {
     static var allLayers = [Floor, Obstacles, Characters, AboveCharacters, Top]
 }
 
-class LevelScene: BaseScene {
+class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
     
@@ -45,8 +45,6 @@ class LevelScene: BaseScene {
     var rightSwipe: UISwipeGestureRecognizer!
     var upSwipe: UISwipeGestureRecognizer!
     var downSwipe: UISwipeGestureRecognizer!
-    
-    
     
     var uniNode: SKNode {
         return childNodeWithName("Uni")!
@@ -70,6 +68,8 @@ class LevelScene: BaseScene {
         LevelSceneSuccessState(levelScene: self),
         LevelSceneFailState(levelScene: self)
         ])
+    
+    let timerNode = SKLabelNode(text: "--:--")
     
     var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
@@ -98,7 +98,11 @@ class LevelScene: BaseScene {
         super.didMoveToView(view)
         
         // Load the level's configuration from the level data file.
-        levelConfiguration = LevelConfiguration(fileName: sceneManager.currentSceneMetadata!.fileName)
+        guard let levelConfiguration = LevelConfiguration(fileName: sceneManager.currentSceneMetadata!.fileName) else {
+            return
+        }
+        
+        self.levelConfiguration = levelConfiguration
         
         // Set up the path finding graph with all polygon obstacles.
         graph.addObstacles(polygonObstacles)
@@ -111,8 +115,21 @@ class LevelScene: BaseScene {
         
         addLumaxMan()
         
+        // Gravity will be in the negative z direction; there is no x or y component.
+        physicsWorld.gravity = CGVector.zero
+        
+        // The scene will handle physics contacts itself.
+        physicsWorld.contactDelegate = self
+        
         // Move to the active state
         stateMachine.enterState(LevelSceneActiveState.self)
+        
+        // Configure the `timerNode` and add it to the camera node.
+        timerNode.zPosition = UniLayer.AboveCharacters.rawValue
+        timerNode.fontColor = SKColor.whiteColor()
+        scaleTimerNode()
+        camera!.addChild(timerNode)
+        
         
         leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -134,6 +151,17 @@ class LevelScene: BaseScene {
         
     }
     
+    /// Scales and positions the timer node to fit the scene's current height.
+    private func scaleTimerNode() {
+        // Update the font size of the timer node based on the height of the scene.
+        timerNode.fontSize = size.height * 0.05
+        
+        // Make sure the timer node is positioned at the top of the scene.
+        timerNode.position.y = (size.height / 2.0) - timerNode.frame.size.height
+        print(timerNode.frame.size.height)
+        // Add padding between the top of scene and the top of the timer node.
+        timerNode.position.y -= timerNode.fontSize * 0.2
+    }
     
     override func didChangeSize(oldSize: CGSize) {
         super.didChangeSize(oldSize)
@@ -333,15 +361,62 @@ class LevelScene: BaseScene {
         uniLayerNode.addChild(node)
     }
     
-        
-        func handleSwipes(sender:UISwipeGestureRecognizer) {
-            
-             gestureInput?.move(sender.direction)
-            
-            
-        }
-
     
+    func handleSwipes(sender:UISwipeGestureRecognizer) {
+        
+        gestureInput?.move(sender.direction)
+        
+        
+    }
+    
+    
+    // MARK: SKPhysicsContactDelegate
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity?) in
+            ContactNotifiableType.contactWithEntityDidBegin(otherEntity)
+        }
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        handleContact(contact) { (ContactNotifiableType: ContactNotifiableType, otherEntity: GKEntity?) in
+            ContactNotifiableType.contactWithEntityDidEnd(otherEntity)
+        }
+    }
+    
+    // MARK: SKPhysicsContactDelegate convenience
+    
+    private func handleContact(contact: SKPhysicsContact, contactCallback: (ContactNotifiableType, GKEntity?) -> Void) {
+        // Get the `ColliderType` for each contacted body.
+        let colliderTypeA = ColliderType(rawValue: contact.bodyA.categoryBitMask)
+        let colliderTypeB = ColliderType(rawValue: contact.bodyB.categoryBitMask)
+        
+        // Determine which `ColliderType` should be notified of the contact.
+        let aWantsCallback = colliderTypeA.notifyOnContactWithColliderType(colliderTypeB)
+        let bWantsCallback = colliderTypeB.notifyOnContactWithColliderType(colliderTypeA)
+        
+        // Make sure that at least one of the entities wants to handle this contact.
+        assert(aWantsCallback || bWantsCallback, "Unhandled physics contact - A = \(colliderTypeA), B = \(colliderTypeB)")
+        
+        let entityA = (contact.bodyA.node as? EntityNode)?.entity
+        let entityB = (contact.bodyB.node as? EntityNode)?.entity
+        
+        /*
+        If `entityA` is a notifiable type and `colliderTypeA` specifies that it should be notified
+        of contact with `colliderTypeB`, call the callback on `entityA`.
+        */
+        if let notifiableEntity = entityA as? ContactNotifiableType where aWantsCallback {
+            contactCallback(notifiableEntity, entityB)
+        }
+        
+        /*
+        If `entityB` is a notifiable type and `colliderTypeB` specifies that it should be notified
+        of contact with `colliderTypeA`, call the callback on `entityB`.
+        */
+        if let notifiableEntity = entityB as? ContactNotifiableType where bWantsCallback {
+            contactCallback(notifiableEntity, entityA)
+        }
+    }
 }
 
 

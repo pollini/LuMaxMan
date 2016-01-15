@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-class LumaxManEntity: GKEntity {
+class LumaxManEntity: GKEntity, ContactNotifiableType {
     
     /// The animations to use for a `LumaxMan`.
     static var animations: [AnimationState: [Direction: Animation]]?
@@ -28,6 +28,11 @@ class LumaxManEntity: GKEntity {
         return renderComponent
     }
     
+    /// The `InputComponent` associated with this `LumaxMan`.
+    var inputComponent: InputComponent? {
+        return componentForClass(InputComponent.self)
+    }
+    
     override init() {
         super.init()
         
@@ -44,6 +49,16 @@ class LumaxManEntity: GKEntity {
         
         let inputComponent = InputComponent()
         addComponent(inputComponent)
+        
+        
+        let physicsBody = SKPhysicsBody(rectangleOfSize: LumaxManEntity.textureSize)
+        physicsBody.allowsRotation = false
+        let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .LumaxMan)
+        
+        addComponent(physicsComponent)
+        
+        // Connect the `PhysicsComponent` and the `RenderComponent`.
+        renderComponent.node.physicsBody = physicsComponent.physicsBody
         
         let movementComponent = MovementComponent()
         addComponent(movementComponent)
@@ -67,9 +82,27 @@ class LumaxManEntity: GKEntity {
         addComponent(intelligenceComponent)
     }
     
+    // MARK: Physics collision
+    
+    func contactWithEntityDidBegin(entity: GKEntity?) {
+        inputComponent?.updateDisplacement(float2(x: 0, y:0))
+    }
+    
+    func contactWithEntityDidEnd(entity: GKEntity?) {
+    }
     
     
     static func loadResources() {
+        ColliderType.definedCollisions[.LumaxMan] = [
+            .LumaxMan,
+            .Obstacle
+        ]
+        
+        ColliderType.requestedContactNotifications[.LumaxMan] = [
+            .LumaxMan,
+            .Obstacle
+        ]
+        
         let atlasNames = [
             "LumaxManIdle",
             "LumaxManMoving",

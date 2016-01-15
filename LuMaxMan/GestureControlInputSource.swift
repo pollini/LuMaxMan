@@ -20,17 +20,17 @@ class GestureControlInputSource: ControlInputSourceType {
         
         switch direction {
         case UISwipeGestureRecognizerDirection.Left:
-            delegate?.controlInputSource(self, didUpdateDisplacement: float2(x:-1, y:0))
+            delegate?.updateDisplacement(float2(x:-1, y:0))
         case UISwipeGestureRecognizerDirection.Right:
-            delegate?.controlInputSource(self, didUpdateDisplacement: float2(x:1, y:0))
+            delegate?.updateDisplacement(float2(x:1, y:0))
         case UISwipeGestureRecognizerDirection.Up:
-            delegate?.controlInputSource(self, didUpdateDisplacement: float2(x:0, y:1))
+            delegate?.updateDisplacement(float2(x:0, y:1))
         case UISwipeGestureRecognizerDirection.Down:
-            delegate?.controlInputSource(self, didUpdateDisplacement: float2(x:0, y:-1))
+            delegate?.updateDisplacement(float2(x:0, y:-1))
         default:
             break;
         }
         
-    
+        
     }
 }

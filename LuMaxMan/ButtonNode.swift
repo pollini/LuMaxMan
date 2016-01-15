@@ -22,6 +22,7 @@ enum ButtonIdentifier: String {
     case Highscore
     case Settings
     case ProceedToNextScene
+    case BackToMenu
     case Replay
     case Retry
     case Cancel
@@ -29,7 +30,7 @@ enum ButtonIdentifier: String {
     
     /// Convenience array of all available button identifiers.
     static let allButtonIdentifiers: [ButtonIdentifier] = [
-        .Resume, .Home, .Highscore, .Settings, .ProceedToNextScene, .Replay, .Retry, .Cancel, .GameCenter
+        .Resume, .Home, .Highscore, .Settings, .ProceedToNextScene, .BackToMenu, .Replay, .Retry, .Cancel, .GameCenter
     ]
 }
 
