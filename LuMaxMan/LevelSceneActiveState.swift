@@ -14,10 +14,34 @@ class LevelSceneActiveState: GKState {
     
     unowned let levelScene: LevelScene
     
+    var timeRemaining: NSTimeInterval = 0.0
+    
+    /*
+    A formatter for individual date components used to provide an appropriate
+    display value for the timer.
+    */
+    let timeRemainingFormatter: NSDateComponentsFormatter = {
+        let formatter = NSDateComponentsFormatter()
+        formatter.zeroFormattingBehavior = .Pad
+        formatter.allowedUnits = [.Minute, .Second]
+        
+        return formatter
+    }()
+    
+    // The formatted string representing the time remaining.
+    var timeRemainingString: String {
+        let components = NSDateComponents()
+        components.second = Int(max(0.0, timeRemaining))
+        
+        return timeRemainingFormatter.stringFromDateComponents(components)!
+    }
+    
     // MARK: Initializers
     
     init(levelScene: LevelScene) {
         self.levelScene = levelScene
+        
+        timeRemaining = levelScene.levelConfiguration.timeLimit
     }
     
     // MARK: GKState Life Cycle
@@ -29,11 +53,14 @@ class LevelSceneActiveState: GKState {
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         super.updateWithDeltaTime(seconds)
         
-        let success = false
+        timeRemaining -= seconds
         
-        if success {
+        // Update the displayed time remaining.
+        levelScene.timerNode.text = timeRemainingString
+        
+        if timeRemaining <= 0 {
             // If the goal is met, the player has completed the level.
-            stateMachine?.enterState(LevelSceneSuccessState.self)
+            stateMachine?.enterState(LevelSceneFailState.self)
         }
     }
     

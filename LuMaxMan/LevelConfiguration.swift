@@ -19,17 +19,25 @@ struct LevelConfiguration {
     let fileName: String
     
     /// The initial orientation of the `LumaxMan` when the level is first loaded.
-    let initialLumaxManOrientation: Direction
+    var initialLumaxManOrientation: Direction {
+        return Direction(string: (configurationInfo["initialLumaxManOrientation"] as! String))
+    }
     
+    //The time to complete the level+
+    var timeLimit: NSTimeInterval {
+        return configurationInfo["timeLimit"] as! NSTimeInterval
+    }
     // MARK: Initialization
     
-    init(fileName: String) {
+    init?(fileName: String) {
         self.fileName = fileName
         
         let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: "plist")!
         
-        configurationInfo = NSDictionary(contentsOfURL: url) as! [String: AnyObject]
+        guard let configurationInfo = NSDictionary(contentsOfURL: url) as? [String: AnyObject] else {
+            return nil
+        }
         
-        initialLumaxManOrientation = Direction(string: configurationInfo["initialLumaxManOrientation"] as! String)
+        self.configurationInfo = configurationInfo
     }
 }

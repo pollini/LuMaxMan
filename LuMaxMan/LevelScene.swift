@@ -46,8 +46,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     var upSwipe: UISwipeGestureRecognizer!
     var downSwipe: UISwipeGestureRecognizer!
     
-    
-    
     var uniNode: SKNode {
         return childNodeWithName("Uni")!
     }
@@ -70,6 +68,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         LevelSceneSuccessState(levelScene: self),
         LevelSceneFailState(levelScene: self)
         ])
+    
+    let timerNode = SKLabelNode(text: "--:--")
     
     var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
@@ -98,7 +98,11 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         super.didMoveToView(view)
         
         // Load the level's configuration from the level data file.
-        levelConfiguration = LevelConfiguration(fileName: sceneManager.currentSceneMetadata!.fileName)
+        guard let levelConfiguration = LevelConfiguration(fileName: sceneManager.currentSceneMetadata!.fileName) else {
+            return
+        }
+        
+        self.levelConfiguration = levelConfiguration
         
         // Set up the path finding graph with all polygon obstacles.
         graph.addObstacles(polygonObstacles)
@@ -120,6 +124,13 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Move to the active state
         stateMachine.enterState(LevelSceneActiveState.self)
         
+        // Configure the `timerNode` and add it to the camera node.
+        timerNode.zPosition = UniLayer.AboveCharacters.rawValue
+        timerNode.fontColor = SKColor.whiteColor()
+        scaleTimerNode()
+        camera!.addChild(timerNode)
+        
+        
         leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -140,6 +151,17 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
     }
     
+    /// Scales and positions the timer node to fit the scene's current height.
+    private func scaleTimerNode() {
+        // Update the font size of the timer node based on the height of the scene.
+        timerNode.fontSize = size.height * 0.05
+        
+        // Make sure the timer node is positioned at the top of the scene.
+        timerNode.position.y = (size.height / 2.0) - timerNode.frame.size.height
+        print(timerNode.frame.size.height)
+        // Add padding between the top of scene and the top of the timer node.
+        timerNode.position.y -= timerNode.fontSize * 0.2
+    }
     
     override func didChangeSize(oldSize: CGSize) {
         super.didChangeSize(oldSize)
