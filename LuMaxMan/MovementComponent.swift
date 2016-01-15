@@ -26,19 +26,11 @@ import GameplayKit
 struct MovementKind {
     // MARK: Properties
     
-    /**
-    Relative movement accounts for the current orientation of the entity when
-    calculating displacement.
-    */
-    let isRelativeToOrientation: Bool
-    
     /// The movement to execute.
     let displacement: float2
     
     // MARK: Initializers
-    
-    init(displacement: float2, relativeToOrientation: Bool = false) {
-        isRelativeToOrientation = relativeToOrientation
+    init(displacement: float2) {
         self.displacement = displacement
     }
 }
@@ -48,9 +40,6 @@ class MovementComponent: GKComponent {
     
     /// Value used to calculate the translational movement of the entity.
     var nextTranslation: MovementKind?
-    
-    /// Value used to calculate the rotational movement of the entity.
-    var nextRotation: MovementKind?
     
     var allowsStrafing = false
     
@@ -93,24 +82,12 @@ class MovementComponent: GKComponent {
         
         var animationState: AnimationState?
         
-        if let movement = nextRotation, newRotation = angleForRotatingNode(node, withRotationalMovement: movement, duration: deltaTime)  {
-            // Update the node's `zRotation` with new rotation information.
-            orientationComponent.zRotation = newRotation
-            animationState = .Idle
-        }
-        else {
-            // Clear the rotation if a valid angle could not be created.
-            nextRotation = nil
-        }
-        
         // Update the node's `position` with new displacement information.
         if let movement = nextTranslation, newPosition = pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
             node.position = newPosition
             
-            // If no explicit rotation is being provided, orient in the direction of movement.
-            if nextRotation == nil {
-                orientationComponent.zRotation = CGFloat(atan2(movement.displacement.y, movement.displacement.x))
-            }
+            orientationComponent.zRotation = CGFloat(atan2(movement.displacement.y, movement.displacement.x))
+            
             animationState = .Moving
         }
         else {
@@ -142,15 +119,6 @@ class MovementComponent: GKComponent {
         guard translation.displacement != float2() else { return nil }
         
         var displacement = translation.displacement
-        /*
-        If the translation is relative, the displacement vector needs to be
-        rotated to account for the node's current orientation.
-        */
-        if translation.isRelativeToOrientation {
-            // Ensure the relative displacement component is non-zero.
-            guard displacement.x != 0 else { return nil }
-            displacement = calculateAbsoluteDisplacementFromRelativeDisplacement(displacement)
-        }
         
         let angle = CGFloat(atan2(displacement.y, displacement.x))
         
@@ -182,61 +150,6 @@ class MovementComponent: GKComponent {
         // Return the final point the entity should move to.
         return CGPoint(x: node.position.x + dx, y: node.position.y + dy)
     }
-    
-    func angleForRotatingNode(node: SKNode, withRotationalMovement rotation: MovementKind, duration: NSTimeInterval) -> CGFloat? {
-        // No rotation if the vector is a zeroVector.
-        guard rotation.displacement != float2() else { return nil }
-        
-        let angle: CGFloat
-        if rotation.isRelativeToOrientation {
-            // Clockwise: (dx: 0.0, dy: -1.0), CounterClockwise: (dx: 0.0, dy: 1.0)
-            let rotationComponent = rotation.displacement.y
-            guard rotationComponent != 0 else { return nil }
-            
-            /*
-            Add a fixed amount to the node's existing `zRotation` based
-            on the direction of the relative angle.
-            */
-            let rotationDirection = CGFloat(rotationComponent > 0 ? 1 : -1)
-            
-            // Add to the node's existing rotation.
-            angle = orientationComponent.zRotation + rotationDirection
-        }
-        else {
-            // Determine the angle of the rotational displacement.
-            angle = CGFloat(atan2(rotation.displacement.y, rotation.displacement.x))
-        }
-        
-        return angle
-    }
-    
-    /**
-     Calculates a new vector by taking a relative displacement and adjusting
-     the angle to match the initial orientation and requested displacement.
-     */
-    private func calculateAbsoluteDisplacementFromRelativeDisplacement(relativeDisplacement: float2) -> float2 {
-        // If available use the `nextRotation` for the most recent request, otherwise use current `zRotation`.
-        var angleRelativeToOrientation = Float(orientationComponent.zRotation)
-        
-        // Forward: (dx: 1.0, dy: 0.0), Backward: (dx: -1.0, dy: 0.0)
-        if relativeDisplacement.x < 0 {
-            // The entity is moving backwards, add 180 degrees to the angle
-            angleRelativeToOrientation += Float(M_PI)
-        }
-        
-        // Calculate the components of a new vector with direction based off the `angleRelativeToOrientation`.
-        let dx = length(relativeDisplacement) * cos(angleRelativeToOrientation)
-        let dy = length(relativeDisplacement) * sin(angleRelativeToOrientation)
-        
-        // Make rotation correspond with relative movement, so that entities can walk and face the same direction.
-        if nextRotation == nil {
-            let directionFactor = Float(relativeDisplacement.x)
-            nextRotation = MovementKind(displacement: float2(x: directionFactor * dx, y: directionFactor * dy))
-        }
-        
-        return float2(x: dx, y: dy)
-    }
-    
     
     /**
      Determine if the `animationState` can be overwritten. For example, if

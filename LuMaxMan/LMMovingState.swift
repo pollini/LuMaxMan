@@ -78,6 +78,5 @@ class LMMovingState: GKState {
         
         // Cancel any planned movement or rotation when leaving the player-controlled state.
         movementComponent.nextTranslation = nil
-        movementComponent.nextRotation = nil
     }
 }
