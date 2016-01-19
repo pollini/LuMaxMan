@@ -172,7 +172,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             }
         }
     }
-
+    
     
     /// Scales and positions the timer node to fit the scene's current height.
     private func scaleTimerNode() {
@@ -348,6 +348,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             fatalError("A LumaxMan must have an orientation component to be able to be added to a level")
         }
         orientationComponent.direction = levelConfiguration.initialLumaxManOrientation
+        lumaxMan.missingKeys = levelConfiguration.numberOfKeys
         
         // Set up the `PlayerBot` position in the scene.
         let playerNode = lumaxMan.renderComponent.node

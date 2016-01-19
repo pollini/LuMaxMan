@@ -6,5 +6,7 @@
 	<string>Right</string>
 	<key>timeLimit</key>
 	<integer>10</integer>
+	<key>numberOfKeys</key>
+	<integer>1</integer>
 </dict>
 </plist>

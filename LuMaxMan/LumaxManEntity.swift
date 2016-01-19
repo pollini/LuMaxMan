@@ -33,7 +33,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         return componentForClass(InputComponent.self)
     }
     
-    var missingKeys : Int = 1
+    var missingKeys : Int = 0
     
     override init() {
         super.init()

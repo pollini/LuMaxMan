@@ -19,6 +19,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         super.viewDidLoad()
         
+        loadResources()
         
         // Load the initial home scene.
         let skView = view as! SKView

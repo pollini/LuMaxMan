@@ -23,9 +23,14 @@ struct LevelConfiguration {
         return Direction(string: (configurationInfo["initialLumaxManOrientation"] as! String))
     }
     
-    //The time to complete the level+
+    //The time to complete the level
     var timeLimit: NSTimeInterval {
         return configurationInfo["timeLimit"] as! NSTimeInterval
+    }
+    
+    //The number of keys to complete the level
+    var numberOfKeys: Int {
+        return configurationInfo["numberOfKeys"] as! Int
     }
     // MARK: Initialization
     

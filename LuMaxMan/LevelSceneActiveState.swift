@@ -58,8 +58,12 @@ class LevelSceneActiveState: GKState {
         // Update the displayed time remaining.
         levelScene.timerNode.text = timeRemainingString
         
-        if timeRemaining <= 0 {
+        if levelScene.lumaxMan.missingKeys <= 0 {
             // If the goal is met, the player has completed the level.
+            stateMachine?.enterState(LevelSceneSuccessState.self)
+        }
+        else if timeRemaining <= 0 {
+            // If time is over the player lost.
             stateMachine?.enterState(LevelSceneFailState.self)
         }
     }
