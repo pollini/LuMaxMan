@@ -19,9 +19,6 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         super.viewDidLoad()
         
-        if !LumaxManEntity.texturesLoaded {
-            LumaxManEntity.loadResources()
-        }
         
         // Load the initial home scene.
         let skView = view as! SKView
@@ -30,6 +27,16 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         sceneManager.transitionToSceneWithSceneIdentifier(.Home)
         
+    }
+    
+    func loadResources() {
+        if !LumaxManEntity.texturesLoaded {
+            LumaxManEntity.loadResources()
+        }
+        
+        if !KeyEntity.texturesLoaded {
+            KeyEntity.loadResources()
+        }
     }
     
     

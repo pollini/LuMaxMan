@@ -17,6 +17,9 @@
 		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
+		916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A9D341C493B5C00C486B5 /* ObjectEntity.swift */; };
+		91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */; };
+		91AE87B01C4E7B1000A5E263 /* KeyBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */; };
 		91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */; };
 		91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18F1C4695540015FE72 /* ColliderType.swift */; };
 		91B9C1921C4696D40015FE72 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */; };
@@ -69,6 +72,9 @@
 		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
+		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
+		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
+		91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehaviour.swift; sourceTree = "<group>"; };
 		91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		91B9C18F1C4695540015FE72 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
 		91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
@@ -134,6 +140,14 @@
 			name = "IC States LumaxMan";
 			sourceTree = "<group>";
 		};
+		91AE87B11C4E7CDF00A5E263 /* ObjectBehaviour */ = {
+			isa = PBXGroup;
+			children = (
+				91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */,
+			);
+			name = ObjectBehaviour;
+			sourceTree = "<group>";
+		};
 		91CA49911C20A26200AFA41A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */,
+				9101C05F1C22F711008F893C /* IC States LumaxMan */,
+				916A9D341C493B5C00C486B5 /* ObjectEntity.swift */,
 				91CA499D1C20B05F00AFA41A /* GameplayConfiguration.swift */,
 			);
 			name = Entities;
@@ -184,7 +200,8 @@
 				9101C0591C22EF44008F893C /* AnimationComponent.swift */,
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
-				9101C05F1C22F711008F893C /* IC States LumaxMan */,
+				91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */,
+				91AE87B11C4E7CDF00A5E263 /* ObjectBehaviour */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -413,6 +430,7 @@
 				91FFF78F1C20747700B7EC45 /* InputComponent.swift in Sources */,
 				91CA49961C20A2F800AFA41A /* SceneMetadata.swift in Sources */,
 				91CA49B81C20DD9300AFA41A /* LevelConfiguration.swift in Sources */,
+				916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */,
 				91CA49B41C20D82200AFA41A /* LevelSceneFailState.swift in Sources */,
 				91CA49B21C20D80A00AFA41A /* LevelScenePauseState.swift in Sources */,
 				91CA49A81C20D12100AFA41A /* OrientationComponent.swift in Sources */,
@@ -421,10 +439,12 @@
 				91CA49A41C20CD0800AFA41A /* RenderComponent.swift in Sources */,
 				91CA49AE1C20D7C700AFA41A /* LevelSceneActiveState.swift in Sources */,
 				91CA49A01C20B1A600AFA41A /* MenuScene.swift in Sources */,
+				91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */,
 				91CA49A61C20CDB600AFA41A /* MovementComponent.swift in Sources */,
 				9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */,
 				91CA499E1C20B05F00AFA41A /* GameplayConfiguration.swift in Sources */,
 				C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */,
+				91AE87B01C4E7B1000A5E263 /* KeyBehaviour.swift in Sources */,
 				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
 				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,

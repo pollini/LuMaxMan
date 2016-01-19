@@ -9,14 +9,22 @@ An option set used for categorizing physics bodies in SpriteKit's physics world.
 import SpriteKit
 import GameplayKit
 
-struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
+struct ColliderType: OptionSetType, Hashable {
     // MARK: Static properties
     
     /// A dictionary to specify which `ColliderType`s should be notified of contacts with other `ColliderType`s.
-    static var requestedContactNotifications = [ColliderType: [ColliderType]]()
+    static let requestedContactNotifications : [ColliderType: [ColliderType]] =
+    [
+        .LumaxMan: [.LumaxMan, .Obstacle],
+        .Object: [.LumaxMan]
+    ]
     
     /// A dictionary of which `ColliderType`s should collide with other `ColliderType`s.
-    static var definedCollisions = [ColliderType: [ColliderType]]()
+    static let definedCollisions : [ColliderType: [ColliderType]] =
+    [
+        .LumaxMan: [.LumaxMan, .Obstacle],
+        .Object: [.LumaxMan]
+    ]
     
     // MARK: Properties
     
@@ -27,29 +35,12 @@ struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
     static var Obstacle: ColliderType  { return self.init(rawValue: 1 << 0) }
     static var LumaxMan: ColliderType { return self.init(rawValue: 1 << 1) }
     //    static var TaskBot: ColliderType   { return self.init(rawValue: 1 << 2) }
+    static var Object: ColliderType { return self.init(rawValue: 1 << 3) }
     
     // MARK: Hashable
     
     var hashValue: Int {
         return Int(rawValue)
-    }
-    
-    // MARK: CustomDebugStringConvertible
-    
-    var debugDescription: String {
-        switch self.rawValue {
-        case ColliderType.Obstacle.rawValue:
-            return "ColliderType.Obstacle"
-            
-        case ColliderType.LumaxMan.rawValue:
-            return "ColliderType.PlayerBot"
-            
-            //        case ColliderType.TaskBot.rawValue:
-            //            return "ColliderType.TaskBot"
-            
-        default:
-            return "UnknownColliderType(\(self.rawValue))"
-        }
     }
     
     // MARK: SpriteKit Physics Convenience

@@ -1,15 +1,15 @@
 //
-//  LumaxManEntity.swift
+//  KeyEntity.swift
 //  LuMaxMan
 //
-//  Created by Alexander Holzer on 15/12/15.
+//  Created by Alexander Holzer on 15/01/16.
 //
 //
 
 import GameplayKit
 import SpriteKit
 
-class LumaxManEntity: GKEntity, ContactNotifiableType {
+class ObjectEntity: GKEntity, ContactNotifiableType {
     
     /// The animations to use for a `LumaxMan`.
     static var animations: [AnimationState: [Direction: Animation]]?
@@ -28,12 +28,10 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         return renderComponent
     }
     
-    /// The `InputComponent` associated with this `LumaxMan`.
-    var inputComponent: InputComponent? {
-        return componentForClass(InputComponent.self)
+    /// The `ObjectComponent` associated with this `LumaxMan`.
+    var objectComponent: ObjectComponent? {
+        return componentForClass(ObjectComponent.self)
     }
-    
-    var missingKeys : Int = 1
     
     override init() {
         super.init()
@@ -41,61 +39,45 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         initComponents()
     }
     
+    func setObjectBehaviour(behaviour: ObjectBehaviour) {
+        addComponent(ObjectComponent(withCollissionBehaviour: behaviour))
+    }
+    
     func initComponents() {
+        addComponent(RenderComponent(entity: self))
         
-        let renderComponent = RenderComponent(entity: self)
-        addComponent(renderComponent)
+        addComponent(OrientationComponent())
         
-        let orientationComponent = OrientationComponent()
-        addComponent(orientationComponent)
-        
-        let inputComponent = InputComponent()
-        addComponent(inputComponent)
-        
-        
-        let physicsBody = SKPhysicsBody(rectangleOfSize: LumaxManEntity.textureSize)
+        let physicsBody = SKPhysicsBody(circleOfRadius: ObjectEntity.textureSize.width)
         physicsBody.allowsRotation = false
-        let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .LumaxMan)
+        let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .Object)
         
         addComponent(physicsComponent)
         
         // Connect the `PhysicsComponent` and the `RenderComponent`.
         renderComponent.node.physicsBody = physicsComponent.physicsBody
         
-        let movementComponent = MovementComponent()
-        addComponent(movementComponent)
-        
         // `AnimationComponent` tracks and vends the animations for different entity states and directions.
-        guard let animations = LumaxManEntity.animations else {
-            fatalError("Attempt to access PlayerBot.animations before they have been loaded.")
+        guard let animations = ObjectEntity.animations else {
+            fatalError("Attempt to access ObjectEntity before they have been loaded.")
         }
-        let animationComponent = AnimationComponent(textureSize: LumaxManEntity.textureSize, animations: animations)
+        
+        let animationComponent = AnimationComponent(textureSize: ObjectEntity.textureSize, animations: animations)
         addComponent(animationComponent)
         
         // Connect the `RenderComponent` and `ShadowComponent` to the `AnimationComponent`.
         renderComponent.node.addChild(animationComponent.node)
-        
-        let intelligenceComponent = IntelligenceComponent(states: [
-            LMAppearState(entity: self),
-            LMMovingState(entity: self),
-            LMHitState(entity: self)
-            ])
-        
-        addComponent(intelligenceComponent)
     }
     
-    // MARK: Physics collision
-    
     func contactWithEntityDidBegin(entity: GKEntity?) {
-        inputComponent?.updateDisplacement(float2(x: 0, y:0))
+        objectComponent?.contactWithEntityDidBegin(entity)
     }
     
     func contactWithEntityDidEnd(entity: GKEntity?) {
+        objectComponent?.contactWithEntityDidEnd(entity)
     }
     
-    
     static func loadResources() {
-        
         let atlasNames = [
             "LumaxManIdle",
             "LumaxManMoving",
