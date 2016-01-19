@@ -29,6 +29,7 @@ enum UniLayer: CGFloat {
         }
     }
     
+    
     // The full path to this node, for use with `childNodeWithName(_:)`.
     var nodePath: String {
         return "/Uni/\(nodeName)"
@@ -40,6 +41,8 @@ enum UniLayer: CGFloat {
 class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
+    
+    let pause = SKSpriteNode(imageNamed:"pause");
     
     var leftSwipe: UISwipeGestureRecognizer!
     var rightSwipe: UISwipeGestureRecognizer!
@@ -149,7 +152,27 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
         
+        // Add Pause Button to Camera
+        pause.name = "PauseButton";
+        pause.position = CGPoint(x: size.width/2,y: size.height/2);
+        pause.anchorPoint = CGPoint(x: 1, y: 1)
+        pause.size = CGSize(width: 50,height: 50)
+        camera!.addChild(pause)
+        
     }
+    
+    // Handle the Pause Button
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch: AnyObject! in touches {
+            let touchLocation = touch.locationInNode(self.camera!)
+            
+            if (pause.containsPoint(touchLocation)) {
+                stateMachine.enterState(LevelScenePauseState.self)
+            }
+        }
+    }
+
     
     /// Scales and positions the timer node to fit the scene's current height.
     private func scaleTimerNode() {
