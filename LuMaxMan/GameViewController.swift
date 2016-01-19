@@ -34,8 +34,8 @@ class GameViewController: UIViewController, SceneManagerDelegate {
             LumaxManEntity.loadResources()
         }
         
-        if !KeyEntity.texturesLoaded {
-            KeyEntity.loadResources()
+        if !ObjectEntity.texturesLoaded {
+            ObjectEntity.loadResources()
         }
     }
     
