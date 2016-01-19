@@ -169,10 +169,23 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             
             if (pause.containsPoint(touchLocation)) {
                 stateMachine.enterState(LevelScenePauseState.self)
+                
             }
         }
     }
 
+    // Handle the buttons if the game is paused
+    override func buttonTriggered(button: ButtonNode) {
+        
+        switch button.buttonIdentifier! {
+        case .Resume:
+            stateMachine.enterState(LevelSceneActiveState.self)
+        
+        default:
+            super.buttonTriggered(button)
+        }
+
+    }
     
     /// Scales and positions the timer node to fit the scene's current height.
     private func scaleTimerNode() {
