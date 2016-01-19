@@ -118,6 +118,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addLumaxMan()
         
+        addKeys()
+        
         // Gravity will be in the negative z direction; there is no x or y component.
         physicsWorld.gravity = CGVector.zero
         
@@ -159,6 +161,20 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         pause.size = CGSize(width: 50,height: 50)
         camera!.addChild(pause)
         
+    }
+    
+    func addKeys() {
+        for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
+            let keyEntity = ObjectEntity()
+            keyEntity.setObjectBehaviour(KeyBehaviour())
+            
+            // Set initial position.
+            let node = keyEntity.renderComponent.node
+            node.position = keyEmptyNode.position
+            
+            // Add the `TaskBot` to the scene and the component systems.
+            addEntity(keyEntity)
+        }
     }
     
     // Handle the Pause Button

@@ -30,7 +30,7 @@ struct LevelConfiguration {
     
     //The number of keys to complete the level
     var numberOfKeys: Int {
-        return configurationInfo["numberOfKeys"] as! Int
+        return configurationInfo["numberOfKeysToComplete"] as! Int
     }
     // MARK: Initialization
     
