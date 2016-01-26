@@ -36,7 +36,7 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     static var animations: [AnimationState: [Direction: Animation]]?
     
     // The size to use for the enemy's animation textures.
-    static var textureSize = CGSize(width: 120.0, height: 120.0)
+    static var textureSize = CGSize(width: 60.0, height: 60.0)
     
     static var texturesLoaded: Bool = false
     
@@ -84,7 +84,7 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
         let orientationComponent = OrientationComponent()
         addComponent(orientationComponent)
         
-        let physicsBody = SKPhysicsBody(circleOfRadius: GameplayConfiguration.Enemy.physicsBodyRadius, center: GameplayConfiguration.Enemy.physicsBodyOffset)
+        let physicsBody = SKPhysicsBody(circleOfRadius: GameplayConfiguration.Enemy.physicsBodyRadius, center: CGPointMake(0, 0))
         let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .Enemy)
         addComponent(physicsComponent)
         
@@ -99,6 +99,7 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
             fatalError("Attempt to access LumaxMan.animations before they have been loaded.")
         }
         let animationComponent = AnimationComponent(textureSize: EnemyEntity.textureSize, animations: animations)
+        animationComponent.requestedAnimationState = .Idle
         addComponent(animationComponent)
         
         // Connect the `RenderComponent` and `ShadowComponent` to the `AnimationComponent`.

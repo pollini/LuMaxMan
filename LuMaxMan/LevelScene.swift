@@ -148,17 +148,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
         
-        // Iterate over the Enemy configurations for this level, and create each Enemy.
-        for enemyConfiguration in levelConfiguration.enemyConfigurations {
-            let enemy: EnemyEntity
-            
-            // Create an Enemy from its configuration settings.
-            enemy = EnemyEntity(spawnLocation: float2(0,0), isFollowing: true, waitingTime: enemyConfiguration.waitingTime)
-            
-            // Add the Enemy to the scene and the component systems.
-            addEntity(enemy)
-            NSLog("\(enemy) | \(enemy.waitingTime) | \(enemy.isFollowing)")
-        }
+        addEnemies()
         
     }
     
@@ -348,6 +338,29 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         addEntity(lumaxMan)
     }
     
+    private func addEnemies() {
+        // Find the location of the player's initial position.
+        let enemiesNode = childNodeWithName(UniLayer.Characters.nodePath)?.childNodeWithName("Enemies")
+        
+        // Iterate over the Enemy configurations for this level, and create each Enemy.
+        for (index,enemyConfiguration) in levelConfiguration.enemyConfigurations.enumerate() {
+            let enemy: EnemyEntity
+            
+            // Create an Enemy from its configuration settings.
+            enemy = EnemyEntity(spawnLocation: float2(0,0), isFollowing: true, waitingTime: enemyConfiguration.waitingTime)
+            
+            let nodeName = (index > 9) ? "Enemy_\(index)" : "Enemy_0\(index)"
+            
+            let spawnNode = enemiesNode!.childNodeWithName(nodeName)!
+            
+            let enemyNode = enemy.renderComponent.node
+            enemyNode.position = spawnNode.position
+            
+            // Add the Enemy to the scene and the component systems.
+            addEntity(enemy)
+        }
+    }
+    
     func addEntity(entity: GKEntity) {
         entities.insert(entity)
         
@@ -429,13 +442,3 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
