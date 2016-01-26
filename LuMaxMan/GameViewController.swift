@@ -32,7 +32,6 @@ class GameViewController: UIViewController, SceneManagerDelegate {
     
     func loadResources() {
         LumaxManEntity.loadResources()
-        ObjectEntity.loadResources()
     }
     
     

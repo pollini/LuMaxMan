@@ -12,15 +12,13 @@ import SpriteKit
 class ObjectEntity: GKEntity, ContactNotifiableType {
     
     /// The animations to use for a `LumaxMan`.
-    static var animations: [AnimationState: [Direction: Animation]]?
+    static var animation: SimpleAnimation?
     
     /// The size to use for the `PlayerBot`s animation textures.
-    static var textureSize = CGSize(width: 120.0, height: 120.0)
+    static var textureSize = CGSize(width: 40, height: 40)
     
     /// Textures used by `PlayerBotAppearState` to show a `PlayerBot` appearing in the scene.
     static var appearTextures: [Direction: SKTexture]?
-    
-    static var texturesLoaded: Bool = false
     
     /// The `RenderComponent` associated with this `LumaxMan`.
     var renderComponent: RenderComponent {
@@ -36,6 +34,14 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     override init() {
         super.init()
         
+        let atlas = SKTextureAtlas(named: "KeyEntity")
+        
+        let textures = atlas.textureNames.map {
+            atlas.textureNamed($0)
+        }
+        
+        ObjectEntity.animation = SimpleAnimation(textures: textures)
+        
         initComponents()
     }
     
@@ -45,8 +51,6 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     
     func initComponents() {
         addComponent(RenderComponent(entity: self))
-        
-        addComponent(OrientationComponent())
         
         let physicsBody = SKPhysicsBody(circleOfRadius: ObjectEntity.textureSize.width)
         physicsBody.allowsRotation = false
@@ -58,12 +62,12 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         renderComponent.node.physicsBody = physicsComponent.physicsBody
         
         // `AnimationComponent` tracks and vends the animations for different entity states and directions.
-        guard let animations = ObjectEntity.animations else {
+        guard let animation = ObjectEntity.animation else {
             fatalError("Attempt to access ObjectEntity before they have been loaded.")
         }
         
-        let animationComponent = AnimationComponent(textureSize: ObjectEntity.textureSize, animations: animations)
-        animationComponent.requestedAnimationState = .Idle
+        let animationComponent = SimpleAnimationComponent(textureSize: ObjectEntity.textureSize, animation: animation)
+        
         
         addComponent(animationComponent)
         
@@ -77,45 +81,5 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     
     func contactWithEntityDidEnd(entity: GKEntity?) {
         objectComponent?.contactWithEntityDidEnd(entity)
-    }
-    
-    static func loadResources() {
-        if !ObjectEntity.texturesLoaded {
-            let atlasNames = [
-                "LumaxManIdle",
-                "LumaxManMoving",
-                "LumaxManHit"
-            ]
-            
-            /*
-            Preload all of the texture atlases for `PlayerBot`. This improves
-            the overall loading speed of the animation cycles for this character.
-            */
-            SKTextureAtlas.preloadTextureAtlasesNamed(atlasNames) { error, atlases in
-                if let error = error {
-                    fatalError("One or more texture atlases could not be found: \(error)")
-                }
-                
-                /*
-                This closure sets up all of the `PlayerBot` animations
-                after the `PlayerBot` texture atlases have finished preloading.
-                
-                Store the first texture from each direction of the `PlayerBot`'s idle animation,
-                for use in the `PlayerBot`'s "appear"  state.
-                */
-                appearTextures = [:]
-                for orientation in Direction.allDirections {
-                    appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManIdle")
-                }
-                
-                // Set up all of the `PlayerBot`s animations.
-                animations = [:]
-                animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManIdle", forAnimationState: .Idle)
-                animations![.Moving] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Moving)
-                animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[2], withImageIdentifier: "LumaxManHit", forAnimationState: .Hit, repeatTexturesForever: false)
-                
-                ObjectEntity.texturesLoaded = true
-            }
-        }
     }
 }

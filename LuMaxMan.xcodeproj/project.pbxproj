@@ -17,6 +17,8 @@
 		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
+		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
+		9142B5CA1C57C1A200F1B7DC /* Key.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Key.xcassets */; };
 		916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A9D341C493B5C00C486B5 /* ObjectEntity.swift */; };
 		91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */; };
 		91AE87B01C4E7B1000A5E263 /* KeyBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */; };
@@ -72,6 +74,8 @@
 		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
+		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
+		9142B5C91C57C1A200F1B7DC /* Key.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Key.xcassets; sourceTree = "<group>"; };
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehaviour.swift; sourceTree = "<group>"; };
@@ -183,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */,
-				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 				916A9D341C493B5C00C486B5 /* ObjectEntity.swift */,
+				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 				91CA499D1C20B05F00AFA41A /* GameplayConfiguration.swift */,
 			);
 			name = Entities;
@@ -198,6 +202,7 @@
 				91CA49A51C20CDB600AFA41A /* MovementComponent.swift */,
 				91CA49A71C20D12100AFA41A /* OrientationComponent.swift */,
 				9101C0591C22EF44008F893C /* AnimationComponent.swift */,
+				9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */,
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
 				91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */,
@@ -287,6 +292,7 @@
 			children = (
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				9101C0661C22FBDE008F893C /* LumaxMan.xcassets */,
+				9142B5C91C57C1A200F1B7DC /* Key.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
+				9142B5CA1C57C1A200F1B7DC /* Key.xcassets in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
@@ -465,6 +472,7 @@
 				9101C0651C22F758008F893C /* LMMovingState.swift in Sources */,
 				91CA49B01C20D7F600AFA41A /* LevelSceneOverlayState.swift in Sources */,
 				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,
+				9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */,
 				9101C05C1C22EFA5008F893C /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

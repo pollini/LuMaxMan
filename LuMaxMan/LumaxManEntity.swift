@@ -53,7 +53,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         addComponent(inputComponent)
         
         
-        let physicsBody = SKPhysicsBody(rectangleOfSize: LumaxManEntity.textureSize)
+        let physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 58.0, height: 120.0))
         physicsBody.allowsRotation = false
         let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .LumaxMan)
         
