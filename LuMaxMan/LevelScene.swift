@@ -162,7 +162,65 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
         
+        // Add Pause Button to Camera
+        pause.name = "PauseButton";
+        pause.position = CGPoint(x: size.width/2,y: size.height/2);
+        pause.anchorPoint = CGPoint(x: 1, y: 1)
+        pause.size = CGSize(width: 50,height: 50)
+        camera!.addChild(pause)
         addEnemies()
+        
+    }
+    
+    func addKeys() {
+        for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
+            let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
+            
+            // Set initial position.
+            let node = keyEntity.renderComponent.node
+            node.position = keyEmptyNode.position
+            
+            // Add the `TaskBot` to the scene and the component systems.
+            addEntity(keyEntity)
+        }
+    }
+    
+    func addCoins() {
+        for coinEmptyNode in self["\(UniLayer.Characters.nodePath)/coins/*"] {
+            let coinEntity = ObjectEntity.createObjectEntityWithType(.Coin)
+            
+            // Set initial position.
+            let node = coinEntity.renderComponent.node
+            node.position = coinEmptyNode.position
+            
+            // Add the `TaskBot` to the scene and the component systems.
+            addEntity(coinEntity)
+        }
+    }
+    
+    // Handle the Pause Button
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        for touch: AnyObject! in touches {
+            let touchLocation = touch.locationInNode(self.camera!)
+            
+            if (pause.containsPoint(touchLocation)) {
+                stateMachine.enterState(LevelScenePauseState.self)
+                
+            }
+        }
+    }
+    
+    // Handle the buttons if the game is paused
+    override func buttonTriggered(button: ButtonNode) {
+        
+        switch button.buttonIdentifier! {
+        case .Resume:
+            stateMachine.enterState(LevelSceneActiveState.self)
+            
+        default:
+            super.buttonTriggered(button)
+        }
         
     }
     

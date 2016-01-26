@@ -16,14 +16,16 @@ struct ColliderType: OptionSetType, Hashable {
     static let requestedContactNotifications : [ColliderType: [ColliderType]] =
     [
         .LumaxMan: [.LumaxMan, .Obstacle],
-        .Object: [.LumaxMan]
+        .Object: [.LumaxMan],
+        .Enemy: [.LumaxMan, .Obstacle]
     ]
     
     /// A dictionary of which `ColliderType`s should collide with other `ColliderType`s.
     static let definedCollisions : [ColliderType: [ColliderType]] =
     [
         .LumaxMan: [.LumaxMan, .Obstacle],
-        .Object: [.LumaxMan]
+        .Object: [.LumaxMan],
+        .Enemy: [.LumaxMan, .Obstacle]
     ]
     
     // MARK: Properties
@@ -36,6 +38,7 @@ struct ColliderType: OptionSetType, Hashable {
     static var LumaxMan: ColliderType { return self.init(rawValue: 1 << 1) }
     //    static var TaskBot: ColliderType   { return self.init(rawValue: 1 << 2) }
     static var Enemy: ColliderType { return self.init(rawValue: 1 << 2) }
+    static var Object: ColliderType { return self.init(rawValue: 1 << 3) }
     
     // MARK: Hashable
     

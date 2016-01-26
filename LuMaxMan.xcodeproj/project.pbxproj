@@ -44,7 +44,6 @@
 		91CA49B41C20D82200AFA41A /* LevelSceneFailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49B31C20D82200AFA41A /* LevelSceneFailState.swift */; };
 		91CA49B61C20D83500AFA41A /* LevelSceneSuccessState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49B51C20D83500AFA41A /* LevelSceneSuccessState.swift */; };
 		91CA49B81C20DD9300AFA41A /* LevelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA49B71C20DD9300AFA41A /* LevelConfiguration.swift */; };
-		91CA49BA1C20DDE000AFA41A /* Level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91CA49B91C20DDE000AFA41A /* Level1.plist */; };
 		91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91CA49BC1C20EC7600AFA41A /* PauseScene.sks */; };
 		91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91CA49BE1C20ECA500AFA41A /* FailScene.sks */; };
 		91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91CA49C01C20ECB000AFA41A /* SuccessScene.sks */; };
@@ -63,12 +62,11 @@
 		C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04078411C18760900D3EEE4 /* Assets.xcassets */; };
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
-		C06C1C811C2057C70007264D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C06C1C801C2057C70007264D /* Level1.sks */; };
 		C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC0C7E1C467870008AE09D /* GameKit.framework */; };
 		C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C811C469797008AE09D /* EnemyEntity.swift */; };
 		C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */; };
-		C0FC0C901C492B56008AE09D /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C8F1C492B56008AE09D /* Level2.sks */; };
-		C0FC0C921C492B9D008AE09D /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C911C492B9D008AE09D /* Level2.plist */; };
+		C0FC0C901C492B56008AE09D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C8F1C492B56008AE09D /* Level1.sks */; };
+		C0FC0C921C492B9D008AE09D /* Level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0FC0C911C492B9D008AE09D /* Level1.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,7 +107,6 @@
 		91CA49B31C20D82200AFA41A /* LevelSceneFailState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSceneFailState.swift; sourceTree = "<group>"; };
 		91CA49B51C20D83500AFA41A /* LevelSceneSuccessState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSceneSuccessState.swift; sourceTree = "<group>"; };
 		91CA49B71C20DD9300AFA41A /* LevelConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelConfiguration.swift; sourceTree = "<group>"; };
-		91CA49B91C20DDE000AFA41A /* Level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level1.plist; sourceTree = "<group>"; };
 		91CA49BC1C20EC7600AFA41A /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PauseScene.sks; sourceTree = "<group>"; };
 		91CA49BE1C20ECA500AFA41A /* FailScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FailScene.sks; sourceTree = "<group>"; };
 		91CA49C01C20ECB000AFA41A /* SuccessScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SuccessScene.sks; sourceTree = "<group>"; };
@@ -130,12 +127,11 @@
 		C04078441C18760900D3EEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
-		C06C1C801C2057C70007264D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		C0FC0C7E1C467870008AE09D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C0FC0C811C469797008AE09D /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
 		C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyAgent.swift; sourceTree = "<group>"; };
-		C0FC0C8F1C492B56008AE09D /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level2.sks; path = Scenes/SKS/Level2/Level2.sks; sourceTree = "<group>"; };
-		C0FC0C911C492B9D008AE09D /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Level2.plist; path = Scenes/SKS/Level2/Level2.plist; sourceTree = "<group>"; };
+		C0FC0C8F1C492B56008AE09D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level1.sks; path = Scenes/SKS/Level2/Level1.sks; sourceTree = "<group>"; };
+		C0FC0C911C492B9D008AE09D /* Level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Level1.plist; path = Scenes/SKS/Level2/Level1.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +201,6 @@
 			children = (
 				91FFF78C1C2072E700B7EC45 /* LumaxManEntity.swift */,
 				916A9D341C493B5C00C486B5 /* ObjectEntity.swift */,
-				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 				91CA499D1C20B05F00AFA41A /* GameplayConfiguration.swift */,
 				C0FC0C811C469797008AE09D /* EnemyEntity.swift */,
 				C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */,
@@ -226,6 +221,8 @@
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
 				9101C05F1C22F711008F893C /* IC States LumaxMan */,
 				C02B58EA1C4EA2B00079D144 /* IC States Enemy */,
+				91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */,
+				91AE87B11C4E7CDF00A5E263 /* ObjectBehavior */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -272,28 +269,18 @@
 				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
 				84967C961C4693D3005D5CFD /* SettingsScene.sks */,
 				91CA49BB1C20EC5100AFA41A /* States */,
-				91FFF7991C20792300B7EC45 /* Level1 */,
-				91FFF79A1C20792900B7EC45 /* Level2 */,
+				91FFF79A1C20792900B7EC45 /* Level1 */,
 			);
 			name = SKS;
 			sourceTree = "<group>";
 		};
-		91FFF7991C20792300B7EC45 /* Level1 */ = {
+		91FFF79A1C20792900B7EC45 /* Level1 */ = {
 			isa = PBXGroup;
 			children = (
-				91CA49B91C20DDE000AFA41A /* Level1.plist */,
-				C06C1C801C2057C70007264D /* Level1.sks */,
+				C0FC0C911C492B9D008AE09D /* Level1.plist */,
+				C0FC0C8F1C492B56008AE09D /* Level1.sks */,
 			);
 			name = Level1;
-			sourceTree = "<group>";
-		};
-		91FFF79A1C20792900B7EC45 /* Level2 */ = {
-			isa = PBXGroup;
-			children = (
-				C0FC0C911C492B9D008AE09D /* Level2.plist */,
-				C0FC0C8F1C492B56008AE09D /* Level2.sks */,
-			);
-			name = Level2;
 			sourceTree = "<group>";
 		};
 		91FFF79F1C207C3600B7EC45 /* LevelScene States */ = {
@@ -314,6 +301,7 @@
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				9101C0661C22FBDE008F893C /* LumaxMan.xcassets */,
 				C02B58E21C4E8DCD0079D144 /* Enemy.xcassets */,
+				9142B5C91C57C1A200F1B7DC /* Objects.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -449,13 +437,11 @@
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
-				91CA49BA1C20DDE000AFA41A /* Level1.plist in Resources */,
 				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
 				C02B58E31C4E8DCD0079D144 /* Enemy.xcassets in Resources */,
-				C06C1C811C2057C70007264D /* Level1.sks in Resources */,
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
-				C0FC0C921C492B9D008AE09D /* Level2.plist in Resources */,
-				C0FC0C901C492B56008AE09D /* Level2.sks in Resources */,
+				C0FC0C921C492B9D008AE09D /* Level1.plist in Resources */,
+				C0FC0C901C492B56008AE09D /* Level1.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

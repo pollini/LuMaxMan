@@ -34,7 +34,11 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
     }
     
-    // Permanently hide the status bar.
+    func loadResources() {
+        LumaxManEntity.loadResources()
+    }
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

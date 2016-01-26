@@ -125,17 +125,6 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     // MARK: 
     
     static func loadResources() {
-        ColliderType.definedCollisions[.Enemy] = [
-            .Obstacle,
-            .LumaxMan,
-            .Enemy
-        ]
-        
-        ColliderType.requestedContactNotifications[.Enemy] = [
-            .Obstacle,
-            .LumaxMan,
-            .Enemy
-        ]
         
         let enemyAtlasNames = [
             "EnemyEscaping",
