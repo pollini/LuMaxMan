@@ -52,7 +52,7 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     func initComponents() {
         addComponent(RenderComponent(entity: self))
         
-        let physicsBody = SKPhysicsBody(circleOfRadius: ObjectEntity.textureSize.width)
+        let physicsBody = SKPhysicsBody(circleOfRadius: ObjectEntity.textureSize.width/2)
         physicsBody.allowsRotation = false
         let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .Object)
         
