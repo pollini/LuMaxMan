@@ -18,10 +18,11 @@
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
 		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
-		9142B5CA1C57C1A200F1B7DC /* Key.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Key.xcassets */; };
+		9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Objects.xcassets */; };
+		9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */; };
 		916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A9D341C493B5C00C486B5 /* ObjectEntity.swift */; };
 		91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */; };
-		91AE87B01C4E7B1000A5E263 /* KeyBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */; };
+		91AE87B01C4E7B1000A5E263 /* KeyBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */; };
 		91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */; };
 		91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18F1C4695540015FE72 /* ColliderType.swift */; };
 		91B9C1921C4696D40015FE72 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */; };
@@ -75,10 +76,11 @@
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
-		9142B5C91C57C1A200F1B7DC /* Key.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Key.xcassets; sourceTree = "<group>"; };
+		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
+		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
-		91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehaviour.swift; sourceTree = "<group>"; };
+		91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehavior.swift; sourceTree = "<group>"; };
 		91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		91B9C18F1C4695540015FE72 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
 		91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
@@ -144,12 +146,13 @@
 			name = "IC States LumaxMan";
 			sourceTree = "<group>";
 		};
-		91AE87B11C4E7CDF00A5E263 /* ObjectBehaviour */ = {
+		91AE87B11C4E7CDF00A5E263 /* ObjectBehavior */ = {
 			isa = PBXGroup;
 			children = (
-				91AE87AF1C4E7B1000A5E263 /* KeyBehaviour.swift */,
+				91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */,
+				9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */,
 			);
-			name = ObjectBehaviour;
+			name = ObjectBehavior;
 			sourceTree = "<group>";
 		};
 		91CA49911C20A26200AFA41A /* iOS */ = {
@@ -206,7 +209,7 @@
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
 				91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */,
-				91AE87B11C4E7CDF00A5E263 /* ObjectBehaviour */,
+				91AE87B11C4E7CDF00A5E263 /* ObjectBehavior */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -292,7 +295,7 @@
 			children = (
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				9101C0661C22FBDE008F893C /* LumaxMan.xcassets */,
-				9142B5C91C57C1A200F1B7DC /* Key.xcassets */,
+				9142B5C91C57C1A200F1B7DC /* Objects.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -415,7 +418,7 @@
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
-				9142B5CA1C57C1A200F1B7DC /* Key.xcassets in Resources */,
+				9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
@@ -446,12 +449,13 @@
 				91CA49A41C20CD0800AFA41A /* RenderComponent.swift in Sources */,
 				91CA49AE1C20D7C700AFA41A /* LevelSceneActiveState.swift in Sources */,
 				91CA49A01C20B1A600AFA41A /* MenuScene.swift in Sources */,
+				9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */,
 				91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */,
 				91CA49A61C20CDB600AFA41A /* MovementComponent.swift in Sources */,
 				9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */,
 				91CA499E1C20B05F00AFA41A /* GameplayConfiguration.swift in Sources */,
 				C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */,
-				91AE87B01C4E7B1000A5E263 /* KeyBehaviour.swift in Sources */,
+				91AE87B01C4E7B1000A5E263 /* KeyBehavior.swift in Sources */,
 				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
 				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,

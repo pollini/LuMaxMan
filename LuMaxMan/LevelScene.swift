@@ -72,7 +72,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         LevelSceneFailState(levelScene: self)
         ])
     
-    let timerNode = SKLabelNode(text: "--:--")
+    let timerNode = SKLabelNode(text: "Time")
+    let coinNode = SKLabelNode(text: "Coins: 0")
     
     var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
@@ -120,6 +121,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addKeys()
         
+        addCoins()
+        
         // Gravity will be in the negative z direction; there is no x or y component.
         physicsWorld.gravity = CGVector.zero
         
@@ -134,6 +137,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         timerNode.fontColor = SKColor.whiteColor()
         scaleTimerNode()
         camera!.addChild(timerNode)
+        
+        // Configure the `coinNode` and add it to the camera node.
+        coinNode.zPosition = UniLayer.AboveCharacters.rawValue
+        coinNode.fontColor = SKColor.whiteColor()
+        scaleCoinNode()
+        camera!.addChild(coinNode)
         
         
         leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -165,8 +174,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     func addKeys() {
         for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
-            let keyEntity = ObjectEntity()
-            keyEntity.setObjectBehaviour(KeyBehaviour())
+            let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
             
             // Set initial position.
             let node = keyEntity.renderComponent.node
@@ -174,6 +182,19 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             
             // Add the `TaskBot` to the scene and the component systems.
             addEntity(keyEntity)
+        }
+    }
+    
+    func addCoins() {
+        for coinEmptyNode in self["\(UniLayer.Characters.nodePath)/coins/*"] {
+            let coinEntity = ObjectEntity.createObjectEntityWithType(.Coin)
+            
+            // Set initial position.
+            let node = coinEntity.renderComponent.node
+            node.position = coinEmptyNode.position
+            
+            // Add the `TaskBot` to the scene and the component systems.
+            addEntity(coinEntity)
         }
     }
     
@@ -211,9 +232,28 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         // Make sure the timer node is positioned at the top of the scene.
         timerNode.position.y = (size.height / 2.0) - timerNode.frame.size.height
-        print(timerNode.frame.size.height)
+        
         // Add padding between the top of scene and the top of the timer node.
         timerNode.position.y -= timerNode.fontSize * 0.2
+    }
+    
+    /// Scales and positions the timer node to fit the scene's current height.
+    private func scaleCoinNode() {
+        // Update the font size of the timer node based on the height of the scene.
+        coinNode.fontSize = size.height * 0.05
+        
+        // Make sure the timer node is positioned at the top of the scene.
+        coinNode.position.y = (size.height / 2.0) - coinNode.frame.size.height
+        
+        // Add padding between the top of scene and the top of the timer node.
+        coinNode.position.y -= coinNode.fontSize * 0.2
+        
+        coinNode.position.x = -self.size.width / 2 + 5
+        coinNode.horizontalAlignmentMode = .Left
+    }
+    
+    func collectedCoins(coins: Int) {
+        coinNode.text = "Coins: \(coins)"
     }
     
     override func didChangeSize(oldSize: CGSize) {
@@ -379,6 +419,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
         orientationComponent.direction = levelConfiguration.initialLumaxManOrientation
         lumaxMan.missingKeys = levelConfiguration.numberOfKeys
+        lumaxMan.currentLevelScene = self
         
         // Set up the `PlayerBot` position in the scene.
         let playerNode = lumaxMan.renderComponent.node

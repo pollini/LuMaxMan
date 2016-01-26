@@ -34,6 +34,13 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     }
     
     var missingKeys : Int = 0
+    var collectedCoins : Int = 0 {
+        didSet {
+            currentLevelScene?.collectedCoins(collectedCoins)
+        }
+    }
+    
+    var currentLevelScene : LevelScene?
     
     override init() {
         super.init()

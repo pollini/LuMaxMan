@@ -12,13 +12,10 @@ import SpriteKit
 class ObjectEntity: GKEntity, ContactNotifiableType {
     
     /// The animations to use for a `LumaxMan`.
-    static var animation: SimpleAnimation?
+    var animation: SimpleAnimation
     
     /// The size to use for the `PlayerBot`s animation textures.
-    static var textureSize = CGSize(width: 40, height: 40)
-    
-    /// Textures used by `PlayerBotAppearState` to show a `PlayerBot` appearing in the scene.
-    static var appearTextures: [Direction: SKTexture]?
+    var textureSize : CGSize
     
     /// The `RenderComponent` associated with this `LumaxMan`.
     var renderComponent: RenderComponent {
@@ -31,28 +28,45 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         return componentForClass(ObjectComponent.self)
     }
     
-    override init() {
-        super.init()
+    static func createObjectEntityWithType(type: ObjectType) -> ObjectEntity {
+        let entity: ObjectEntity
         
-        let atlas = SKTextureAtlas(named: "KeyEntity")
+        switch type {
+        case .Key:
+            entity = ObjectEntity(textureAtlasNamed: "KeyEntity", andTextureSize: CGSize(width: 40, height: 40))
+            entity.setObjectBehaviour(KeyBehavior())
+        case .Coin:
+            entity = ObjectEntity(textureAtlasNamed: "CoinEntity", andTextureSize: CGSize(width: 20, height: 20))
+            entity.setObjectBehaviour(CoinBehavior())
+        }
+        
+        return entity
+    }
+    
+    init(textureAtlasNamed: String, andTextureSize textureSize: CGSize) {
+        self.textureSize = textureSize
+        
+        let atlas = SKTextureAtlas(named: textureAtlasNamed)
         
         let textures = atlas.textureNames.map {
             atlas.textureNamed($0)
         }
         
-        ObjectEntity.animation = SimpleAnimation(textures: textures)
+        self.animation = SimpleAnimation(textures: textures)
+        
+        super.init()
         
         initComponents()
     }
     
-    func setObjectBehaviour(behaviour: ObjectBehaviour) {
-        addComponent(ObjectComponent(withCollissionBehaviour: behaviour))
+    func setObjectBehaviour(behaviour: ObjectBehavior) {
+        addComponent(ObjectComponent(withCollissionBehavior: behaviour))
     }
     
     func initComponents() {
         addComponent(RenderComponent(entity: self))
         
-        let physicsBody = SKPhysicsBody(circleOfRadius: ObjectEntity.textureSize.width/2)
+        let physicsBody = SKPhysicsBody(circleOfRadius: self.textureSize.width/2)
         physicsBody.allowsRotation = false
         let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .Object)
         
@@ -61,13 +75,7 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         // Connect the `PhysicsComponent` and the `RenderComponent`.
         renderComponent.node.physicsBody = physicsComponent.physicsBody
         
-        // `AnimationComponent` tracks and vends the animations for different entity states and directions.
-        guard let animation = ObjectEntity.animation else {
-            fatalError("Attempt to access ObjectEntity before they have been loaded.")
-        }
-        
-        let animationComponent = SimpleAnimationComponent(textureSize: ObjectEntity.textureSize, animation: animation)
-        
+        let animationComponent = SimpleAnimationComponent(textureSize: self.textureSize, animation: animation)
         
         addComponent(animationComponent)
         
@@ -82,4 +90,8 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     func contactWithEntityDidEnd(entity: GKEntity?) {
         objectComponent?.contactWithEntityDidEnd(entity)
     }
+}
+
+enum ObjectType {
+    case Key, Coin
 }

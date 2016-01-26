@@ -13,22 +13,22 @@ class ObjectComponent: GKComponent {
     // MARK: Properties
     
     // The `RenderComponent` vends a node allowing an entity to be rendered in a scene.
-    let behaviour : ObjectBehaviour
+    let behavior : ObjectBehavior
     
-    init(withCollissionBehaviour behaviour: ObjectBehaviour) {
-        self.behaviour = behaviour
+    init(withCollissionBehavior behavior: ObjectBehavior) {
+        self.behavior = behavior
     }
     
     func contactWithEntityDidBegin(contactEntity: GKEntity?) {
-        behaviour.contactBeginBetweenEntity(entity!, andEntity: contactEntity)
+        behavior.contactBeginBetweenEntity(entity!, andEntity: contactEntity)
     }
     
     func contactWithEntityDidEnd(contactEntity: GKEntity?) {
-        behaviour.contactEndBetweenEntity(entity!, andEntity: contactEntity)
+        behavior.contactEndBetweenEntity(entity!, andEntity: contactEntity)
     }
 }
 
-protocol ObjectBehaviour {
+protocol ObjectBehavior {
     func contactBeginBetweenEntity(entity: GKEntity, andEntity contactEntity: GKEntity?)
     
     func contactEndBetweenEntity(entity: GKEntity, andEntity contactEntity: GKEntity?)
