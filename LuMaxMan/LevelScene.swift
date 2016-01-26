@@ -13,7 +13,7 @@ import SpriteKit
 /// The names and z-positions of each layer in a level's world.
 enum UniLayer: CGFloat {
     // The zPosition offset to use per character (`PlayerBot` or `TaskBot`).
-    static let zSpacePerCharacter: CGFloat = 100
+    static let zSpacePerCharacter: CGFloat = 1
     
     // Specifying `AboveCharacters` as 1000 gives room for 9 enemies on a level.
     case Floor = -100, Obstacles = -25, Characters = 0, AboveCharacters = 1000, Top = 1100
@@ -189,18 +189,18 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             }
         }
     }
-
+    
     // Handle the buttons if the game is paused
     override func buttonTriggered(button: ButtonNode) {
         
         switch button.buttonIdentifier! {
         case .Resume:
             stateMachine.enterState(LevelSceneActiveState.self)
-        
+            
         default:
             super.buttonTriggered(button)
         }
-
+        
     }
     
     
