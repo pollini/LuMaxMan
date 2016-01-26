@@ -43,6 +43,11 @@ struct LevelConfiguration {
     var timeLimit: NSTimeInterval {
         return configurationInfo["timeLimit"] as! NSTimeInterval
     }
+    
+    //The number of keys to complete the level
+    var numberOfKeys: Int {
+        return configurationInfo["numberOfKeysToComplete"] as! Int
+    }
     // MARK: Initialization
     
     init?(fileName: String) {

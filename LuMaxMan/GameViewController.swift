@@ -19,9 +19,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
         super.viewDidLoad()
         
-        if !LumaxManEntity.texturesLoaded {
-            LumaxManEntity.loadResources()
-        }
+        loadResources()
         
         if !EnemyEntity.texturesLoaded {
             EnemyEntity.loadResources()

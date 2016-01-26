@@ -9,14 +9,22 @@ An option set used for categorizing physics bodies in SpriteKit's physics world.
 import SpriteKit
 import GameplayKit
 
-struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
+struct ColliderType: OptionSetType, Hashable {
     // MARK: Static properties
     
     /// A dictionary to specify which `ColliderType`s should be notified of contacts with other `ColliderType`s.
-    static var requestedContactNotifications = [ColliderType: [ColliderType]]()
+    static let requestedContactNotifications : [ColliderType: [ColliderType]] =
+    [
+        .LumaxMan: [.LumaxMan, .Obstacle],
+        .Object: [.LumaxMan]
+    ]
     
     /// A dictionary of which `ColliderType`s should collide with other `ColliderType`s.
-    static var definedCollisions = [ColliderType: [ColliderType]]()
+    static let definedCollisions : [ColliderType: [ColliderType]] =
+    [
+        .LumaxMan: [.LumaxMan, .Obstacle],
+        .Object: [.LumaxMan]
+    ]
     
     // MARK: Properties
     
