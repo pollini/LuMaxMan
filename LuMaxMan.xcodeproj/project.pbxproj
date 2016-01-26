@@ -48,6 +48,9 @@
 		91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF7941C20766C00B7EC45 /* EntityNode.swift */; };
 		91FFF79C1C207B0800B7EC45 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF79B1C207B0800B7EC45 /* LevelScene.swift */; };
 		91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */; };
+		C02B58E31C4E8DCD0079D144 /* Enemy.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02B58E21C4E8DCD0079D144 /* Enemy.xcassets */; };
+		C02B58EC1C4EA2F50079D144 /* EnemyEscapingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B58EB1C4EA2F50079D144 /* EnemyEscapingState.swift */; };
+		C02B58EE1C4EA30D0079D144 /* EnemyFollowingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B58ED1C4EA30D0079D144 /* EnemyFollowingState.swift */; };
 		C04078371C18760900D3EEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04078361C18760900D3EEE4 /* AppDelegate.swift */; };
 		C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040783C1C18760900D3EEE4 /* GameViewController.swift */; };
 		C04078401C18760900D3EEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C040783E1C18760900D3EEE4 /* Main.storyboard */; };
@@ -104,6 +107,9 @@
 		91FFF7941C20766C00B7EC45 /* EntityNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityNode.swift; sourceTree = "<group>"; };
 		91FFF79B1C207B0800B7EC45 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		91FFF79D1C207C1600B7EC45 /* LevelScene+Pause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LevelScene+Pause.swift"; sourceTree = "<group>"; };
+		C02B58E21C4E8DCD0079D144 /* Enemy.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Enemy.xcassets; sourceTree = "<group>"; };
+		C02B58EB1C4EA2F50079D144 /* EnemyEscapingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEscapingState.swift; sourceTree = "<group>"; };
+		C02B58ED1C4EA30D0079D144 /* EnemyFollowingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyFollowingState.swift; sourceTree = "<group>"; };
 		C04078331C18760900D3EEE4 /* LuMaxMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuMaxMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04078361C18760900D3EEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C040783C1C18760900D3EEE4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 				9101C05D1C22F702008F893C /* IntelligenceComponent.swift */,
 				91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */,
 				9101C05F1C22F711008F893C /* IC States LumaxMan */,
+				C02B58EA1C4EA2B00079D144 /* IC States Enemy */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -282,6 +289,7 @@
 			children = (
 				C04078411C18760900D3EEE4 /* Assets.xcassets */,
 				9101C0661C22FBDE008F893C /* LumaxMan.xcassets */,
+				C02B58E21C4E8DCD0079D144 /* Enemy.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -291,6 +299,15 @@
 			children = (
 			);
 			name = GameKit;
+			sourceTree = "<group>";
+		};
+		C02B58EA1C4EA2B00079D144 /* IC States Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				C02B58EB1C4EA2F50079D144 /* EnemyEscapingState.swift */,
+				C02B58ED1C4EA30D0079D144 /* EnemyFollowingState.swift */,
+			);
+			name = "IC States Enemy";
 			sourceTree = "<group>";
 		};
 		C040782A1C18760900D3EEE4 = {
@@ -368,7 +385,7 @@
 				TargetAttributes = {
 					C04078321C18760900D3EEE4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 7W9442D67W;
+						DevelopmentTeam = C7PLUFBAM2;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -409,6 +426,7 @@
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
 				91CA49BA1C20DDE000AFA41A /* Level1.plist in Resources */,
 				C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */,
+				C02B58E31C4E8DCD0079D144 /* Enemy.xcassets in Resources */,
 				C06C1C811C2057C70007264D /* Level1.sks in Resources */,
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
 				C0FC0C921C492B9D008AE09D /* Level2.plist in Resources */,
@@ -444,6 +462,7 @@
 				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
 				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,
+				C02B58EE1C4EA30D0079D144 /* EnemyFollowingState.swift in Sources */,
 				84967C931C469357005D5CFD /* SettingsScene.swift in Sources */,
 				91CA49A21C20B38300AFA41A /* SceneOverlay.swift in Sources */,
 				91CA499A1C20AD4500AFA41A /* ButtonNode.swift in Sources */,
@@ -451,6 +470,7 @@
 				91CA49941C20A29800AFA41A /* SceneManager.swift in Sources */,
 				C04078371C18760900D3EEE4 /* AppDelegate.swift in Sources */,
 				91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */,
+				C02B58EC1C4EA2F50079D144 /* EnemyEscapingState.swift in Sources */,
 				91FFF79C1C207B0800B7EC45 /* LevelScene.swift in Sources */,
 				91CA49981C20AB6B00AFA41A /* BaseScene.swift in Sources */,
 				91FFF7951C20766C00B7EC45 /* EntityNode.swift in Sources */,
@@ -576,7 +596,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.project.LuMaxMan";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -590,7 +610,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LuMaxMan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-praktikum.project.LuMaxMan";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.ifi.mobile.lumaxman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

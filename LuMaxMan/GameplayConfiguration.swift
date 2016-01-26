@@ -30,5 +30,11 @@ struct GameplayConfiguration {
         static let appearDuration: NSTimeInterval = 0.5
         // needed?
         static let hitStateDuration: NSTimeInterval = 0.5
+        
+        /// The radius of the Enemy's physics body.
+        static var physicsBodyRadius: CGFloat = 35.0
+        
+        /// The offset of the Enemy physics body's center from the Enemy's center.
+        static let physicsBodyOffset = CGPoint(x: 0.0, y: -25.0)
     }
 }

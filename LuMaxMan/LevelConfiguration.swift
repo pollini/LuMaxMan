@@ -10,10 +10,26 @@ import Foundation
 
 /// Encapsulates the starting configuration of a level in the game.
 struct LevelConfiguration {
+    // MARK: Type for the starting configuration of a single Enemy.
+    struct EnemyConfiguration {
+        // MARK: Properties
+        let isFollowing: Bool
+        let waitingTime: Float
+        
+        // MARK: Initialization
+        init(enemyConfigInfo: [String: AnyObject]) {
+            isFollowing = true
+            waitingTime = enemyConfigInfo["initialWaitingTime"] as! Float
+        }
+    }
+    
     // MARK: Properties
     
     /// Cached data loaded from the level's data file.
     private let configurationInfo: [String: AnyObject]
+    
+    // The configuration settings for Enemys on this level.
+    let enemyConfigurations: [EnemyConfiguration]
     
     /// The file name identifier for this level. Used for loading files and assets.
     let fileName: String
@@ -23,7 +39,7 @@ struct LevelConfiguration {
         return Direction(string: (configurationInfo["initialLumaxManOrientation"] as! String))
     }
     
-    //The time to complete the level+
+    //The time to complete the level
     var timeLimit: NSTimeInterval {
         return configurationInfo["timeLimit"] as! NSTimeInterval
     }
@@ -39,5 +55,10 @@ struct LevelConfiguration {
         }
         
         self.configurationInfo = configurationInfo
+        
+        // Map the array of EnemyConfiguration dictionaries to an array of EnemyConfiguration instances.
+        let eConfig = configurationInfo["enemyConfigurations"] as! [[String: AnyObject]]
+        
+        enemyConfigurations = eConfig.map { EnemyConfiguration(enemyConfigInfo: $0)}
     }
 }

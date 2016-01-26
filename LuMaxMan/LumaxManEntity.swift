@@ -24,7 +24,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     
     /// The `RenderComponent` associated with this `LumaxMan`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A PlayerBot must have an RenderComponent.") }
+        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A LumaxMan must have an RenderComponent.") }
         return renderComponent
     }
     
@@ -65,7 +65,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         
         // `AnimationComponent` tracks and vends the animations for different entity states and directions.
         guard let animations = LumaxManEntity.animations else {
-            fatalError("Attempt to access PlayerBot.animations before they have been loaded.")
+            fatalError("Attempt to access LumaxMan.animations before they have been loaded.")
         }
         let animationComponent = AnimationComponent(textureSize: LumaxManEntity.textureSize, animations: animations)
         addComponent(animationComponent)

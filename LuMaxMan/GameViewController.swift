@@ -3,7 +3,7 @@
 //  LuMaxMan
 //
 //  Created by Marius on 09.12.15.
-//  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2015 LuMaxMan. All rights reserved.
 //
 
 import UIKit
@@ -23,6 +23,10 @@ class GameViewController: UIViewController, SceneManagerDelegate {
             LumaxManEntity.loadResources()
         }
         
+        if !EnemyEntity.texturesLoaded {
+            EnemyEntity.loadResources()
+        }
+        
         // Load the initial home scene.
         let skView = view as! SKView
         sceneManager = SceneManager(presentingView: skView)
@@ -32,7 +36,7 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         
     }
     
-    
+    // Permanently hide the status bar.
     override func prefersStatusBarHidden() -> Bool {
         return true
     }

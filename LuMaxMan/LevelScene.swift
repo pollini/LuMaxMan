@@ -136,7 +136,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         
-        
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right
         upSwipe.direction = .Up
@@ -148,6 +147,18 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         view.addGestureRecognizer(downSwipe)
         
         gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
+        
+        // Iterate over the Enemy configurations for this level, and create each Enemy.
+        for enemyConfiguration in levelConfiguration.enemyConfigurations {
+            let enemy: EnemyEntity
+            
+            // Create an Enemy from its configuration settings.
+            enemy = EnemyEntity(spawnLocation: float2(0,0), isFollowing: true, waitingTime: enemyConfiguration.waitingTime)
+            
+            // Add the Enemy to the scene and the component systems.
+            addEntity(enemy)
+            NSLog("\(enemy) | \(enemy.waitingTime) | \(enemy.isFollowing)")
+        }
         
     }
     

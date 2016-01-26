@@ -27,6 +27,7 @@ struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
     static var Obstacle: ColliderType  { return self.init(rawValue: 1 << 0) }
     static var LumaxMan: ColliderType { return self.init(rawValue: 1 << 1) }
     //    static var TaskBot: ColliderType   { return self.init(rawValue: 1 << 2) }
+    static var Enemy: ColliderType { return self.init(rawValue: 1 << 2) }
     
     // MARK: Hashable
     
@@ -46,6 +47,9 @@ struct ColliderType: OptionSetType, Hashable, CustomDebugStringConvertible {
             
             //        case ColliderType.TaskBot.rawValue:
             //            return "ColliderType.TaskBot"
+            
+        case ColliderType.Enemy.rawValue:
+            return "ColliderType.Enemy"
             
         default:
             return "UnknownColliderType(\(self.rawValue))"
