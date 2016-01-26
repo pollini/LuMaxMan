@@ -166,6 +166,11 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
         case .Retry:
             sceneManager.transitionToSceneWithSceneIdentifier(.CurrentLevel)
             
+        case .SelectLevel:
+            sceneManager.transitionToSceneWithSceneIdentifier(.SelectLevel)
+            
+            
+            
         default:
             fatalError("Unsupported ButtonNode type in Scene.")
         }

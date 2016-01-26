@@ -38,13 +38,6 @@ struct Animation {
 }
 
 class AnimationComponent: GKComponent {
-    
-    /// The key to use when adding an optional action to the entity's body.
-    static let bodyActionKey = "bodyAction"
-    
-    /// The key to use when adding an optional action to the entity's shadow.
-    static let shadowActionKey = "shadowAction"
-    
     /// The key to use when adding a texture animation action to the entity's body.
     static let textureActionKey = "textureAction"
     

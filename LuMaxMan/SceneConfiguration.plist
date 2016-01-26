@@ -10,6 +10,12 @@
 	</dict>
 	<dict>
 		<key>sceneType</key>
+		<string>SelectLevelScene</string>
+		<key>fileName</key>
+		<string>SelectLevelScene</string>
+	</dict>
+	<dict>
+		<key>sceneType</key>
 		<string>MenuScene</string>
 		<key>fileName</key>
 		<string>MenuScene</string>

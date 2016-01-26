@@ -19,10 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // isGameCenterAuthenticationComplete is set after authentication, and authenticateWithCompletionHandler's completionHandler block has been run. It is unset when the application is backgrounded.
     internal private(set) var isGameCenterAuthenticationComplete: Bool?
+    //internal private(set) var isGameCenterAuthenticationComplete: Bool?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+/*
+*** GAME CENTER STUFF
         self.mainViewController = self.window?.rootViewController as? GameViewController
         
         // Enable Game Center functionality.
@@ -35,17 +38,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let localPlayer : GKLocalPlayer = GKLocalPlayer.localPlayer()
             
-            GKLocalPlayer.localPlayer().authenticateHandler = {(viewController, error) -> Void in
-                if localPlayer.authenticated {
-                    self.isGameCenterAuthenticationComplete = true
-                    
-                    // Player Ids have switched.
-                    if self.currentPlayerID != localPlayer.playerID {
+            localPlayer.authenticateHandler = {(viewController, error) -> Void in
+                
+                if viewController != nil {
+                    self.mainViewController?.presentViewController(viewController!, animated: true, completion: nil)
+                
+                } else {
+                    if localPlayer.authenticated {
+                        self.isGameCenterAuthenticationComplete = true
                         
+                        // Player Ids have switched.
+                        if self.currentPlayerID != localPlayer.playerID {
+                        }
+                    } else {
+                        // login view controller or something
                     }
                 }
             }
         }
+*/
         
         return true
     }
@@ -59,11 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        /*
+/*
+*** GAME CENTER STUFF
         Invalidate Game Center Authentication and save game state, so the game doesn't start until the Authentication Completion Handler is run. This prevents a new user from using the old users game state.
-        */
         self.isGameCenterAuthenticationComplete = false
         self.mainViewController!.enableGameCenter(false)
+*/
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

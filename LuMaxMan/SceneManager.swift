@@ -27,6 +27,7 @@ final class SceneManager {
         case CurrentLevel, NextLevel
         case Level(Int)
         case backToMenu
+        case SelectLevel
     }
     
     // MARK: Properties
@@ -149,10 +150,13 @@ final class SceneManager {
         
         switch sceneIdentifier {
         case .Home:
-            sceneMetadata = sceneConfigurationInfo[1]
+            sceneMetadata = sceneConfigurationInfo[2]
             
         case .Settings:
             sceneMetadata = sceneConfigurationInfo.first!
+            
+        case .SelectLevel:
+            sceneMetadata = sceneConfigurationInfo[1]
             
         case .CurrentLevel:
             guard let currentSceneMetadata = currentSceneMetadata else {
@@ -171,6 +175,7 @@ final class SceneManager {
             
         case .backToMenu:
             sceneMetadata = sceneConfigurationInfo[1]
+            
         }
         
         return sceneMetadata
