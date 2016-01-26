@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var mainViewController : GameViewController?
     
-    internal private(set) var currentPlayerID: String?
+    //internal private(set) var currentPlayerID: String?
     
     // isGameCenterAuthenticationComplete is set after authentication, and authenticateWithCompletionHandler's completionHandler block has been run. It is unset when the application is backgrounded.
-    internal private(set) var isGameCenterAuthenticationComplete: Bool?
+
     //internal private(set) var isGameCenterAuthenticationComplete: Bool?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
