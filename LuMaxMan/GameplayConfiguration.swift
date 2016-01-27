@@ -17,14 +17,14 @@ struct GameplayConfiguration {
     }
     struct LumaxMan {
         /// The movement speed (in points per second).
-        static let movementSpeed: CGFloat = 210.0
+        static let movementSpeed: CGFloat = 250.0
         static let appearDuration: NSTimeInterval = 0.5
         static let hitStateDuration: NSTimeInterval = 0.5
     }
     
     struct Enemy {
         // The static settings for enemies.
-        static let movementSpeedWhenFollowing: CGFloat = 200.0
+        static let movementSpeedWhenFollowing: CGFloat = 230.0
         static let movementSpeedWhenEscaping: CGFloat = 150.0
         // needed?
         static let appearDuration: NSTimeInterval = 0.5
