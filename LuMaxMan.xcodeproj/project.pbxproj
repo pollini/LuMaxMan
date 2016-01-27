@@ -13,6 +13,8 @@
 		847DE5241C57F6F80046DE24 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A64F821C57E8AF009641B0 /* SettingsScene.swift */; };
 		84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84967C901C467E27005D5CFD /* GestureControlInputSource.swift */; };
 		84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84967C961C4693D3005D5CFD /* SettingsScene.sks */; };
+		84CF25151C59194D00960560 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84CF25141C59194D00960560 /* Level2.sks */; };
+		84CF25171C591E8A00960560 /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84CF25161C591E8A00960560 /* Level2.plist */; };
 		9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0591C22EF44008F893C /* AnimationComponent.swift */; };
 		9101C05C1C22EFA5008F893C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05B1C22EFA5008F893C /* Direction.swift */; };
 		9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05D1C22F702008F893C /* IntelligenceComponent.swift */; };
@@ -80,6 +82,8 @@
 		84967C901C467E27005D5CFD /* GestureControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControlInputSource.swift; sourceTree = "<group>"; };
 		84967C961C4693D3005D5CFD /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
 		84A64F821C57E8AF009641B0 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		84CF25141C59194D00960560 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		84CF25161C591E8A00960560 /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
 		9101C0591C22EF44008F893C /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		9101C05B1C22EFA5008F893C /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		9101C05D1C22F702008F893C /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84CF25131C59191D00960560 /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+				84CF25141C59194D00960560 /* Level2.sks */,
+				84CF25161C591E8A00960560 /* Level2.plist */,
+			);
+			name = Level2;
+			sourceTree = "<group>";
+		};
 		9101C05F1C22F711008F893C /* IC States LumaxMan */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +288,7 @@
 		91FFF7971C2078A800B7EC45 /* SKS */ = {
 			isa = PBXGroup;
 			children = (
+				84CF25131C59191D00960560 /* Level2 */,
 				91CA499B1C20AFD900AFA41A /* SceneConfiguration.plist */,
 				91CA49B71C20DD9300AFA41A /* LevelConfiguration.swift */,
 				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
@@ -459,6 +473,7 @@
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
+				84CF25151C59194D00960560 /* Level2.sks in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
 				9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
@@ -468,6 +483,7 @@
 				C02B58E31C4E8DCD0079D144 /* Enemy.xcassets in Resources */,
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
 				C0FC0C921C492B9D008AE09D /* Level1.plist in Resources */,
+				84CF25171C591E8A00960560 /* Level2.plist in Resources */,
 				C0FC0C901C492B56008AE09D /* Level1.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 				844F93ED1C57BE1E00CE97F0 /* SelectLevelScene.sks in Resources */,
