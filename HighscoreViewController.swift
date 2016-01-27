@@ -18,6 +18,7 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
         
         let query = PFQuery(className: "Highscore")
         query.orderByDescending("Score")
+        query.includeKey("User")
         query.findObjectsInBackgroundWithBlock{
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -70,9 +71,15 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
         
         //we know that cell is not empty now so we use ! to force unwrapping
         
-        if let score = highscores[indexPath.row]["Score"] as? Int,
-            let objectId = highscores[indexPath.row].objectId {
-                cell!.textLabel?.text = "\(indexPath.row) : \(objectId) - \(score)"
+        let highscore = highscores[indexPath.row]
+        
+        if let score = highscore.objectForKey("Score") as? Int,
+            let userId = highscore.objectForKey("User")!.objectId {
+                cell!.textLabel?.text = "\(indexPath.row + 1) : \(userId!) - \(score)"
+                
+                if userId == PFUser.currentUser()?.objectId {
+                    cell!.backgroundColor = UIColor.lightGrayColor()
+                }
         }
         
         return cell!
