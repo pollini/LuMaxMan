@@ -33,7 +33,7 @@ class LevelSceneSuccessState: LevelSceneOverlayState {
             "Score": levelScene.lumaxMan.collectedCoins
             ])
         
-        highscore.saveInBackground()
+        highscore.saveEventually()
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {

@@ -16,10 +16,10 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
     // MARK: Properties
     
     /**
-     The native size for this scene. This is the height at which the scene
-     would be rendered if it did not need to be scaled to fit a window or device.
-     Defaults to `zeroSize`; the actual value to use is set in `createCamera()`.
-     */
+    The native size for this scene. This is the height at which the scene
+    would be rendered if it did not need to be scaled to fit a window or device.
+    Defaults to `zeroSize`; the actual value to use is set in `createCamera()`.
+    */
     var nativeSize = CGSize.zero
     
     /**
@@ -169,7 +169,20 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
         case .SelectLevel:
             sceneManager.transitionToSceneWithSceneIdentifier(.SelectLevel)
             
+        case .Highscore:
+            guard let rootViewController = self.view?.window?.rootViewController,
+                let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("highscoreNC") as? UINavigationController
+                else {
+                    return
+            }
             
+            guard let highscoreController = controller.visibleViewController as? HighscoreViewController else { return }
+            
+            highscoreController.setCallerViewController(rootViewController)
+            
+            rootViewController.modalTransitionStyle = .CoverVertical
+            rootViewController.modalPresentationStyle = .CurrentContext
+            rootViewController.presentViewController(controller, animated: true, completion: nil)
             
         default:
             fatalError("Unsupported ButtonNode type in Scene.")

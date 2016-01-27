@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //internal private(set) var isGameCenterAuthenticationComplete: Bool?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
         
         Parse.setApplicationId("R1H821eP5YLykdATxmoYs2il057t0SfHUKmPdhgh", clientKey:"TIINXx7YXHmFW8usPXeNm4cnSflSU8T4Sj45a07q");
         
