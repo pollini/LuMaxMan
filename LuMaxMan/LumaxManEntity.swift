@@ -15,7 +15,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     static var animations: [AnimationState: [Direction: Animation]]?
     
     /// The size to use for the `PlayerBot`s animation textures.
-    static var textureSize = CGSize(width: 120.0, height: 120.0)
+    static var textureSize = CGSize(width: 80.0, height: 80.0)
     
     /// Textures used by `PlayerBotAppearState` to show a `PlayerBot` appearing in the scene.
     static var appearTextures: [Direction: SKTexture]?
@@ -60,7 +60,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         addComponent(inputComponent)
         
         
-        let physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 58.0, height: 120.0))
+        let physicsBody = SKPhysicsBody(circleOfRadius: LumaxManEntity.textureSize.width/2)
         physicsBody.allowsRotation = false
         let physicsComponent = PhysicsComponent(physicsBody: physicsBody, colliderType: .LumaxMan)
         
@@ -127,14 +127,17 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
                 */
                 appearTextures = [:]
                 for orientation in Direction.allDirections {
-                    appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManIdle")
+                    //appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManIdle")
+                    appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[1], withImageIdentifier: "LumaxManMoving")
                 }
                 
                 // Set up all of the `PlayerBot`s animations.
                 animations = [:]
-                animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManIdle", forAnimationState: .Idle)
+                //animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManIdle", forAnimationState: .Idle)
+                animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Idle)
                 animations![.Moving] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Moving)
-                animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[2], withImageIdentifier: "LumaxManHit", forAnimationState: .Hit, repeatTexturesForever: false)
+                //animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[2], withImageIdentifier: "LumaxManHit", forAnimationState: .Hit, repeatTexturesForever: false)
+                animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Hit, repeatTexturesForever: false)
                 
                 LumaxManEntity.texturesLoaded = true
             }

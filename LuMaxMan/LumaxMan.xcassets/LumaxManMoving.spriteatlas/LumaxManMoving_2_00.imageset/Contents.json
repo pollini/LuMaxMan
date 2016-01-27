@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "LumaxMan-left.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PlayerBotIdle_8_00_100.png",
+      "filename" : "LumaxMan-left-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "LumaxMan-left-2.png",
       "scale" : "3x"
     }
   ],
