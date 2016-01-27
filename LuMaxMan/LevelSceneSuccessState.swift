@@ -8,6 +8,7 @@ A state used by `LevelScene` to indicate that the player completed a level succe
 
 import SpriteKit
 import GameplayKit
+import Parse
 
 class LevelSceneSuccessState: LevelSceneOverlayState {
     // MARK: Properties
@@ -24,6 +25,15 @@ class LevelSceneSuccessState: LevelSceneOverlayState {
         if let inputComponent = levelScene.lumaxMan.componentForClass(InputComponent.self) {
             inputComponent.isEnabled = false
         }
+        
+        guard let user = PFUser.currentUser() else { return }
+        
+        let highscore = PFObject(className: "Highscore", dictionary: [
+            "User": user,
+            "Score": levelScene.lumaxMan.collectedCoins
+            ])
+        
+        highscore.saveInBackground()
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {
