@@ -23,6 +23,7 @@
 		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
 		9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Objects.xcassets */; };
 		9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */; };
+		915184EC1C590F9C009666DA /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915184EB1C590F9C009666DA /* HighscoreViewController.swift */; };
 		916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A9D341C493B5C00C486B5 /* ObjectEntity.swift */; };
 		91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */; };
 		91AE87B01C4E7B1000A5E263 /* KeyBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */; };
@@ -90,6 +91,7 @@
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
+		915184EB1C590F9C009666DA /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehavior.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		C040782A1C18760900D3EEE4 = {
 			isa = PBXGroup;
 			children = (
+				915184EB1C590F9C009666DA /* HighscoreViewController.swift */,
 				C04078351C18760900D3EEE4 /* LuMaxMan */,
 				C0FC0C801C4678CC008AE09D /* Frameworks */,
 				C04078341C18760900D3EEE4 /* Products */,
@@ -535,6 +538,7 @@
 				91CA49B81C20DD9300AFA41A /* LevelConfiguration.swift in Sources */,
 				916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */,
 				91CA49B41C20D82200AFA41A /* LevelSceneFailState.swift in Sources */,
+				915184EC1C590F9C009666DA /* HighscoreViewController.swift in Sources */,
 				C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */,
 				C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */,
 				91CA49B21C20D80A00AFA41A /* LevelScenePauseState.swift in Sources */,
