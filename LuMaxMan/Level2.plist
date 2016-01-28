@@ -7,7 +7,7 @@
 	<key>timeLimit</key>
 	<integer>60</integer>
 	<key>numberOfKeysToComplete</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>enemyConfigurations</key>
 	<array>
 		<dict>
