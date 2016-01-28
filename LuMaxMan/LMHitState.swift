@@ -30,12 +30,12 @@ class LMHitState: GKState {
     }
     
     // MARK: GKState Life Cycle
-    
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
         
         // Reset the elapsed "hit" duration on entering this state.
         elapsedTime = 0.0
+        entity.remainingLives--
         
         // Request the "hit" animation for this `PlayerBot`.
         animationComponent.requestedAnimationState = .Hit

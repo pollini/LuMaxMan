@@ -13,21 +13,21 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     
     // MARK: Nested types
     
-/*
+    /*
     enum EnemyBehiavour {
-        // Follow/hunt LumaxMan.
-        case FollowAgent(GKAgent2D)
-        
-        // Escape from LumaxMan.
-        case EscapeAgent(GKAgent2D)
+    // Follow/hunt LumaxMan.
+    case FollowAgent(GKAgent2D)
+    
+    // Escape from LumaxMan.
+    case EscapeAgent(GKAgent2D)
     }
     
     // The `GKAgent` associated with this enemy.
     var agent: EnemyAgent {
     guard let agent = componentForClass(EnemyAgent.self) else { fatalError("An enemy entity must have a GKAgent2D component.") }
-        return agent
+    return agent
     }
-*/
+    */
     
     // MARK: Properties
     
@@ -115,7 +115,9 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     // MARK: ContactNotifiableType
     
     func contactWithEntityDidBegin(entity: GKEntity?) {
+        guard let lumaxMan = entity as? LumaxManEntity else { return }
         
+        lumaxMan.intelligenceComponent?.stateMachine.enterState(LMHitState)
     }
     
     func contactWithEntityDidEnd(entity: GKEntity?) {
@@ -153,5 +155,5 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
             EnemyEntity.texturesLoaded = true
         }
     }
-
+    
 }

@@ -33,10 +33,21 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         return componentForClass(InputComponent.self)
     }
     
+    /// The `IntelligenceComponent` associated with this `LumaxMan`.
+    var intelligenceComponent: IntelligenceComponent? {
+        return componentForClass(IntelligenceComponent.self)
+    }
+    
     var missingKeys : Int = 0
     var collectedCoins : Int = 0 {
         didSet {
             currentLevelScene?.collectedCoins(collectedCoins)
+        }
+    }
+    
+    var remainingLives : Int = 3 {
+        didSet {
+            currentLevelScene?.remainingLives(remainingLives)
         }
     }
     

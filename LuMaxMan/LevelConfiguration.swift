@@ -48,6 +48,12 @@ struct LevelConfiguration {
     var numberOfKeys: Int {
         return configurationInfo["numberOfKeysToComplete"] as! Int
     }
+    
+    //The number of keys to complete the level
+    var remainingLives: Int {
+        return configurationInfo["lives"] as! Int
+    }
+    
     // MARK: Initialization
     
     init?(fileName: String) {

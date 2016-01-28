@@ -24,8 +24,6 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
                 if let objects = objects {
                     self.highscores = objects
                     self.tableView.reloadData()
