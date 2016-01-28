@@ -184,6 +184,12 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
             rootViewController.modalPresentationStyle = .CurrentContext
             rootViewController.presentViewController(controller, animated: true, completion: nil)
             
+        case .SelectLevel1:
+            sceneManager.transitionToSceneWithSceneIdentifier(.Level(1))
+            
+        case .SelectLevel2:
+            sceneManager.transitionToSceneWithSceneIdentifier(.Level(2))
+            
         default:
             fatalError("Unsupported ButtonNode type in Scene.")
         }

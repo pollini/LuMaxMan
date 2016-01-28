@@ -10,7 +10,5 @@ import SpriteKit
 
 class SelectLevelScene: BaseScene {
     
-    let player = SKSpriteNode(imageNamed:"level_B")
-    
-    
+        
 }
