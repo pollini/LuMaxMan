@@ -122,9 +122,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addLumaxMan()
         
-        addKeys()
-        
-        addCoins()
+        addObjects()
         
         // Gravity will be in the negative z direction; there is no x or y component.
         physicsWorld.gravity = CGVector.zero
@@ -181,29 +179,22 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
     }
     
-    func addKeys() {
-        for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
-            let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
-            
-            // Set initial position.
-            let node = keyEntity.renderComponent.node
-            node.position = keyEmptyNode.position
-            
-            // Add the `TaskBot` to the scene and the component systems.
-            addEntity(keyEntity)
-        }
-    }
-    
-    func addCoins() {
-        for coinEmptyNode in self["\(UniLayer.Characters.nodePath)/coins/*"] {
-            let coinEntity = ObjectEntity.createObjectEntityWithType(.Coin)
-            
-            // Set initial position.
-            let node = coinEntity.renderComponent.node
-            node.position = coinEmptyNode.position
-            
-            // Add the `TaskBot` to the scene and the component systems.
-            addEntity(coinEntity)
+    func addObjects() {
+        //Iterate through all possible Object types
+        for objectType in ObjectType.allObjects {
+            //Iterate through all defined nodes in the levelFile
+            for objectEmptyNode in self["\(UniLayer.Characters.nodePath)/\(objectType.objectPath())/*"] {
+                //Create Node with appropriate texture, position and behavior
+                
+                let objectEntity = ObjectEntity.createObjectEntityWithType(objectType)
+                
+                // Set position
+                let node = objectEntity.renderComponent.node
+                node.position = objectEmptyNode.position
+                
+                // Add the object to the scene and the component systems.
+                addEntity(objectEntity)
+            }
         }
     }
     

@@ -22,6 +22,7 @@
 		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
+		913D27751C5AC85D00338100 /* HeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D27741C5AC85C00338100 /* HeartBehavior.swift */; };
 		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
 		9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Objects.xcassets */; };
 		9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */; };
@@ -92,6 +93,7 @@
 		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
+		913D27741C5AC85C00338100 /* HeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartBehavior.swift; sourceTree = "<group>"; };
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */,
 				9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */,
+				913D27741C5AC85C00338100 /* HeartBehavior.swift */,
 			);
 			name = ObjectBehavior;
 			sourceTree = "<group>";
@@ -290,7 +293,6 @@
 		91FFF7971C2078A800B7EC45 /* SKS */ = {
 			isa = PBXGroup;
 			children = (
-				84CF25131C59191D00960560 /* Level2 */,
 				91CA499B1C20AFD900AFA41A /* SceneConfiguration.plist */,
 				91CA49B71C20DD9300AFA41A /* LevelConfiguration.swift */,
 				C040784C1C1884F100D3EEE4 /* MenuScene.sks */,
@@ -298,6 +300,7 @@
 				844F93EC1C57BE1E00CE97F0 /* SelectLevelScene.sks */,
 				91CA49BB1C20EC5100AFA41A /* States */,
 				91FFF79A1C20792900B7EC45 /* Level1 */,
+				84CF25131C59191D00960560 /* Level2 */,
 			);
 			name = SKS;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				91CA49A01C20B1A600AFA41A /* MenuScene.swift in Sources */,
 				9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */,
 				91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */,
+				913D27751C5AC85D00338100 /* HeartBehavior.swift in Sources */,
 				91CA49A61C20CDB600AFA41A /* MovementComponent.swift in Sources */,
 				9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */,
 				91CA499E1C20B05F00AFA41A /* GameplayConfiguration.swift in Sources */,
