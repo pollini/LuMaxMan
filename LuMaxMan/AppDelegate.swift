@@ -14,13 +14,6 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var mainViewController : GameViewController?
-    
-    //internal private(set) var currentPlayerID: String?
-    
-    // isGameCenterAuthenticationComplete is set after authentication, and authenticateWithCompletionHandler's completionHandler block has been run. It is unset when the application is backgrounded.
-    
-    //internal private(set) var isGameCenterAuthenticationComplete: Bool?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -47,13 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
-        /*
-        *** GAME CENTER STUFF
-        Invalidate Game Center Authentication and save game state, so the game doesn't start until the Authentication Completion Handler is run. This prevents a new user from using the old users game state.
-        self.isGameCenterAuthenticationComplete = false
-        self.mainViewController!.enableGameCenter(false)
-        */
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -66,24 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    
-    // Preferred method for testing for GameKit/Game Center.
-    func isGameCenterAPIAvailable() -> Bool {
-        
-        // Check for presence of GKLocalPlayer API.
-        if let _ : AnyClass = (NSClassFromString("GKLocalPlayer"))! {
-            let reqSysVer : String = "4.1"
-            let currSysVer : String = UIDevice.currentDevice().systemVersion
-            
-            // The device must be running running iOS 4.1 or later.
-            let osVersionSupported : Bool = currSysVer.compare(reqSysVer, options:NSStringCompareOptions.NumericSearch, range: nil, locale: nil) != NSComparisonResult.OrderedAscending
-            
-            return osVersionSupported
-        }
-        
-        return false;
     }
 }
 

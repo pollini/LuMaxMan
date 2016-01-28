@@ -97,7 +97,7 @@
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
-		915184EB1C590F9C009666DA /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		915184EB1C590F9C009666DA /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighscoreViewController.swift; path = ../HighscoreViewController.swift; sourceTree = "<group>"; };
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehavior.swift; sourceTree = "<group>"; };
@@ -183,6 +183,16 @@
 			name = "IC States LumaxMan";
 			sourceTree = "<group>";
 		};
+		913D27781C5ADCA900338100 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
+				91B9C18F1C4695540015FE72 /* ColliderType.swift */,
+				91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */,
+			);
+			name = Physics;
+			sourceTree = "<group>";
+		};
 		91AE87B11C4E7CDF00A5E263 /* ObjectBehavior */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 			children = (
 				C04078361C18760900D3EEE4 /* AppDelegate.swift */,
 				C040783C1C18760900D3EEE4 /* GameViewController.swift */,
+				915184EB1C590F9C009666DA /* HighscoreViewController.swift */,
 				C040783E1C18760900D3EEE4 /* Main.storyboard */,
 				C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */,
 				C04078461C18760900D3EEE4 /* Info.plist */,
@@ -239,6 +250,7 @@
 		91FFF78B1C20718B00B7EC45 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9101C05B1C22EFA5008F893C /* Direction.swift */,
 				91FFF78E1C20747700B7EC45 /* InputComponent.swift */,
 				91CA49A31C20CD0800AFA41A /* RenderComponent.swift */,
 				91CA49A51C20CDB600AFA41A /* MovementComponent.swift */,
@@ -337,13 +349,6 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		C001CAD61C22FDA00075843C /* GameKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = GameKit;
-			sourceTree = "<group>";
-		};
 		C02B58EA1C4EA2B00079D144 /* IC States Enemy */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,7 +361,6 @@
 		C040782A1C18760900D3EEE4 = {
 			isa = PBXGroup;
 			children = (
-				915184EB1C590F9C009666DA /* HighscoreViewController.swift */,
 				C04078351C18760900D3EEE4 /* LuMaxMan */,
 				C0FC0C801C4678CC008AE09D /* Frameworks */,
 				C04078341C18760900D3EEE4 /* Products */,
@@ -381,13 +385,9 @@
 				91FFF7901C20756900B7EC45 /* PlayerControl */,
 				91FFF7961C2078A300B7EC45 /* Scenes */,
 				91FFF7931C20765400B7EC45 /* Nodes */,
-				C001CAD61C22FDA00075843C /* GameKit */,
 				91CA49911C20A26200AFA41A /* iOS */,
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
-				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
-				9101C05B1C22EFA5008F893C /* Direction.swift */,
-				91B9C18F1C4695540015FE72 /* ColliderType.swift */,
-				91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */,
+				913D27781C5ADCA900338100 /* Physics */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
