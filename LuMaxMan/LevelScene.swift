@@ -124,8 +124,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addLumaxMan()
         
-        addKeys()
-        
         addObjects()
         
         addEnemies()
@@ -194,28 +192,23 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
                 
                 let objectEntity = ObjectEntity.createObjectEntityWithType(objectType)
                 
+                
+                if(objectType == .Key) {
+                    levelKeys.addObject(objectEntity)
+                }
+                
                 // Set position
                 let node = objectEntity.renderComponent.node
                 node.position = objectEmptyNode.position
                 
+                
+                if(objectType == .Key) {
+                    objectEntity.updateAgentPositionToMatchNodePosition()
+                }
+                
                 // Add the object to the scene and the component systems.
                 addEntity(objectEntity)
             }
-        }
-    }
-    
-    func addKeys() {
-        for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
-            let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
-            levelKeys.addObject(keyEntity)
-            
-            // Set initial position.
-            let node = keyEntity.renderComponent.node
-            node.position = keyEmptyNode.position
-            keyEntity.updateAgentPositionToMatchNodePosition()
-            
-            // Add the key to the scene and the component systems.
-            addEntity(keyEntity)
         }
     }
     
@@ -354,20 +347,20 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         /*
         // Sort the entities in the scene by ascending y-position.
         let ySortedEntities = entities.sort {
-            let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
-            let nodeB = $0.1.componentForClass(RenderComponent.self)!.node
-            
-            return nodeA.position.y > nodeB.position.y
+        let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
+        let nodeB = $0.1.componentForClass(RenderComponent.self)!.node
+        
+        return nodeA.position.y > nodeB.position.y
         }
         
         // Set the `zPosition` of each entity so that entities with a higher y-position are rendered above those with a lower y-position.
         var characterZPosition = UniLayer.zSpacePerCharacter
         for entity in ySortedEntities {
-            let node = entity.componentForClass(RenderComponent.self)!.node
-            node.zPosition = characterZPosition
-            
-            // Use a large enough z-position increment to leave space for emitter effects.
-            characterZPosition += UniLayer.zSpacePerCharacter
+        let node = entity.componentForClass(RenderComponent.self)!.node
+        node.zPosition = characterZPosition
+        
+        // Use a large enough z-position increment to leave space for emitter effects.
+        characterZPosition += UniLayer.zSpacePerCharacter
         }
         */
     }
@@ -468,7 +461,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
         
         //for enemy in enemies {
-            //enemy.agent.behavior = enemy.behaviorForCurrentState
+        //enemy.agent.behavior = enemy.behaviorForCurrentState
         //}
     }
     

@@ -39,15 +39,15 @@ class LMHitState: GKState {
         //Remove one life
         entity.remainingLives--
         
+        //Respawn player at original point
+        if let spawnPosition = entity.currentLevelScene?.spawnPosition {
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.entity.movementComponent?.moveToPoint(spawnPosition)
+            }
+        }
+        
         // Request the "hit" animation
         animationComponent.requestedAnimationState = .Hit
-    }
-    
-    override func willExitWithNextState(nextState: GKState) {
-        //Respawn player at original point
-        if let spawnPosition = entity.currentLevelScene?.spawnPosition where nextState is LMMovingState {
-            entity.movementComponent?.moveToPoint(spawnPosition)
-        }
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {

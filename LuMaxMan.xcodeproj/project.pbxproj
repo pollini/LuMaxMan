@@ -23,6 +23,7 @@
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
 		913D27751C5AC85D00338100 /* HeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D27741C5AC85C00338100 /* HeartBehavior.swift */; };
+		913D277A1C5B6AF100338100 /* AdditionalTimeBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D27791C5B6AF000338100 /* AdditionalTimeBehavior.swift */; };
 		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
 		9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Objects.xcassets */; };
 		9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */; };
@@ -95,6 +96,7 @@
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
 		913D27741C5AC85C00338100 /* HeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartBehavior.swift; sourceTree = "<group>"; };
+		913D27791C5B6AF000338100 /* AdditionalTimeBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalTimeBehavior.swift; sourceTree = "<group>"; };
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */,
 				9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */,
 				913D27741C5AC85C00338100 /* HeartBehavior.swift */,
+				913D27791C5B6AF000338100 /* AdditionalTimeBehavior.swift */,
 			);
 			name = ObjectBehavior;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				C040783D1C18760900D3EEE4 /* GameViewController.swift in Sources */,
 				91AE87B01C4E7B1000A5E263 /* KeyBehavior.swift in Sources */,
 				9101C0611C22F73A008F893C /* LMAppearState.swift in Sources */,
+				913D277A1C5B6AF100338100 /* AdditionalTimeBehavior.swift in Sources */,
 				9101C0631C22F74E008F893C /* LMHitState.swift in Sources */,
 				91FFF79E1C207C1600B7EC45 /* LevelScene+Pause.swift in Sources */,
 				C02B58EE1C4EA30D0079D144 /* EnemyFollowingState.swift in Sources */,

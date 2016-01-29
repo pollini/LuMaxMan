@@ -99,9 +99,7 @@ class MovementComponent: GKComponent {
     }
     
     func moveToPoint(position: CGPoint) {
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-            self.renderComponent.node.position = position
-        }
+        self.renderComponent.node.position = position
     }
     
     // MARK: Convenience Methods
