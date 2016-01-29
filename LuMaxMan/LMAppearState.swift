@@ -67,7 +67,7 @@ class LMAppearState: GKState {
         
         // Retrieve and use an initial texture for the LumaxMan, taken from the appropriate idle animation.
         guard let appearTextures = LumaxManEntity.appearTextures else {
-            fatalError("Attempt to access PlayerBot.appearTextures before they have been loaded.")
+            fatalError("Attempt to access LumaxMan.appearTextures before they have been loaded.")
         }
         let texture = appearTextures[orientationComponent.direction]!
         node.texture = texture

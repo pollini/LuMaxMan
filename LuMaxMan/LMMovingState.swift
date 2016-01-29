@@ -16,19 +16,19 @@ class LMMovingState: GKState {
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A PlayerBotPlayerControlledState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A LMMovingState's entity must have an AnimationComponent.") }
         return animationComponent
     }
     
     /// The `MovementComponent` associated with the `entity`.
     var movementComponent: MovementComponent {
-        guard let movementComponent = entity.componentForClass(MovementComponent.self) else { fatalError("A PlayerBotPlayerControlledState's entity must have a MovementComponent.") }
+        guard let movementComponent = entity.componentForClass(MovementComponent.self) else { fatalError("A LMMovingState's entity must have a MovementComponent.") }
         return movementComponent
     }
     
     /// The `InputComponent` associated with the `entity`.
     var inputComponent: InputComponent {
-        guard let inputComponent = entity.componentForClass(InputComponent.self) else { fatalError("A PlayerBotPlayerControlledState's entity must have an InputComponent.") }
+        guard let inputComponent = entity.componentForClass(InputComponent.self) else { fatalError("A LMMovingState's entity must have an InputComponent.") }
         return inputComponent
     }
     

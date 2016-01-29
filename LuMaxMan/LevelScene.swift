@@ -404,7 +404,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Constrain the camera to stay a constant distance of 0 points from the player node.
         let zeroRange = SKRange(constantValue: 0.0)
         let playerNode = lumaxMan.renderComponent.node
-        let playerBotLocationConstraint = SKConstraint.distance(zeroRange, toNode: playerNode)
+        let playerLocationConstraint = SKConstraint.distance(zeroRange, toNode: playerNode)
         
         /*
         Also constrain the camera to avoid it moving to the very edges of the scene.
@@ -453,7 +453,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         The result is that the camera will follow the player, unless this would mean
         moving too close to the edge of the level.
         */
-        camera.constraints = [playerBotLocationConstraint/*, levelEdgeConstraint*/]
+        camera.constraints = [playerLocationConstraint/*, levelEdgeConstraint*/]
     }
     
     private func addLumaxMan() {

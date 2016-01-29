@@ -77,12 +77,6 @@ class ButtonNode: SKSpriteNode {
         }
     }
     
-    /**
-     Indicates whether the button is currently selected (on or off).
-     Most buttons do not support or require selection. In DemoBots,
-     selection is used by the screen recorder buttons to indicate whether
-     screen recording is turned on or off.
-     */
     var isSelected = false {
         didSet {
             // Change the texture based on the current selection state.

@@ -145,8 +145,7 @@ class EnemyBehavior: GKBehavior {
         Return only the polygon obstacles which contain the specified point.
         
         Note: This creates a bounding box around the polygon obstacle to check
-        for intersection. This is appropriate for DemoBots, but in your game a
-        more specific check may be necessary.
+        for intersection, but a more specific check may be necessary.
         */
         return scene.polygonObstacles.filter { obstacle in
             // Retrieve all vertices for the polygon obstacle.

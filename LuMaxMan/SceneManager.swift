@@ -123,13 +123,7 @@ final class SceneManager {
             return [homeScene]
         }
         
-        /*
-        In DemoBots, the user can always go home, replay the level, or progress linearly
-        to the next level.
-        
-        This could be expanded to include the previous level, the furthest
-        level that has been unlocked, etc. depending on how the game progresses.
-        */
+        //the user can always go home or replay the level
         return [homeScene, nextSceneMetadata, currentSceneMetadata]
     }
     

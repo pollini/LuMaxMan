@@ -10,19 +10,6 @@
 import SpriteKit
 import GameplayKit
 
-/**
- In DemoBots you have the ability to request two different kinds of movement.
- - `isRelativeToOrientation = true`: moves the node based on the node's existing rotation
- and is thus "relative" to the node's orientation.
- - `isRelativeToOrientation = false`: moves the node in exactly the manner specified
- by the vector and is not adjusted for the node's orientation.
- 
- For example:
- If the node is facing to the right of the level, supplying `isRelativeToOrientation = true`
- and `float2(x: 1, y: 0)` will move the node forward - towards the right of the screen.
- Passing the same vector but `isRelativeToOrientation = false` will move the node to the top
- of the screen regardless of the node's orientation.
- */
 struct MovementKind {
     // MARK: Properties
     

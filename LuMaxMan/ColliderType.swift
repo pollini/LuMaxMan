@@ -36,7 +36,6 @@ struct ColliderType: OptionSetType, Hashable {
     
     static var Obstacle: ColliderType  { return self.init(rawValue: 1 << 0) }
     static var LumaxMan: ColliderType { return self.init(rawValue: 1 << 1) }
-    //    static var TaskBot: ColliderType   { return self.init(rawValue: 1 << 2) }
     static var Enemy: ColliderType { return self.init(rawValue: 1 << 2) }
     static var Object: ColliderType { return self.init(rawValue: 1 << 3) }
     
