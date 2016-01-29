@@ -27,7 +27,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     
     /// The RenderComponent associated with LumaxMan.
     var renderComponent: RenderComponent {
-        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A LumaxMan must have an RenderComponent.") }
+        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A LumaxMan must have a RenderComponent.") }
         return renderComponent
     }
     
@@ -124,12 +124,6 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     
     static func loadResources() {
         if !LumaxManEntity.texturesLoaded {
-            let atlasNames = [
-                "LumaxManIdle",
-                "LumaxManMoving",
-                "LumaxManHit"
-            ]
-            
             /*
             Preload all of the texture atlases for LumaxMan. This improves
             the overall loading speed of the animation cycles for this character.
@@ -148,7 +142,6 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
                 */
                 appearTextures = [:]
                 for orientation in Direction.allDirections {
-                    //appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManIdle")
                     appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManMoving")
                 }
                 

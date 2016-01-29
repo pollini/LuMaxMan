@@ -19,7 +19,7 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     
     /// The `RenderComponent` associated with this `LumaxMan`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("An Object must have an RenderComponent.") }
+        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("An Object must have a RenderComponent.") }
         return renderComponent
     }
     
@@ -106,6 +106,7 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     func updateAgentPositionToMatchNodePosition() {
         let renderComponent = self.renderComponent
         agent.position = float2(renderComponent.node.position)
+        print("\(self), \(agent.position)")
     }
 }
 

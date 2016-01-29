@@ -24,7 +24,7 @@ struct GameplayConfiguration {
     
     struct Enemy {
         // The static settings for enemies.
-        static let movementSpeedWhenFollowing: Float = 230.0
+        static let movementSpeedWhenFollowing: Float = 220.0
         static let movementSpeedWhenEscaping: Float = 150.0
         // needed?
         static let appearDuration: NSTimeInterval = 0.5
