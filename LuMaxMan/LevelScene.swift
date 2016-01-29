@@ -243,6 +243,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     private func scaleTimerNode() {
         // Update the font size of the timer node based on the height of the scene.
         timerNode.fontSize = size.height * 0.05
+        timerNode.fontColor = UIColor.blackColor()
         
         // Make sure the timer node is positioned at the top of the scene.
         timerNode.position.y = (size.height / 2.0) - timerNode.frame.size.height
@@ -255,6 +256,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     private func scaleCoinNode() {
         // Update the font size of the timer node based on the height of the scene.
         coinNode.fontSize = size.height * 0.05
+        coinNode.fontColor = UIColor.blackColor()
         
         // Make sure the coin node is positioned at the top of the scene.
         coinNode.position.y = (size.height / 2.0) - coinNode.frame.size.height
@@ -270,6 +272,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     private func scaleLivesNode() {
         // Update the font size of the timer node based on the height of the scene.
         livesNode.fontSize = size.height * 0.05
+        livesNode.fontColor = UIColor.blackColor()
         
         // Make sure the lives node is positioned at the top of the scene.
         livesNode.position.y = (size.height / 2.0) - livesNode.frame.size.height
