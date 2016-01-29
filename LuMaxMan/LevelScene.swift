@@ -506,9 +506,9 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             addEntity(enemy)
         }
         
-        for enemy in enemies {
-            enemy.agent.behavior = enemy.behaviorForCurrentState
-        }
+        //for enemy in enemies {
+            //enemy.agent.behavior = enemy.behaviorForCurrentState
+        //}
     }
     
     func addEntity(entity: GKEntity) {

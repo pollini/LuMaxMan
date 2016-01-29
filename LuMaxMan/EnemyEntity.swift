@@ -75,7 +75,8 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
         let agentBehavior: GKBehavior
         
         if isFollowing {
-            agentBehavior = EnemyBehavior.behaviorForAgent(agent, followingAgent: (levelScene.levelKeys[levelScene.enemies.indexOf(self)! as Int]).agent as GKAgent2D, avoidingAgents: levelScene.enemies.map({ $0.agent }), inScene: levelScene)
+            //agentBehavior = EnemyBehavior.behaviorForAgent(agent, followingAgent: (levelScene.levelKeys[levelScene.enemies.indexOf(self)! as Int]).agent as GKAgent2D, avoidingAgents: levelScene.enemies.map({ $0.agent }), inScene: levelScene)
+            agentBehavior = EnemyBehavior.behaviorForAgent(agent, followingAgent: levelScene.lumaxMan.agent, avoidingAgents: levelScene.enemies.map({ $0.agent }), inScene: levelScene)
         
         } else {
             agentBehavior = EnemyBehavior.behaviorForAgent(agent, escapingFromAgent: levelScene.lumaxMan.agent, inScene: levelScene)
@@ -167,7 +168,7 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
         
         updateNodePositionToMatchAgentPosition()
         
-        agent.behavior = behaviorForCurrentState
+        //agent.behavior = behaviorForCurrentState
     }
     
     

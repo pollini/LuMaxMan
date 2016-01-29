@@ -35,7 +35,7 @@ class EnemyBehavior: GKBehavior {
         behavior.avoidObstaclesForScene(scene)
         
         behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: targetAgent.position, pathRadius: 10.0, inScene: scene)
-        print("\(targetAgent.position)")
+        //print("\(targetAgent.position)")
         
         // The goal for following LumaxMan.
         //behavior.setWeight(0.9, forGoal: GKGoal(toSeekAgent: targetAgent))
@@ -44,6 +44,7 @@ class EnemyBehavior: GKBehavior {
         // The goal for avoiding other enemies.
         //behavior.setWeight(1.0, forGoal: GKGoal(toAvoidAgents: enemyAgents, maxPredictionTime: 1.0))
         //behavior.setWeight(1.0, forGoal: GKGoal(toSeparateFromAgents: enemyAgents, maxDistance: 50.0, maxAngle: 0.5))
+        
         
         return behavior
     }
