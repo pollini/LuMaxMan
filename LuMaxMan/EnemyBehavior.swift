@@ -27,21 +27,22 @@ class EnemyBehavior: GKBehavior {
     }
     
     // Behavior for following/hunting LumaxMan, avoiding obstacles and preferably avoid other enemy agents as well
-    static func behaviorForAgent(agent: GKAgent2D, followingAgent lumaxmanAgent: GKAgent2D, avoidingAgents enemyAgents: [EnemyAgent], inScene scene: LevelScene) -> GKBehavior {
+    static func behaviorForAgent(agent: GKAgent2D, followingAgent targetAgent: GKAgent2D, avoidingAgents enemyAgents: [EnemyAgent], inScene scene: LevelScene) -> GKBehavior {
         
         let behavior = EnemyBehavior()
         
         behavior.setSpeed(agent)
         behavior.avoidObstaclesForScene(scene)
         
-        behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: lumaxmanAgent.position, pathRadius: 10.0, inScene: scene)
+        behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: targetAgent.position, pathRadius: 10.0, inScene: scene)
+        print("\(targetAgent.position)")
         
         // The goal for following LumaxMan.
-        //behavior.setWeight(0.9, forGoal: GKGoal(toSeekAgent: lumaxmanAgent))
-        //behavior.setWeight(0.9, forGoal: GKGoal(toInterceptAgent: lumaxmanAgent, maxPredictionTime: 1.0))
+        //behavior.setWeight(0.9, forGoal: GKGoal(toSeekAgent: targetAgent))
+        //behavior.setWeight(0.9, forGoal: GKGoal(toInterceptAgent: targetAgent, maxPredictionTime: 1.0))
         
         // The goal for avoiding other enemies.
-        behavior.setWeight(1.0, forGoal: GKGoal(toAvoidAgents: enemyAgents, maxPredictionTime: 1.0))
+        //behavior.setWeight(1.0, forGoal: GKGoal(toAvoidAgents: enemyAgents, maxPredictionTime: 1.0))
         //behavior.setWeight(1.0, forGoal: GKGoal(toSeparateFromAgents: enemyAgents, maxDistance: 50.0, maxAngle: 0.5))
         
         return behavior

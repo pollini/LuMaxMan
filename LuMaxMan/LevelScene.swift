@@ -128,9 +128,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addObjects()
         
-        //addCoins()
-        //addKeys()
-        
         addEnemies()
         
         // Gravity will be in the negative z direction; there is no x or y component.
@@ -326,7 +323,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // The current time will be used as the last update time in the next execution of the method.
         lastUpdateTimeInterval = currentTime
         
-        
         /*
         Don't evaluate any updates if the `worldNode` is paused.
         Pausing a subsection of the node tree allows the `camera`
@@ -354,6 +350,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             lumaxMan.updateAgentPositionToMatchNodePosition()
         }
         
+        /*
         // Sort the entities in the scene by ascending y-position.
         let ySortedEntities = entities.sort {
             let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
@@ -371,6 +368,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             // Use a large enough z-position increment to leave space for emitter effects.
             characterZPosition += UniLayer.zSpacePerCharacter
         }
+        */
     }
     
     // MARK: Level Construction

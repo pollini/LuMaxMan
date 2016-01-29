@@ -69,7 +69,7 @@ class EnemyFollowingState: GKState {
             if currentTime <= 0.0 {
                 currentTime = updatingTime
                 NSLog("setting behavior, currentTime: \(currentTime)")
-                //entity.agent.behavior = entity.behaviorForCurrentState
+                entity.agent.behavior = entity.behaviorForCurrentState
             }
         }
     }
