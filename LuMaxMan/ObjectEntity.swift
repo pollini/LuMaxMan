@@ -44,6 +44,9 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         case .Heart:
             entity = ObjectEntity(textureAtlasNamed: "HeartEntity", andTextureSize: CGSize(width: 20, height: 20))
             entity.setObjectBehaviour(HeartBehavior())
+        case .AdditionalTime:
+            entity = ObjectEntity(textureAtlasNamed: "AdditionalTimeEntity", andTextureSize: CGSize(width: 20, height: 20))
+            entity.setObjectBehaviour(AdditionalTimeBehavior())
         }
         
         return entity
@@ -111,9 +114,8 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
 }
 
 enum ObjectType {
-    case Key, Coin, Heart
-    //static let allObjects = [Key, Coin, Heart]
-    static let allObjects = [Coin, Heart]
+    case Key, Coin, Heart, AdditionalTime
+    static let allObjects = [Key, Coin, Heart, AdditionalTime]
     
     func objectPath () -> String {
         switch self {
@@ -123,6 +125,8 @@ enum ObjectType {
             return "coins"
         case .Heart:
             return "hearts"
+        case .AdditionalTime:
+            return "additionalTime"
         }
     }
 }

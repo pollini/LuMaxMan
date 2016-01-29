@@ -46,7 +46,9 @@ class LMHitState: GKState {
     override func willExitWithNextState(nextState: GKState) {
         //Respawn player at original point
         if let spawnPosition = entity.currentLevelScene?.spawnPosition where nextState is LMMovingState {
-            entity.movementComponent?.moveToPoint(spawnPosition)
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.entity.movementComponent?.moveToPoint(spawnPosition)
+            }
         }
     }
     
