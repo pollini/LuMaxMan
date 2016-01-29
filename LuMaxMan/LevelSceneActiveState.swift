@@ -62,7 +62,7 @@ class LevelSceneActiveState: GKState {
             // If the goal is met, the player has completed the level.
             stateMachine?.enterState(LevelSceneSuccessState.self)
         }
-        else if timeRemaining <= 0 {
+        else if timeRemaining <= 0 || levelScene.lumaxMan.remainingLives <= 0 {
             // If time is over the player lost.
             stateMachine?.enterState(LevelSceneFailState.self)
         }

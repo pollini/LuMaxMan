@@ -13,6 +13,8 @@
 		847DE5241C57F6F80046DE24 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A64F821C57E8AF009641B0 /* SettingsScene.swift */; };
 		84967C911C467E27005D5CFD /* GestureControlInputSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84967C901C467E27005D5CFD /* GestureControlInputSource.swift */; };
 		84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84967C961C4693D3005D5CFD /* SettingsScene.sks */; };
+		84CF25151C59194D00960560 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 84CF25141C59194D00960560 /* Level2.sks */; };
+		84CF25171C591E8A00960560 /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84CF25161C591E8A00960560 /* Level2.plist */; };
 		9101C05A1C22EF44008F893C /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0591C22EF44008F893C /* AnimationComponent.swift */; };
 		9101C05C1C22EFA5008F893C /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05B1C22EFA5008F893C /* Direction.swift */; };
 		9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C05D1C22F702008F893C /* IntelligenceComponent.swift */; };
@@ -20,6 +22,7 @@
 		9101C0631C22F74E008F893C /* LMHitState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0621C22F74E008F893C /* LMHitState.swift */; };
 		9101C0651C22F758008F893C /* LMMovingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101C0641C22F758008F893C /* LMMovingState.swift */; };
 		9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9101C0661C22FBDE008F893C /* LumaxMan.xcassets */; };
+		913D27751C5AC85D00338100 /* HeartBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D27741C5AC85C00338100 /* HeartBehavior.swift */; };
 		9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */; };
 		9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9142B5C91C57C1A200F1B7DC /* Objects.xcassets */; };
 		9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */; };
@@ -82,6 +85,8 @@
 		84967C901C467E27005D5CFD /* GestureControlInputSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControlInputSource.swift; sourceTree = "<group>"; };
 		84967C961C4693D3005D5CFD /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
 		84A64F821C57E8AF009641B0 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		84CF25141C59194D00960560 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		84CF25161C591E8A00960560 /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
 		9101C0591C22EF44008F893C /* AnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		9101C05B1C22EFA5008F893C /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		9101C05D1C22F702008F893C /* IntelligenceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntelligenceComponent.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		9101C0621C22F74E008F893C /* LMHitState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMHitState.swift; sourceTree = "<group>"; };
 		9101C0641C22F758008F893C /* LMMovingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMMovingState.swift; sourceTree = "<group>"; };
 		9101C0661C22FBDE008F893C /* LumaxMan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LumaxMan.xcassets; sourceTree = "<group>"; };
+		913D27741C5AC85C00338100 /* HeartBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartBehavior.swift; sourceTree = "<group>"; };
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
@@ -160,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84CF25131C59191D00960560 /* Level2 */ = {
+			isa = PBXGroup;
+			children = (
+				84CF25141C59194D00960560 /* Level2.sks */,
+				84CF25161C591E8A00960560 /* Level2.plist */,
+			);
+			name = Level2;
+			sourceTree = "<group>";
+		};
 		9101C05F1C22F711008F893C /* IC States LumaxMan */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,11 +185,22 @@
 			name = "IC States LumaxMan";
 			sourceTree = "<group>";
 		};
+		913D27781C5ADCA900338100 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
+				91B9C18F1C4695540015FE72 /* ColliderType.swift */,
+				91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */,
+			);
+			name = Physics;
+			sourceTree = "<group>";
+		};
 		91AE87B11C4E7CDF00A5E263 /* ObjectBehavior */ = {
 			isa = PBXGroup;
 			children = (
 				91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */,
 				9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */,
+				913D27741C5AC85C00338100 /* HeartBehavior.swift */,
 			);
 			name = ObjectBehavior;
 			sourceTree = "<group>";
@@ -227,6 +253,7 @@
 		91FFF78B1C20718B00B7EC45 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9101C05B1C22EFA5008F893C /* Direction.swift */,
 				91FFF78E1C20747700B7EC45 /* InputComponent.swift */,
 				91CA49A31C20CD0800AFA41A /* RenderComponent.swift */,
 				91CA49A51C20CDB600AFA41A /* MovementComponent.swift */,
@@ -288,6 +315,7 @@
 				844F93EC1C57BE1E00CE97F0 /* SelectLevelScene.sks */,
 				91CA49BB1C20EC5100AFA41A /* States */,
 				91FFF79A1C20792900B7EC45 /* Level1 */,
+				84CF25131C59191D00960560 /* Level2 */,
 			);
 			name = SKS;
 			sourceTree = "<group>";
@@ -362,10 +390,7 @@
 				91FFF7931C20765400B7EC45 /* Nodes */,
 				91CA49911C20A26200AFA41A /* iOS */,
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
-				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
-				9101C05B1C22EFA5008F893C /* Direction.swift */,
-				91B9C18F1C4695540015FE72 /* ColliderType.swift */,
-				91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */,
+				913D27781C5ADCA900338100 /* Physics */,
 			);
 			path = LuMaxMan;
 			sourceTree = "<group>";
@@ -457,6 +482,7 @@
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
+				84CF25151C59194D00960560 /* Level2.sks in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
 				9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
@@ -466,6 +492,7 @@
 				C02B58E31C4E8DCD0079D144 /* Enemy.xcassets in Resources */,
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
 				C0FC0C921C492B9D008AE09D /* Level1.plist in Resources */,
+				84CF25171C591E8A00960560 /* Level2.plist in Resources */,
 				C0FC0C901C492B56008AE09D /* Level1.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,
 				844F93ED1C57BE1E00CE97F0 /* SelectLevelScene.sks in Resources */,
@@ -545,6 +572,7 @@
 				91CA49A01C20B1A600AFA41A /* MenuScene.swift in Sources */,
 				9142B5CC1C57C9A400F1B7DC /* CoinBehavior.swift in Sources */,
 				91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */,
+				913D27751C5AC85D00338100 /* HeartBehavior.swift in Sources */,
 				91CA49A61C20CDB600AFA41A /* MovementComponent.swift in Sources */,
 				9101C05E1C22F702008F893C /* IntelligenceComponent.swift in Sources */,
 				91CA499E1C20B05F00AFA41A /* GameplayConfiguration.swift in Sources */,

@@ -55,10 +55,4 @@ class GameViewController: UIViewController, SceneManagerDelegate {
         self.logoView.hidden = true
         })*/
     }
-    
-    
-    // Disable Game Center functionality.
-    func enableGameCenter(enableGameCenter: Bool) {
-        // Disable respective UI elements or present a suitable (error) message.
-    }
 }

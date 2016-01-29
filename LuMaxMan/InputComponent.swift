@@ -14,7 +14,14 @@ class InputComponent: GKComponent, ControlInputSourceDelegate {
     // MARK: Properties
     var translation: MovementKind? {
         didSet {
-            applyTranslation(translation)
+            if isEnabled {
+                // Apply the current input state to the movement and beam components.
+                applyTranslation(translation)
+            }
+            else {
+                // Apply a state of no input to the movement and beam components.
+                applyTranslation(nil)
+            }
         }
     }
     

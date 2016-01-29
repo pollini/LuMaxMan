@@ -28,6 +28,12 @@
 	</dict>
 	<dict>
 		<key>sceneType</key>
+		<string>LevelScene</string>
+		<key>fileName</key>
+		<string>Level2</string>
+	</dict>
+	<dict>
+		<key>sceneType</key>
 		<string>MenuScene</string>
 		<key>fileName</key>
 		<string>MenuScene</string>

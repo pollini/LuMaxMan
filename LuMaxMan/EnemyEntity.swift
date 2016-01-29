@@ -147,7 +147,9 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     // MARK: ContactNotifiableType
     
     func contactWithEntityDidBegin(entity: GKEntity?) {
+        guard let lumaxMan = entity as? LumaxManEntity else { return }
         
+        lumaxMan.intelligenceComponent?.stateMachine.enterState(LMHitState)
     }
     
     func contactWithEntityDidEnd(entity: GKEntity?) {
@@ -209,5 +211,5 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
             EnemyEntity.texturesLoaded = true
         }
     }
-
+    
 }

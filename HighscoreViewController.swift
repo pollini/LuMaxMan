@@ -24,8 +24,6 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
                 if let objects = objects {
                     self.highscores = objects
                     self.tableView.reloadData()
@@ -62,6 +60,7 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         //variable type is inferred
         var cell = tableView.dequeueReusableCellWithIdentifier("identifier")
         
@@ -81,7 +80,9 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
                     cell!.backgroundColor = UIColor.lightGrayColor()
                 }
         }
-        
+        cell!.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor(red: 255/255, green: 140/255, blue: 0/255, alpha: 0.8)
+        tableView.separatorColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
         return cell!
     }
 }

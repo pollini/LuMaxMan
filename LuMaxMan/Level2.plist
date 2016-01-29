@@ -5,7 +5,7 @@
 	<key>lives</key>
 	<integer>3</integer>
 	<key>initialLumaxManOrientation</key>
-	<string>Right</string>
+	<string>Bottom</string>
 	<key>timeLimit</key>
 	<integer>60</integer>
 	<key>numberOfKeysToComplete</key>
@@ -13,22 +13,28 @@
 	<key>enemyConfigurations</key>
 	<array>
 		<dict>
-			<key>updatingTime</key>
-			<integer>3</integer>
 			<key>initialWaitingTime</key>
+			<integer>0</integer>
+			<key>spawnLocation</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
-			<key>updatingTime</key>
-			<integer>5</integer>
 			<key>initialWaitingTime</key>
-			<integer>2</integer>
+			<integer>5</integer>
+			<key>spawnLocation</key>
+			<string></string>
 		</dict>
 		<dict>
-			<key>updatingTime</key>
-			<integer>8</integer>
 			<key>initialWaitingTime</key>
-			<integer>5</integer>
+			<integer>10</integer>
+			<key>spawnLocation</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>initialWaitingTime</key>
+			<integer>15</integer>
+			<key>spawnLocation</key>
+			<string></string>
 		</dict>
 	</array>
 </dict>

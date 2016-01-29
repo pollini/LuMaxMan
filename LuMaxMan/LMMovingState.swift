@@ -72,11 +72,5 @@ class LMMovingState: GKState {
         
         // Turn off controller input for the `PlayerBot` when leaving the player-controlled state.
         entity.componentForClass(InputComponent.self)?.isEnabled = false
-        
-        // `movementComponent` is a computed property. Declare a local version so we don't compute it multiple times.
-        let movementComponent = self.movementComponent
-        
-        // Cancel any planned movement or rotation when leaving the player-controlled state.
-        movementComponent.nextTranslation = nil
     }
 }

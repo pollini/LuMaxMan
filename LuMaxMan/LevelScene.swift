@@ -43,6 +43,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     var enemies: [EnemyEntity] = []
     var levelKeys: NSMutableArray = []
     
+    var spawnPosition : CGPoint?
+    
     let pause = SKSpriteNode(imageNamed:"pause");
     
     var leftSwipe: UISwipeGestureRecognizer!
@@ -75,6 +77,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     let timerNode = SKLabelNode(text: "Time")
     let coinNode = SKLabelNode(text: "Coins: 0")
+    let livesNode = SKLabelNode(text: "Lives: 0")
     
     var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
@@ -121,9 +124,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addLumaxMan()
         
-        addKeys()
-        
-        addCoins()
+        addObjects()
         
         addEnemies()
         
@@ -149,6 +150,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         scaleCoinNode()
         camera!.addChild(coinNode)
         
+        // Configure the `coinNode` and add it to the camera node.
+        livesNode.zPosition = UniLayer.AboveCharacters.rawValue
+        livesNode.fontColor = SKColor.whiteColor()
+        scaleLivesNode()
+        remainingLives(lumaxMan.remainingLives)
+        camera!.addChild(livesNode)
         
         leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -258,8 +265,27 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         coinNode.horizontalAlignmentMode = .Left
     }
     
+    /// Scales and positions the timer node to fit the scene's current height.
+    private func scaleLivesNode() {
+        // Update the font size of the timer node based on the height of the scene.
+        livesNode.fontSize = size.height * 0.05
+        
+        // Make sure the timer node is positioned at the top of the scene.
+        livesNode.position.y = (size.height / 2.0) - livesNode.frame.size.height
+        
+        // Add padding between the top of scene and the top of the timer node.
+        livesNode.position.y -= livesNode.fontSize * 2
+        
+        livesNode.position.x = -self.size.width / 2 + 5
+        livesNode.horizontalAlignmentMode = .Left
+    }
+    
     func collectedCoins(coins: Int) {
         coinNode.text = "Coins: \(coins)"
+    }
+    
+    func remainingLives(coins: Int) {
+        livesNode.text = "Lives: \(coins)"
     }
     
     override func didChangeSize(oldSize: CGSize) {
@@ -431,6 +457,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         }
         orientationComponent.direction = levelConfiguration.initialLumaxManOrientation
         lumaxMan.missingKeys = levelConfiguration.numberOfKeys
+        lumaxMan.remainingLives = levelConfiguration.remainingLives
         lumaxMan.currentLevelScene = self
         
         // Set up the LumaxMan position in the scene.
