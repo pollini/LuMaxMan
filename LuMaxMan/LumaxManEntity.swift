@@ -38,6 +38,11 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         return componentForClass(IntelligenceComponent.self)
     }
     
+    /// The `MovementComponent` associated with this `LumaxMan`.
+    var movementComponent: MovementComponent? {
+        return componentForClass(MovementComponent.self)
+    }
+    
     var missingKeys : Int = 0
     var collectedCoins : Int = 0 {
         didSet {

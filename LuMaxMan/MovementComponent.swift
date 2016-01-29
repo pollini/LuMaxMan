@@ -36,8 +36,6 @@ struct MovementKind {
 }
 
 class MovementComponent: GKComponent {
-    // MARK: Properties
-    
     /// Value used to calculate the translational movement of the entity.
     var nextTranslation: MovementKind?
     
@@ -77,13 +75,17 @@ class MovementComponent: GKComponent {
         super.updateWithDeltaTime(deltaTime)
         
         // Declare local versions of computed properties so we don't compute them multiple times.
-        let node = renderComponent.node
+        let node = self.renderComponent.node
+        if entity is LumaxManEntity {
+            print("LMPOS: \(node.position)")
+        }
+        
         let orientationComponent = self.orientationComponent
         
         var animationState: AnimationState?
         
         // Update the node's `position` with new displacement information.
-        if let movement = nextTranslation, newPosition = pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
+        if let movement = self.nextTranslation, newPosition = self.pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
             node.position = newPosition
             
             orientationComponent.zRotation = CGFloat(atan2(movement.displacement.y, movement.displacement.x))
@@ -92,10 +94,8 @@ class MovementComponent: GKComponent {
         }
         else {
             // Clear the translation if a valid point could not be created.
-            nextTranslation = nil
+            self.nextTranslation = nil
         }
-        
-        
         /*
         If an animation is required, and the `AnimationComponent` is running,
         and the requested animation can be overwritten, update the `AnimationComponent`'s
@@ -105,9 +105,15 @@ class MovementComponent: GKComponent {
             // `animationComponent` is a computed property. Declare a local version so we don't compute it multiple times.
             let animationComponent = self.animationComponent
             
-            if animationStateCanBeOverwritten(animationComponent.currentAnimation?.animationState) && animationStateCanBeOverwritten(animationComponent.requestedAnimationState) {
+            if self.animationStateCanBeOverwritten(animationComponent.currentAnimation?.animationState) && self.animationStateCanBeOverwritten(animationComponent.requestedAnimationState) {
                 animationComponent.requestedAnimationState = animationState
             }
+        }
+    }
+    
+    func moveToPoint(position: CGPoint) {
+        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+            self.renderComponent.node.position = position
         }
     }
     
