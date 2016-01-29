@@ -19,7 +19,7 @@ struct GameplayConfiguration {
         /// The movement speed (in points per second).
         static let movementSpeed: CGFloat = 250.0
         static let appearDuration: NSTimeInterval = 0.5
-        static let hitStateDuration: NSTimeInterval = 5
+        static let hitStateDuration: NSTimeInterval = 0.5
     }
     
     struct Enemy {

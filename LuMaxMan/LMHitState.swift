@@ -14,12 +14,12 @@ class LMHitState: GKState {
     
     unowned var entity: LumaxManEntity
     
-    /// The amount of time the `PlayerBot` has been in the "hit" state.
+    /// The amount of time the entity has been in the "hit" state.
     var elapsedTime: NSTimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A PlayerBotHitState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A LMHitState's entity must have an AnimationComponent.") }
         return animationComponent
     }
     
@@ -35,9 +35,16 @@ class LMHitState: GKState {
         
         // Reset the elapsed "hit" duration on entering this state.
         elapsedTime = 0.0
+        
+        //Remove one life
         entity.remainingLives--
         
-        // Request the "hit" animation for this `PlayerBot`.
+        //Respawn player at original point
+        if let spawnPosition = entity.currentLevelScene?.spawnPosition {
+            entity.renderComponent.node.position = spawnPosition
+        }
+        
+        // Request the "hit" animation
         animationComponent.requestedAnimationState = .Hit
     }
     
@@ -47,20 +54,9 @@ class LMHitState: GKState {
         // Update the amount of time the `PlayerBot` has been in the "hit" state.
         elapsedTime += seconds
         
-        // When the `PlayerBot` has been in this state for long enough, transition to the appropriate next state.
+        // When the entity has been in this state for long enough, transition to the appropriate next state.
         if elapsedTime >= GameplayConfiguration.LumaxMan.hitStateDuration {
-            // TODO SET WHAT HAPPENS WHEN HIT
             stateMachine?.enterState(LMMovingState.self)
-        }
-    }
-    
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
-        switch stateClass {
-        case is LMMovingState.Type:
-            return true
-            
-        default:
-            return false
         }
     }
 }

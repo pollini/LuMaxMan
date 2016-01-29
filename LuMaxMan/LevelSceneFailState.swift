@@ -21,9 +21,7 @@ class LevelSceneFailState: LevelSceneOverlayState {
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
         
-        if let inputComponent = levelScene.lumaxMan.componentForClass(InputComponent.self) {
-            inputComponent.isEnabled = false
-        }
+        levelScene.uniNode.paused = true
     }
     
     override func isValidNextState(stateClass: AnyClass) -> Bool {
