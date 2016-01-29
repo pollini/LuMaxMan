@@ -16,8 +16,10 @@ class EnemyFollowingState: GKState {
     // The connection to the Enemy being in this state.
     unowned var entity: EnemyEntity
     
-    // The time the Enemy currently is in this state.
-    //var elapsedTime: NSTimeInterval = 0.0
+    // The current times of the Enemy in this state.
+    var waitingTime: Double
+    var updatingTime: Double
+    var currentTime: Double
     
     // The MovementComponent associated with the Enemy.
     var movementComponent: MovementComponent {
@@ -32,6 +34,9 @@ class EnemyFollowingState: GKState {
     
     required init(entity: EnemyEntity) {
         self.entity = entity
+        self.waitingTime = Double(entity.waitingTime)
+        self.updatingTime = Double(entity.updatingTime)
+        self.currentTime = Double(entity.updatingTime)
     }
     
     
@@ -42,6 +47,7 @@ class EnemyFollowingState: GKState {
         
         // Reset the elapsed time.
         // elapsedTime = 0.0
+        currentTime = updatingTime
         
         //let movementComponent = self.movementComponent
         //movementComponent.nextTranslation = nil
@@ -53,10 +59,18 @@ class EnemyFollowingState: GKState {
         super.updateWithDeltaTime(seconds)
         
         //elapsedTime += seconds
+        currentTime -= seconds
         
         // If the Enemy is about to get followed, re-enter EnemyEscapingState.
         if !entity.isFollowing {
             stateMachine?.enterState(EnemyEscapingState.self)
+        
+        } else {
+            if currentTime <= 0.0 {
+                currentTime = updatingTime
+                NSLog("setting behavior, currentTime: \(currentTime)")
+                entity.agent.behavior = entity.behaviorForCurrentState
+            }
         }
     }
     

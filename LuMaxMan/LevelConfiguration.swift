@@ -14,12 +14,14 @@ struct LevelConfiguration {
     struct EnemyConfiguration {
         // MARK: Properties
         let isFollowing: Bool
-        let waitingTime: Float
+        let waitingTime: Double
+        let updatingTime: Double
         
         // MARK: Initialization
         init(enemyConfigInfo: [String: AnyObject]) {
             isFollowing = true
-            waitingTime = enemyConfigInfo["initialWaitingTime"] as! Float
+            waitingTime = enemyConfigInfo["initialWaitingTime"] as! Double
+            updatingTime = enemyConfigInfo["updatingTime"] as! Double
         }
     }
     

@@ -149,7 +149,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         }
     }
     
-    // MARK: GKAgentDelegate
+    // MARK: Agent System Update
     
     // Sets the position of the agent of LumaxMan to match the node position.
     func updateAgentPositionToMatchNodePosition() {

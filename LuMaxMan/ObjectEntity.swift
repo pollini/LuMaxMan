@@ -23,6 +23,9 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         return renderComponent
     }
     
+    // The agent used to find pathes to LumaxMan.
+    let agent: GKAgent2D
+    
     /// The `ObjectComponent` associated with this `LumaxMan`.
     var objectComponent: ObjectComponent? {
         return componentForClass(ObjectComponent.self)
@@ -53,6 +56,8 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
         }
         
         self.animation = SimpleAnimation(textures: textures)
+        
+        agent = GKAgent2D()
         
         super.init()
         
@@ -89,6 +94,15 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     
     func contactWithEntityDidEnd(entity: GKEntity?) {
         objectComponent?.contactWithEntityDidEnd(entity)
+    }
+    
+    
+    // MARK: Agent System Update
+    
+    // Sets the position of the agent of LumaxMan to match the node position.
+    func updateAgentPositionToMatchNodePosition() {
+        let renderComponent = self.renderComponent
+        agent.position = float2(renderComponent.node.position)
     }
 }
 

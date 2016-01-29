@@ -41,6 +41,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
     var enemies: [EnemyEntity] = []
+    var levelKeys: NSMutableArray = []
     
     let pause = SKSpriteNode(imageNamed:"pause");
     
@@ -178,10 +179,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     func addKeys() {
         for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
             let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
+            levelKeys.addObject(keyEntity)
             
             // Set initial position.
             let node = keyEntity.renderComponent.node
             node.position = keyEmptyNode.position
+            keyEntity.updateAgentPositionToMatchNodePosition()
             
             // Add the `TaskBot` to the scene and the component systems.
             addEntity(keyEntity)
@@ -451,7 +454,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             let enemy: EnemyEntity
             
             // Create an Enemy from its configuration settings.
-            enemy = EnemyEntity(spawnLocation: float2(0,0), isFollowing: true, waitingTime: enemyConfiguration.waitingTime)
+            enemy = EnemyEntity(isFollowing: true, waitingTime: enemyConfiguration.waitingTime, updatingTime: enemyConfiguration.updatingTime)
             
             enemies.append(enemy)
             

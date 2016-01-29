@@ -16,8 +16,10 @@ class EnemyEscapingState: GKState {
     // The connection to the Enemy being in this state.
     unowned var entity: EnemyEntity
     
-    // The time the Enemy currently is in this state.
-    //var elapsedTime: NSTimeInterval = 0.0
+    // The current times of the Enemy in this state.
+    var waitingTime: Double
+    var updatingTime: Double
+    var currentTime: Double
     
     // The MovementComponent associated with the Enemy.
     var movementComponent: MovementComponent {
@@ -32,16 +34,13 @@ class EnemyEscapingState: GKState {
     
     required init(entity: EnemyEntity) {
         self.entity = entity
+        self.waitingTime = Double(entity.waitingTime)
+        self.updatingTime = Double(entity.updatingTime)
+        self.currentTime = Double(entity.updatingTime)
     }
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
-        
-        // Reset the elapsed time.
-        // elapsedTime = 0.0
-        
-        //let movementComponent = self.movementComponent
-        //movementComponent.nextTranslation = nil
         
         entity.agent.behavior = entity.behaviorForCurrentState
     }
@@ -49,11 +48,16 @@ class EnemyEscapingState: GKState {
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         super.updateWithDeltaTime(seconds)
         
-        //elapsedTime += seconds
-        
         // If the Enemy is about to follow LumaxMan, re-enter EnemyFollowingState.
         if entity.isFollowing {
             stateMachine?.enterState(EnemyFollowingState.self)
+        
+        } else {
+            if currentTime <= 0.0 {
+                currentTime = updatingTime
+                NSLog("setting behavior, currentTime: \(currentTime)")
+                entity.agent.behavior = entity.behaviorForCurrentState
+            }
         }
     }
     
@@ -70,7 +74,7 @@ class EnemyEscapingState: GKState {
     override func willExitWithNextState(nextState: GKState) {
         super.willExitWithNextState(nextState)
         
-        //let movementComponent = self.movementComponent
-        //movementComponent.nextTranslation = nil
+        // Assing an empty behavior to cancel any active agent control when leaving this state.
+        entity.agent.behavior = GKBehavior()
     }
 }

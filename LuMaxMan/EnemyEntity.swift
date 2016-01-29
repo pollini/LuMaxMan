@@ -11,22 +11,6 @@ import GameplayKit
 
 class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     
-    // MARK: Nested types
-    
-    enum EnemyBehiavour {
-        // Follow/Hunt LumaxMan.
-        case FollowAgent(GKAgent2D)
-        
-        // Escape from LumaxMan.
-        case EscapeAgent(GKAgent2D)
-    }
-    
-    // The GKAgent associated with this enemy.
-    var agent: EnemyAgent {
-    guard let agent = componentForClass(EnemyAgent.self) else { fatalError("An enemy entity must have a GKAgent2D component.") }
-        return agent
-    }
-    
     // MARK: Properties
     
     // The animations to use for an enemy.
@@ -37,14 +21,17 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     
     static var texturesLoaded: Bool = false
     
-    // The location to use for the enemy's starting point.
-    //var spawnLocation: float2?
-    
-    // The time an enemy has to wait inside the "box" where enemies are supposed to spawn at the beginning of a game.
-    var waitingTime: Float
+    // The time an enemy has to wait at the beginning of a game.
+    var waitingTime: Double
     
     // The time an enemy updates his path to LumaxMan.
-    var updatingTime: Float
+    var updatingTime: Double
+    
+    // The GKAgent associated with this enemy.
+    var agent: EnemyAgent {
+        guard let agent = componentForClass(EnemyAgent.self) else { fatalError("An enemy entity must have a GKAgent2D component.") }
+        return agent
+    }
     
     // Indicates the current "state" of an enemy - following/hunting LuMaxMan, or escaping from him.
     var isFollowing: Bool {
@@ -88,7 +75,8 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
         let agentBehavior: GKBehavior
         
         if isFollowing {
-            agentBehavior = EnemyBehavior.behaviorForAgent(agent, followingAgent: levelScene.lumaxMan.agent, avoidingAgents: levelScene.enemies.map({ $0.agent }), inScene: levelScene)
+            let myInt = levelScene.enemies.indexOf(self)! as Int
+            agentBehavior = EnemyBehavior.behaviorForAgent(agent, followingAgent: (levelScene.levelKeys.objectAtIndex(myInt) as! ObjectEntity).agent, avoidingAgents: levelScene.enemies.map({ $0.agent }), inScene: levelScene)
         
         } else {
             agentBehavior = EnemyBehavior.behaviorForAgent(agent, escapingFromAgent: levelScene.lumaxMan.agent, inScene: levelScene)
@@ -99,12 +87,10 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     
     // MARK: Initializers
     
-    required init(spawnLocation: float2, isFollowing: Bool, waitingTime: Float) {
-        //self.spawnLocation = spawnLocation
+    required init(isFollowing: Bool, waitingTime: Double, updatingTime: Double) {
         self.isFollowing = isFollowing
         self.waitingTime = waitingTime
-        
-        self.updatingTime = 0.0
+        self.updatingTime = updatingTime
         
         super.init()
         
@@ -177,20 +163,12 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     }
     
     func agentDidUpdate(agent: GKAgent) {
-        guard let intelligenceComponent = componentForClass(IntelligenceComponent.self) else {
-            return
-        }
         
-        if intelligenceComponent.stateMachine.currentState is EnemyFollowingState {
-            
-            updateNodePositionToMatchAgentPosition()
-            
-            
-        } else {
-            
-            updateNodePositionToMatchAgentPosition()
-        }
+        updateNodePositionToMatchAgentPosition()
+        
+        agent.behavior = behaviorForCurrentState
     }
+    
     
     func updateAgentPositionToMatchNodePosition() {
         let renderComponent = self.renderComponent

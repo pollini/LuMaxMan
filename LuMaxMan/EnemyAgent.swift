@@ -8,7 +8,5 @@
 
 import GameplayKit
 
-class EnemyAgent: GKAgent2D {
-    
-    // Just a simple and empty subclass for agents of enemies.
-}
+// Just a simple and empty subclass for agents of enemies.
+class EnemyAgent: GKAgent2D {}
