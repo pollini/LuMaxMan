@@ -161,6 +161,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         remainingLives(lumaxMan.remainingLives)
         camera!.addChild(livesNode)
         
+        // Handle the swipe control 
         leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -178,7 +179,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         gestureInput?.delegate = lumaxMan.componentForClass(InputComponent.self)
         
-        // Add Pause Button to Camera
+        // Add pause button to the camera node
         pause.name = "PauseButton";
         pause.position = CGPoint(x: size.width/2,y: size.height/2);
         pause.anchorPoint = CGPoint(x: 1, y: 1)
@@ -265,10 +266,10 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Update the font size of the timer node based on the height of the scene.
         coinNode.fontSize = size.height * 0.05
         
-        // Make sure the timer node is positioned at the top of the scene.
+        // Make sure the coin node is positioned at the top of the scene.
         coinNode.position.y = (size.height / 2.0) - coinNode.frame.size.height
         
-        // Add padding between the top of scene and the top of the timer node.
+        // Add padding between the top of scene and the top of the coin node.
         coinNode.position.y -= coinNode.fontSize * 0.2
         
         coinNode.position.x = -self.size.width / 2 + 5
@@ -280,10 +281,10 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Update the font size of the timer node based on the height of the scene.
         livesNode.fontSize = size.height * 0.05
         
-        // Make sure the timer node is positioned at the top of the scene.
+        // Make sure the lives node is positioned at the top of the scene.
         livesNode.position.y = (size.height / 2.0) - livesNode.frame.size.height
         
-        // Add padding between the top of scene and the top of the timer node.
+        // Add padding between the top of scene and the top of the lives node.
         livesNode.position.y -= livesNode.fontSize * 2
         
         livesNode.position.x = -self.size.width / 2 + 5
@@ -406,46 +407,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         let playerNode = lumaxMan.renderComponent.node
         let playerLocationConstraint = SKConstraint.distance(zeroRange, toNode: playerNode)
         
-        /*
-        Also constrain the camera to avoid it moving to the very edges of the scene.
-        First, work out the scaled size of the scene. Its scaled height will always be
-        the original height of the scene, but its scaled width will vary based on
-        the window's current aspect ratio.
-        */
-        //let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
-        
-        /*
-        Find the root "floor" node in the scene (the container node for
-        the level's background tiles).
-        */
-        //let floorNode = childNodeWithName(UniLayer.Floor.nodePath)!
-        
-        /*
-        Calculate the accumulated frame of this node.
-        The accumulated frame of a node is the outer bounds of all of the node's
-        child nodes, i.e. the total size of the entire contents of the node.
-        This gives us the bounding rectangle for the level's environment.
-        */
-        //let floorContentRect = floorNode.calculateAccumulatedFrame()
-        
-        /*
-        Work out how far within this rectangle to constrain the camera.
-        We want to stop the camera when we get within 100pts of the edge of the screen,
-        unless the level is so small that this inset would be outside of the level.
-        */
-        //let xInset = min((scaledSize.width / 2) - 100.0, floorContentRect.width / 2)
-        //let yInset = min((scaledSize.height / 2) - 100.0, floorContentRect.height / 2)
-        
-        // Use these insets to create a smaller inset rectangle within which the camera must stay.
-        //let insetContentRect = floorContentRect.insetBy(dx: xInset, dy: yInset)
-        
-        // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
-        //let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
-        //let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-        
-        // Constrain the camera within the inset rectangle.
-        //let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        //levelEdgeConstraint.referenceNode = floorNode
         
         /*
         Add both constraints to the camera. The scene edge constraint is added
