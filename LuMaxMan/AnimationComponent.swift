@@ -42,7 +42,7 @@ class AnimationComponent: GKComponent {
     static let textureActionKey = "textureAction"
     
     /// The time to display each frame of a texture animation.
-    static let timePerFrame = NSTimeInterval(1.0 / 10.0)
+    static let timePerFrame = NSTimeInterval(1.0 / 5.0)
     
     // MARK: Properties
     

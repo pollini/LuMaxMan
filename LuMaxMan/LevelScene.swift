@@ -77,7 +77,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     
     let timerNode = SKLabelNode(text: "Time")
     let coinNode = SKLabelNode(text: "Coins: 0")
-    let livesNode = SKLabelNode(text: "Lives: 0")
+    let livesNode = SKLabelNode(text: "Lifes: 0")
     
     var gestureInput : GestureControlInputSource? = GestureControlInputSource()
     
@@ -124,10 +124,14 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         addLumaxMan()
         
+        addKeys()
+        
         addObjects()
         
-        addEnemies()
+        //addCoins()
+        //addKeys()
         
+        addEnemies()
         
         // Gravity will be in the negative z direction; there is no x or y component.
         physicsWorld.gravity = CGVector.zero
@@ -183,6 +187,25 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
     }
     
+    func addObjects() {
+        //Iterate through all possible Object types
+        for objectType in ObjectType.allObjects {
+            //Iterate through all defined nodes in the levelFile
+            for objectEmptyNode in self["\(UniLayer.Characters.nodePath)/\(objectType.objectPath())/*"] {
+                //Create Node with appropriate texture, position and behavior
+                
+                let objectEntity = ObjectEntity.createObjectEntityWithType(objectType)
+                
+                // Set position
+                let node = objectEntity.renderComponent.node
+                node.position = objectEmptyNode.position
+                
+                // Add the object to the scene and the component systems.
+                addEntity(objectEntity)
+            }
+        }
+    }
+    
     func addKeys() {
         for keyEmptyNode in self["\(UniLayer.Characters.nodePath)/keys/*"] {
             let keyEntity = ObjectEntity.createObjectEntityWithType(.Key)
@@ -193,21 +216,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             node.position = keyEmptyNode.position
             keyEntity.updateAgentPositionToMatchNodePosition()
             
-            // Add the `TaskBot` to the scene and the component systems.
+            // Add the key to the scene and the component systems.
             addEntity(keyEntity)
-        }
-    }
-    
-    func addCoins() {
-        for coinEmptyNode in self["\(UniLayer.Characters.nodePath)/coins/*"] {
-            let coinEntity = ObjectEntity.createObjectEntityWithType(.Coin)
-            
-            // Set initial position.
-            let node = coinEntity.renderComponent.node
-            node.position = coinEmptyNode.position
-            
-            // Add the `TaskBot` to the scene and the component systems.
-            addEntity(coinEntity)
         }
     }
     
@@ -285,7 +295,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     }
     
     func remainingLives(coins: Int) {
-        livesNode.text = "Lives: \(coins)"
+        livesNode.text = "Lifes: \(coins)"
     }
     
     override func didChangeSize(oldSize: CGSize) {
@@ -439,7 +449,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         
         /*
         Add both constraints to the camera. The scene edge constraint is added
-        second, so that it takes precedence over following the `PlayerBot`.
+        second, so that it takes precedence over following the LumaxMan.
         The result is that the camera will follow the player, unless this would mean
         moving too close to the edge of the level.
         */
@@ -463,6 +473,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         // Set up the LumaxMan position in the scene.
         let playerNode = lumaxMan.renderComponent.node
         playerNode.position = transporter.position
+        spawnPosition = transporter.position
         lumaxMan.updateAgentPositionToMatchNodePosition()
         
         // Constrain the camera to the position of LumaxMan and the level edges.

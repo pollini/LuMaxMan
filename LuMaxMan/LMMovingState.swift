@@ -43,7 +43,7 @@ class LMMovingState: GKState {
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
         
-        // Turn on controller input for the `PlayerBot` when entering the player-controlled state.
+        // Turn on controller input for the LumaxMan when entering the player-controlled state.
         inputComponent.isEnabled = true
     }
     
@@ -70,7 +70,7 @@ class LMMovingState: GKState {
     override func willExitWithNextState(nextState: GKState) {
         super.willExitWithNextState(nextState)
         
-        // Turn off controller input for the `PlayerBot` when leaving the player-controlled state.
+        // Turn off controller input for the LumaxMan when leaving the player-controlled state.
         entity.componentForClass(InputComponent.self)?.isEnabled = false
     }
 }

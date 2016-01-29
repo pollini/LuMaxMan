@@ -17,7 +17,7 @@ struct ColliderType: OptionSetType, Hashable {
     [
         .LumaxMan: [.LumaxMan, .Obstacle],
         .Object: [.LumaxMan],
-        .Enemy: [.LumaxMan, .Obstacle]
+        .Enemy: [.LumaxMan, .Obstacle, .Object]
     ]
     
     /// A dictionary of which `ColliderType`s should collide with other `ColliderType`s.
@@ -25,7 +25,7 @@ struct ColliderType: OptionSetType, Hashable {
     [
         .LumaxMan: [.LumaxMan, .Obstacle],
         .Object: [.LumaxMan],
-        .Enemy: [.LumaxMan, .Obstacle]
+        .Enemy: [.LumaxMan, .Obstacle, .Object]
     ]
     
     // MARK: Properties
@@ -54,10 +54,7 @@ struct ColliderType: OptionSetType, Hashable {
             return "ColliderType.Obstacle"
             
         case ColliderType.LumaxMan.rawValue:
-            return "ColliderType.PlayerBot"
-            
-            //        case ColliderType.TaskBot.rawValue:
-            //            return "ColliderType.TaskBot"
+            return "ColliderType.LumaxMan"
             
         case ColliderType.Enemy.rawValue:
             return "ColliderType.Enemy"

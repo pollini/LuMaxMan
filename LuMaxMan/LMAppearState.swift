@@ -21,7 +21,7 @@ class LMAppearState: GKState {
     
     unowned var entity: LumaxManEntity
     
-    /// The amount of time the `PlayerBot` has been in the "appear" state.
+    /// The amount of time the LumaxMan has been in the "appear" state.
     var elapsedTime: NSTimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
@@ -65,12 +65,7 @@ class LMAppearState: GKState {
         // Reset the elapsed time.
         elapsedTime = 0.0
         
-        /*
-        The `PlayerBot` is about to appear in the level. We use an `SKShader` to
-        provide a "teleport" effect to beam in the `PlayerBot`.
-        */
-        
-        // Retrieve and use an initial texture for the `PlayerBot`, taken from the appropriate idle animation.
+        // Retrieve and use an initial texture for the LumaxMan, taken from the appropriate idle animation.
         guard let appearTextures = LumaxManEntity.appearTextures else {
             fatalError("Attempt to access PlayerBot.appearTextures before they have been loaded.")
         }
@@ -78,20 +73,20 @@ class LMAppearState: GKState {
         node.texture = texture
         node.size = LumaxManEntity.textureSize
         
-        // Add the node to the `PlayerBot`'s render node.
+        // Add the node to the LumaxMan's render node.
         renderComponent.node.addChild(node)
         
-        // Hide the animation component node until the `PlayerBot` exits this state.
+        // Hide the animation component node until LumaxMan exits this state.
         animationComponent.node.hidden = true
         
-        // Disable the input component while the `PlayerBot` appears.
+        // Disable the input component while LumaxMan appears. Needed?
         inputComponent.isEnabled = false
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         super.updateWithDeltaTime(seconds)
         
-        // Update the amount of time that the `PlayerBot` has been teleporting in to the level.
+        // Update the amount of time
         elapsedTime += seconds
         
         // Check if we have spent enough time
@@ -99,7 +94,7 @@ class LMAppearState: GKState {
             // Remove the node from the scene
             node.removeFromParent()
             
-            // Switch the `PlayerBot` over to a "player controlled" state.
+            // Switch the LumaxMan over to a "player controlled" state.
             stateMachine?.enterState(LMMovingState.self)
         }
     }

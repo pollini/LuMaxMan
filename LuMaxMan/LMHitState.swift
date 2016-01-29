@@ -39,7 +39,6 @@ class LMHitState: GKState {
         //Remove one life
         entity.remainingLives--
         
-        
         // Request the "hit" animation
         animationComponent.requestedAnimationState = .Hit
     }
@@ -54,7 +53,7 @@ class LMHitState: GKState {
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         super.updateWithDeltaTime(seconds)
         
-        // Update the amount of time the `PlayerBot` has been in the "hit" state.
+        // Update the amount of time the LumaxMan has been in the "hit" state.
         elapsedTime += seconds
         
         // When the entity has been in this state for long enough, transition to the appropriate next state.

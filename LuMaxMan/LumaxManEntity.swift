@@ -131,34 +131,33 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
             ]
             
             /*
-            Preload all of the texture atlases for `PlayerBot`. This improves
+            Preload all of the texture atlases for LumaxMan. This improves
             the overall loading speed of the animation cycles for this character.
             */
-            SKTextureAtlas.preloadTextureAtlasesNamed(atlasNames) { error, atlases in
+            SKTextureAtlas.preloadTextureAtlasesNamed(["LumaxManMoving"]) { error, atlases in
                 if let error = error {
                     fatalError("One or more texture atlases could not be found: \(error)")
                 }
                 
                 /*
-                This closure sets up all of the `PlayerBot` animations
-                after the `PlayerBot` texture atlases have finished preloading.
+                This closure sets up all of the LumaxMan animations
+                after the LumaxMan texture atlases have finished preloading.
                 
-                Store the first texture from each direction of the `PlayerBot`'s idle animation,
-                for use in the `PlayerBot`'s "appear"  state.
+                Store the first texture from each direction of the LumaxMan's idle animation,
+                for use in the LumaxMan's "appear"  state.
                 */
                 appearTextures = [:]
                 for orientation in Direction.allDirections {
                     //appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManIdle")
-                    appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[1], withImageIdentifier: "LumaxManMoving")
+                    appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: atlases[0], withImageIdentifier: "LumaxManMoving")
                 }
                 
-                // Set up all of the `PlayerBot`s animations.
+                // Set up all animations of LumaxMan.
                 animations = [:]
-                //animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManIdle", forAnimationState: .Idle)
-                animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Idle)
-                animations![.Moving] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Moving)
-                //animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[2], withImageIdentifier: "LumaxManHit", forAnimationState: .Hit, repeatTexturesForever: false)
-                animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[1], withImageIdentifier: "LumaxManMoving", forAnimationState: .Hit, repeatTexturesForever: false)
+                animations![.Idle] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManMoving", forAnimationState: .Idle)
+                animations![.Moving] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManMoving", forAnimationState: .Moving)
+                
+                animations![.Hit] = AnimationComponent.animationsFromAtlas(atlases[0], withImageIdentifier: "LumaxManMoving", forAnimationState: .Hit, repeatTexturesForever: false)
                 
                 LumaxManEntity.texturesLoaded = true
             }

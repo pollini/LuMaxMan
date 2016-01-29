@@ -31,7 +31,7 @@ protocol ControlInputSourceGameStateDelegate: class {
     func controlInputSourceDidTogglePauseState(controlInputSource: ControlInputSourceType)
 }
 
-/// Delegate methods for responding to control input that applies to the `PlayerBot`.
+/// Delegate methods for responding to control input that applies to the LumaxMan.
 protocol ControlInputSourceDelegate: class {
     /**
      Update the `ControlInputSourceDelegate` with new displacement
@@ -46,7 +46,7 @@ protocol ControlInputSourceDelegate: class {
 
 /// A protocol to be adopted by classes that provide control input and notify their delegates when input is available.
 protocol ControlInputSourceType: class {
-    /// A delegate that receives information about actions that apply to the `PlayerBot`.
+    /// A delegate that receives information about actions that apply to the LumaxMan.
     weak var delegate: ControlInputSourceDelegate? { get set }
     
     /// A delegate that receives information about actions that apply to the game as a whole.

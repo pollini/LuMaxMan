@@ -77,7 +77,7 @@ class MovementComponent: GKComponent {
         // Declare local versions of computed properties so we don't compute them multiple times.
         let node = self.renderComponent.node
         if entity is LumaxManEntity {
-            print("LMPOS: \(node.position)")
+            //print("LMPOS: \(node.position)")
         }
         
         let orientationComponent = self.orientationComponent

@@ -14,7 +14,7 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
     /// The animations to use for a `LumaxMan`.
     var animation: SimpleAnimation
     
-    /// The size to use for the `PlayerBot`s animation textures.
+    /// The size to use for the LumaxMans animation textures.
     var textureSize : CGSize
     
     /// The `RenderComponent` associated with this `LumaxMan`.
@@ -111,7 +111,8 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
 
 enum ObjectType {
     case Key, Coin, Heart
-    static let allObjects = [Key, Coin, Heart]
+    //static let allObjects = [Key, Coin, Heart]
+    static let allObjects = [Coin, Heart]
     
     func objectPath () -> String {
         switch self {

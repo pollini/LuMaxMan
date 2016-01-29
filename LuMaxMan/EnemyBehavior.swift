@@ -42,7 +42,7 @@ class EnemyBehavior: GKBehavior {
         
         // The goal for avoiding other enemies.
         behavior.setWeight(1.0, forGoal: GKGoal(toAvoidAgents: enemyAgents, maxPredictionTime: 1.0))
-        behavior.setWeight(1.0, forGoal: GKGoal(toSeparateFromAgents: enemyAgents, maxDistance: 50.0, maxAngle: 0.5))
+        //behavior.setWeight(1.0, forGoal: GKGoal(toSeparateFromAgents: enemyAgents, maxDistance: 50.0, maxAngle: 0.5))
         
         return behavior
     }

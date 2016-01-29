@@ -13,6 +13,8 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
     var caller: UIViewController?
     var highscores: [PFObject] = []
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         tableView.dataSource = self
         
@@ -34,8 +36,6 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
-    
-    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func logoutClicked(sender: AnyObject) {
         logout()
