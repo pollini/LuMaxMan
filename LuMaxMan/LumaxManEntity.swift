@@ -11,24 +11,27 @@ import SpriteKit
 
 class LumaxManEntity: GKEntity, ContactNotifiableType {
     
-    /// The animations to use for a `LumaxMan`.
+    /// The animations to use for LumaxMan.
     static var animations: [AnimationState: [Direction: Animation]]?
     
-    /// The size to use for the `PlayerBot`s animation textures.
-    static var textureSize = CGSize(width: 80.0, height: 80.0)
+    /// The size to use for LumaxMan's animation textures.
+    static var textureSize = CGSize(width: 70.0, height: 70.0)
     
-    /// Textures used by `PlayerBotAppearState` to show a `PlayerBot` appearing in the scene.
+    /// Textures used to show LumaxMan appearing in the scene.
     static var appearTextures: [Direction: SKTexture]?
     
     static var texturesLoaded: Bool = false
     
-    /// The `RenderComponent` associated with this `LumaxMan`.
+    // The agent used to find pathes to LumaxMan.
+    let agent: GKAgent2D
+    
+    /// The RenderComponent associated with LumaxMan.
     var renderComponent: RenderComponent {
         guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A LumaxMan must have an RenderComponent.") }
         return renderComponent
     }
     
-    /// The `InputComponent` associated with this `LumaxMan`.
+    /// The InputComponent associated with LumaxMan.
     var inputComponent: InputComponent? {
         return componentForClass(InputComponent.self)
     }
@@ -43,6 +46,8 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
     var currentLevelScene : LevelScene?
     
     override init() {
+        agent = GKAgent2D()
+        
         super.init()
         
         initComponents()
@@ -91,7 +96,7 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
         addComponent(intelligenceComponent)
     }
     
-    // MARK: Physics collision
+    // MARK: Physics Collisions
     
     func contactWithEntityDidBegin(entity: GKEntity?) {
         inputComponent?.updateDisplacement(float2(x: 0, y:0))
@@ -142,5 +147,13 @@ class LumaxManEntity: GKEntity, ContactNotifiableType {
                 LumaxManEntity.texturesLoaded = true
             }
         }
+    }
+    
+    // MARK: GKAgentDelegate
+    
+    // Sets the position of the agent of LumaxMan to match the node position.
+    func updateAgentPositionToMatchNodePosition() {
+        let renderComponent = self.renderComponent
+        agent.position = float2(renderComponent.node.position)
     }
 }

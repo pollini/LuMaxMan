@@ -12,7 +12,7 @@ import SpriteKit
 
 /// The names and z-positions of each layer in a level's world.
 enum UniLayer: CGFloat {
-    // The zPosition offset to use per character (`PlayerBot` or `TaskBot`).
+    // The zPosition offset to use per character (LumaxMan or Enemy).
     static let zSpacePerCharacter: CGFloat = 1
     
     // Specifying `AboveCharacters` as 1000 gives room for 9 enemies on a level.
@@ -29,7 +29,6 @@ enum UniLayer: CGFloat {
         }
     }
     
-    
     // The full path to this node, for use with `childNodeWithName(_:)`.
     var nodePath: String {
         return "/Uni/\(nodeName)"
@@ -41,6 +40,7 @@ enum UniLayer: CGFloat {
 class LevelScene: BaseScene, SKPhysicsContactDelegate {
     // MARK: Properties
     let lumaxMan = LumaxManEntity()
+    var enemies: [EnemyEntity] = []
     
     let pause = SKSpriteNode(imageNamed:"pause");
     
@@ -81,12 +81,13 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     lazy var polygonObstacles: [GKPolygonObstacle] = SKNode.obstaclesFromNodePhysicsBodies(self.obstacleSpriteNodes)
     
     lazy var componentSystems: [GKComponentSystem] = {
+        let agentSystem = GKComponentSystem(componentClass: EnemyAgent.self)
         let movementSystem = GKComponentSystem(componentClass: MovementComponent.self)
         let animationSystem = GKComponentSystem(componentClass: AnimationComponent.self)
         let intelligenceSystem = GKComponentSystem(componentClass: IntelligenceComponent.self)
         
         // The systems will be updated in order. This order is explicitly defined to match assumptions made within components.
-        return [intelligenceSystem, movementSystem, animationSystem]
+        return [intelligenceSystem, movementSystem, agentSystem, animationSystem]
     }()
     
     
@@ -122,6 +123,9 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         addKeys()
         
         addCoins()
+        
+        addEnemies()
+        
         
         // Gravity will be in the negative z direction; there is no x or y component.
         physicsWorld.gravity = CGVector.zero
@@ -168,7 +172,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         pause.anchorPoint = CGPoint(x: 1, y: 1)
         pause.size = CGSize(width: 50,height: 50)
         camera!.addChild(pause)
-        addEnemies()
         
     }
     
@@ -306,6 +309,12 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     }
     
     override func didFinishUpdate() {
+        
+        // Check if LumaxMan has been added to this scene and update its agent's position to match its node position.
+        if let lumaxManNode = lumaxMan.componentForClass(RenderComponent.self)?.node where lumaxManNode.scene == self {
+            lumaxMan.updateAgentPositionToMatchNodePosition()
+        }
+        
         // Sort the entities in the scene by ascending y-position.
         let ySortedEntities = entities.sort {
             let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
@@ -409,7 +418,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     }
     
     private func addLumaxMan() {
-        // Find the location of the player's initial position.
+        // Find the location LumaxMan's initial position.
         let charactersNode = childNodeWithName(UniLayer.Characters.nodePath)!
         let transporter = charactersNode.childNodeWithName("LumaxMan")!
         
@@ -421,19 +430,20 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         lumaxMan.missingKeys = levelConfiguration.numberOfKeys
         lumaxMan.currentLevelScene = self
         
-        // Set up the `PlayerBot` position in the scene.
+        // Set up the LumaxMan position in the scene.
         let playerNode = lumaxMan.renderComponent.node
         playerNode.position = transporter.position
+        lumaxMan.updateAgentPositionToMatchNodePosition()
         
-        // Constrain the camera to the `PlayerBot` position and the level edges.
+        // Constrain the camera to the position of LumaxMan and the level edges.
         setCameraConstraints()
         
-        // Add the `lumaxMan` to the scene and component systems.
+        // Add LumaxMan to the scene and component systems.
         addEntity(lumaxMan)
     }
     
     private func addEnemies() {
-        // Find the location of the player's initial position.
+        // Find the location of the enemies' initial positions.
         let enemiesNode = childNodeWithName(UniLayer.Characters.nodePath)?.childNodeWithName("Enemies")
         
         // Iterate over the Enemy configurations for this level, and create each Enemy.
@@ -443,15 +453,22 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             // Create an Enemy from its configuration settings.
             enemy = EnemyEntity(spawnLocation: float2(0,0), isFollowing: true, waitingTime: enemyConfiguration.waitingTime)
             
+            enemies.append(enemy)
+            
             let nodeName = (index > 9) ? "Enemy_\(index)" : "Enemy_0\(index)"
             
             let spawnNode = enemiesNode!.childNodeWithName(nodeName)!
             
             let enemyNode = enemy.renderComponent.node
             enemyNode.position = spawnNode.position
+            enemy.updateAgentPositionToMatchNodePosition()
             
             // Add the Enemy to the scene and the component systems.
             addEntity(enemy)
+        }
+        
+        for enemy in enemies {
+            enemy.agent.behavior = enemy.behaviorForCurrentState
         }
     }
     
@@ -462,7 +479,7 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
             componentSystem.addComponentWithEntity(entity)
         }
         
-        // If the entity has a `RenderComponent`, add its node to the scene.
+        // If the entity has a RenderComponent, add its node to the scene.
         if let renderNode = entity.componentForClass(RenderComponent.self)?.node {
             addNode(renderNode, toUniLayer: .Characters)
         }
@@ -480,10 +497,11 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
     }
     
     
+    // MARK: UISwipeGestureRecognizerDelegate
+    
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         
         gestureInput?.move(sender.direction)
-        
         
     }
     

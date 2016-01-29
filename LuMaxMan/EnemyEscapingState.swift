@@ -40,8 +40,10 @@ class EnemyEscapingState: GKState {
         // Reset the elapsed time.
         // elapsedTime = 0.0
         
-        let movementComponent = self.movementComponent
-        movementComponent.nextTranslation = nil
+        //let movementComponent = self.movementComponent
+        //movementComponent.nextTranslation = nil
+        
+        entity.agent.behavior = entity.behaviorForCurrentState
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -68,7 +70,7 @@ class EnemyEscapingState: GKState {
     override func willExitWithNextState(nextState: GKState) {
         super.willExitWithNextState(nextState)
         
-        let movementComponent = self.movementComponent
-        movementComponent.nextTranslation = nil
+        //let movementComponent = self.movementComponent
+        //movementComponent.nextTranslation = nil
     }
 }

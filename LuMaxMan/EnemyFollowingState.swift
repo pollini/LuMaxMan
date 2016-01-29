@@ -19,6 +19,14 @@ class EnemyFollowingState: GKState {
     // The time the Enemy currently is in this state.
     //var elapsedTime: NSTimeInterval = 0.0
     
+    // The MovementComponent associated with the Enemy.
+    var movementComponent: MovementComponent {
+        guard let movementComponent = entity.componentForClass(MovementComponent.self) else {
+            fatalError("An EnemyFollowingState must have a MovementComponent.")
+        }
+        return movementComponent
+    }
+    
     
     // MARK: Initializers
     
@@ -35,12 +43,10 @@ class EnemyFollowingState: GKState {
         // Reset the elapsed time.
         // elapsedTime = 0.0
         
-        // Check if the Enemy has a movement component.
-        if let movementComponent = entity.componentForClass(MovementComponent.self) {
-            // Clear any pending movement.
-            movementComponent.nextTranslation = nil
-            
-        }
+        //let movementComponent = self.movementComponent
+        //movementComponent.nextTranslation = nil
+        
+        entity.agent.behavior = entity.behaviorForCurrentState
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -48,10 +54,7 @@ class EnemyFollowingState: GKState {
         
         //elapsedTime += seconds
         
-        /*
-        If the Enemy is about to get followed, re-enter EnemyEscapingState.
-        */
-        //if entity.isFollowing || elapsedTime >= GameplayConfiguration.TaskBot.zappedStateDuration {
+        // If the Enemy is about to get followed, re-enter EnemyEscapingState.
         if !entity.isFollowing {
             stateMachine?.enterState(EnemyEscapingState.self)
         }
@@ -66,5 +69,12 @@ class EnemyFollowingState: GKState {
         default:
             return false
         }
+    }
+    
+    override func willExitWithNextState(nextState: GKState) {
+        super.willExitWithNextState(nextState)
+        
+        // Assing an empty behavior to cancel any active agent control when leaving this state.
+        entity.agent.behavior = GKBehavior()
     }
 }

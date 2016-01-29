@@ -66,6 +66,7 @@
 		C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04078411C18760900D3EEE4 /* Assets.xcassets */; };
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
+		C04421661C5938E100A6FDC8 /* EnemyBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04421651C5938E100A6FDC8 /* EnemyBehavior.swift */; };
 		C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC0C7E1C467870008AE09D /* GameKit.framework */; };
 		C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C811C469797008AE09D /* EnemyEntity.swift */; };
 		C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */; };
@@ -91,7 +92,7 @@
 		9142B5C71C57B8A300F1B7DC /* SimpleAnimationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimationComponent.swift; sourceTree = "<group>"; };
 		9142B5C91C57C1A200F1B7DC /* Objects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Objects.xcassets; sourceTree = "<group>"; };
 		9142B5CB1C57C9A400F1B7DC /* CoinBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinBehavior.swift; sourceTree = "<group>"; };
-		915184EB1C590F9C009666DA /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		915184EB1C590F9C009666DA /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighscoreViewController.swift; path = ../HighscoreViewController.swift; sourceTree = "<group>"; };
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehavior.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		C04078441C18760900D3EEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		C04421651C5938E100A6FDC8 /* EnemyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyBehavior.swift; sourceTree = "<group>"; };
 		C0C81D1264C033C7C69BB01B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C0FC0C7E1C467870008AE09D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C0FC0C811C469797008AE09D /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				C04078361C18760900D3EEE4 /* AppDelegate.swift */,
 				C040783C1C18760900D3EEE4 /* GameViewController.swift */,
+				915184EB1C590F9C009666DA /* HighscoreViewController.swift */,
 				C040783E1C18760900D3EEE4 /* Main.storyboard */,
 				C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */,
 				C04078461C18760900D3EEE4 /* Info.plist */,
@@ -216,6 +219,7 @@
 				91CA499D1C20B05F00AFA41A /* GameplayConfiguration.swift */,
 				C0FC0C811C469797008AE09D /* EnemyEntity.swift */,
 				C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */,
+				C04421651C5938E100A6FDC8 /* EnemyBehavior.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -320,13 +324,6 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		C001CAD61C22FDA00075843C /* GameKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = GameKit;
-			sourceTree = "<group>";
-		};
 		C02B58EA1C4EA2B00079D144 /* IC States Enemy */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,7 +336,6 @@
 		C040782A1C18760900D3EEE4 = {
 			isa = PBXGroup;
 			children = (
-				915184EB1C590F9C009666DA /* HighscoreViewController.swift */,
 				C04078351C18760900D3EEE4 /* LuMaxMan */,
 				C0FC0C801C4678CC008AE09D /* Frameworks */,
 				C04078341C18760900D3EEE4 /* Products */,
@@ -364,7 +360,6 @@
 				91FFF7901C20756900B7EC45 /* PlayerControl */,
 				91FFF7961C2078A300B7EC45 /* Scenes */,
 				91FFF7931C20765400B7EC45 /* Nodes */,
-				C001CAD61C22FDA00075843C /* GameKit */,
 				91CA49911C20A26200AFA41A /* iOS */,
 				91FFF7A01C207D6B00B7EC45 /* Assets */,
 				91CA49AB1C20D53700AFA41A /* GeometryExtensions.swift */,
@@ -576,6 +571,7 @@
 				91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */,
 				9101C0651C22F758008F893C /* LMMovingState.swift in Sources */,
 				91CA49B01C20D7F600AFA41A /* LevelSceneOverlayState.swift in Sources */,
+				C04421661C5938E100A6FDC8 /* EnemyBehavior.swift in Sources */,
 				91FFF7921C20758100B7EC45 /* ControlInputSource.swift in Sources */,
 				9142B5C81C57B8A300F1B7DC /* SimpleAnimationComponent.swift in Sources */,
 				9101C05C1C22EFA5008F893C /* Direction.swift in Sources */,
