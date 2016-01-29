@@ -160,15 +160,14 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
     
     func agentWillUpdate(agent: GKAgent) {
         // GKAgents do not "exist" in the SpriteKit physics world, so we have to adjust their positions "manually".
-        updateAgentPositionToMatchNodePosition()
+        self.updateAgentPositionToMatchNodePosition()
         
     }
     
     func agentDidUpdate(agent: GKAgent) {
         
-        updateNodePositionToMatchAgentPosition()
+        self.updateNodePositionToMatchAgentPosition()
         
-        //agent.behavior = behaviorForCurrentState
     }
     
     

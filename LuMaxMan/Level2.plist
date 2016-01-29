@@ -20,13 +20,13 @@
 		</dict>
 		<dict>
 			<key>updatingTime</key>
-			<integer>5</integer>
+			<integer>4</integer>
 			<key>initialWaitingTime</key>
 			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>updatingTime</key>
-			<integer>8</integer>
+			<integer>4</integer>
 			<key>initialWaitingTime</key>
 			<integer>5</integer>
 		</dict>
