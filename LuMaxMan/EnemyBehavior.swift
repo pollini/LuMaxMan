@@ -34,12 +34,12 @@ class EnemyBehavior: GKBehavior {
         behavior.setSpeed(agent)
         behavior.avoidObstaclesForScene(scene)
         
-        behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: targetAgent.position, pathRadius: 10.0, inScene: scene)
+        //behavior.addGoalsToFollowPathFromStartPoint(agent.position, toEndPoint: targetAgent.position, pathRadius: 10.0, inScene: scene)
         //print("\(targetAgent.position)")
         
         // The goal for following LumaxMan.
-        //behavior.setWeight(0.9, forGoal: GKGoal(toSeekAgent: targetAgent))
-        //behavior.setWeight(0.9, forGoal: GKGoal(toInterceptAgent: targetAgent, maxPredictionTime: 1.0))
+        //behavior.setWeight(0.08, forGoal: GKGoal(toSeekAgent: targetAgent))
+        behavior.setWeight(0.09, forGoal: GKGoal(toInterceptAgent: targetAgent, maxPredictionTime: 1.0))
         
         // The goal for avoiding other enemies.
         //behavior.setWeight(1.0, forGoal: GKGoal(toAvoidAgents: enemyAgents, maxPredictionTime: 1.0))
@@ -66,7 +66,7 @@ class EnemyBehavior: GKBehavior {
     
     private func setSpeed(agent: GKAgent2D) {
         // Adds a goal to reach a specific speed.
-        setWeight(0.25, forGoal: GKGoal(toReachTargetSpeed: agent.maxSpeed))
+        setWeight(0.025, forGoal: GKGoal(toReachTargetSpeed: agent.maxSpeed))
     }
     
     private func avoidObstaclesForScene(scene: LevelScene) {

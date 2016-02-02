@@ -42,10 +42,10 @@ class ObjectEntity: GKEntity, ContactNotifiableType {
             entity = ObjectEntity(textureAtlasNamed: "CoinEntity", andTextureSize: CGSize(width: 20, height: 20))
             entity.setObjectBehaviour(CoinBehavior())
         case .Heart:
-            entity = ObjectEntity(textureAtlasNamed: "HeartEntity", andTextureSize: CGSize(width: 20, height: 20))
+            entity = ObjectEntity(textureAtlasNamed: "HeartEntity", andTextureSize: CGSize(width: 40, height: 40))
             entity.setObjectBehaviour(HeartBehavior())
         case .AdditionalTime:
-            entity = ObjectEntity(textureAtlasNamed: "AdditionalTimeEntity", andTextureSize: CGSize(width: 20, height: 20))
+            entity = ObjectEntity(textureAtlasNamed: "AdditionalTimeEntity", andTextureSize: CGSize(width: 40, height: 40))
             entity.setObjectBehaviour(AdditionalTimeBehavior())
         }
         
