@@ -4,19 +4,19 @@
 <array>
 	<dict>
 		<key>sceneType</key>
-		<string>SettingsScene</string>
+		<string>BaseScene</string>
 		<key>fileName</key>
 		<string>SettingsScene</string>
 	</dict>
 	<dict>
 		<key>sceneType</key>
-		<string>SelectLevelScene</string>
+		<string>BaseScene</string>
 		<key>fileName</key>
 		<string>SelectLevelScene</string>
 	</dict>
 	<dict>
 		<key>sceneType</key>
-		<string>MenuScene</string>
+		<string>BaseScene</string>
 		<key>fileName</key>
 		<string>MenuScene</string>
 	</dict>
@@ -34,7 +34,7 @@
 	</dict>
 	<dict>
 		<key>sceneType</key>
-		<string>MenuScene</string>
+		<string>BaseScene</string>
 		<key>fileName</key>
 		<string>MenuScene</string>
 	</dict>
