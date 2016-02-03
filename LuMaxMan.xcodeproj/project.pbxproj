@@ -31,6 +31,8 @@
 		916A9D351C493B5C00C486B5 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A9D341C493B5C00C486B5 /* ObjectEntity.swift */; };
 		91AE87AE1C4E770F00A5E263 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */; };
 		91AE87B01C4E7B1000A5E263 /* KeyBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */; };
+		91AE8FE31C626ED0005ED1B0 /* Level3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91AE8FE21C626ED0005ED1B0 /* Level3.plist */; };
+		91AE8FE51C626EFC005ED1B0 /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91AE8FE41C626EFC005ED1B0 /* Level3.sks */; };
 		91B9C18E1C4690CA0015FE72 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */; };
 		91B9C1901C4695540015FE72 /* ColliderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C18F1C4695540015FE72 /* ColliderType.swift */; };
 		91B9C1921C4696D40015FE72 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */; };
@@ -103,6 +105,8 @@
 		916A9D341C493B5C00C486B5 /* ObjectEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		91AE87AD1C4E770F00A5E263 /* ObjectComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		91AE87AF1C4E7B1000A5E263 /* KeyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBehavior.swift; sourceTree = "<group>"; };
+		91AE8FE21C626ED0005ED1B0 /* Level3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level3.plist; sourceTree = "<group>"; };
+		91AE8FE41C626EFC005ED1B0 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
 		91B9C18D1C4690CA0015FE72 /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		91B9C18F1C4695540015FE72 /* ColliderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColliderType.swift; sourceTree = "<group>"; };
 		91B9C1911C4696D40015FE72 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			name = ObjectBehavior;
 			sourceTree = "<group>";
 		};
+		91AE8FE11C626E5F005ED1B0 /* Level3 */ = {
+			isa = PBXGroup;
+			children = (
+				91AE8FE21C626ED0005ED1B0 /* Level3.plist */,
+				91AE8FE41C626EFC005ED1B0 /* Level3.sks */,
+			);
+			name = Level3;
+			sourceTree = "<group>";
+		};
 		91CA49911C20A26200AFA41A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +336,7 @@
 				91CA49BB1C20EC5100AFA41A /* States */,
 				91FFF79A1C20792900B7EC45 /* Level1 */,
 				84CF25131C59191D00960560 /* Level2 */,
+				91AE8FE11C626E5F005ED1B0 /* Level3 */,
 				84471F1C1C61F8530087958D /* Level5 */,
 			);
 			name = SKS;
@@ -488,12 +502,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */,
+				91AE8FE31C626ED0005ED1B0 /* Level3.plist in Resources */,
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				84CF25151C59194D00960560 /* Level2.sks in Resources */,
 				84471F1E1C61F8790087958D /* Level5.sks in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
 				9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */,
+				91AE8FE51C626EFC005ED1B0 /* Level3.sks in Resources */,
 				91CA49BF1C20ECA500AFA41A /* FailScene.sks in Resources */,
 				91CA499C1C20AFD900AFA41A /* SceneConfiguration.plist in Resources */,
 				9101C0671C22FBDE008F893C /* LumaxMan.xcassets in Resources */,
