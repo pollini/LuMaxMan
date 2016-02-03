@@ -17,6 +17,8 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor(red: 255/255, green: 140/255, blue: 0/255, alpha: 0.8)
+        tableView.separatorColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
         
         let query = PFQuery(className: "Highscore")
         query.orderByDescending("Score")
@@ -79,10 +81,10 @@ class HighscoreViewController: UIViewController, UITableViewDataSource {
                 if userId == PFUser.currentUser()?.objectId {
                     cell!.backgroundColor = UIColor.lightGrayColor()
                 }
+                else {
+                    cell!.backgroundColor = UIColor.clearColor()
+                }
         }
-        cell!.backgroundColor = UIColor.clearColor()
-        tableView.backgroundColor = UIColor(red: 255/255, green: 140/255, blue: 0/255, alpha: 0.8)
-        tableView.separatorColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
         return cell!
     }
 }

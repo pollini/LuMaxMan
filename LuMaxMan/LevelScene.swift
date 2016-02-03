@@ -181,6 +181,8 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         pause.size = CGSize(width: 50,height: 50)
         camera!.addChild(pause)
         
+        print("POLYGONS: \(self.polygonObstacles.count)")
+        
     }
     
     func addObjects() {
@@ -346,26 +348,6 @@ class LevelScene: BaseScene, SKPhysicsContactDelegate {
         if let lumaxManNode = lumaxMan.componentForClass(RenderComponent.self)?.node where lumaxManNode.scene == self {
             lumaxMan.updateAgentPositionToMatchNodePosition()
         }
-        
-        /*
-        // Sort the entities in the scene by ascending y-position.
-        let ySortedEntities = entities.sort {
-        let nodeA = $0.0.componentForClass(RenderComponent.self)!.node
-        let nodeB = $0.1.componentForClass(RenderComponent.self)!.node
-        
-        return nodeA.position.y > nodeB.position.y
-        }
-        
-        // Set the `zPosition` of each entity so that entities with a higher y-position are rendered above those with a lower y-position.
-        var characterZPosition = UniLayer.zSpacePerCharacter
-        for entity in ySortedEntities {
-        let node = entity.componentForClass(RenderComponent.self)!.node
-        node.zPosition = characterZPosition
-        
-        // Use a large enough z-position increment to leave space for emitter effects.
-        characterZPosition += UniLayer.zSpacePerCharacter
-        }
-        */
     }
     
     // MARK: Level Construction

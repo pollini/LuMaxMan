@@ -55,9 +55,6 @@ class AnimationComponent: GKComponent {
     /// The node on which animations should be run for this animation component.
     let node: SKSpriteNode
     
-    /// The node for the entity's shadow (to be set by the entity if needed).
-    var shadowNode: SKSpriteNode?
-    
     /// The current set of animations for the component's entity.
     var animations: [AnimationState: [Direction: Animation]]
     

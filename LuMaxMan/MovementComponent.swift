@@ -63,9 +63,6 @@ class MovementComponent: GKComponent {
         
         // Declare local versions of computed properties so we don't compute them multiple times.
         let node = self.renderComponent.node
-        if entity is LumaxManEntity {
-            //print("LMPOS: \(node.position)")
-        }
         
         let orientationComponent = self.orientationComponent
         
@@ -74,6 +71,10 @@ class MovementComponent: GKComponent {
         // Update the node's `position` with new displacement information.
         if let movement = self.nextTranslation, newPosition = self.pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
             node.position = newPosition
+            
+            if let lM = node.entity as? LumaxManEntity {
+                lM.updateAgentPositionToMatchNodePosition()
+            }
             
             orientationComponent.zRotation = CGFloat(atan2(movement.displacement.y, movement.displacement.x))
             

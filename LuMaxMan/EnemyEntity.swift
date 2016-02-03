@@ -102,7 +102,7 @@ class EnemyEntity: GKEntity, ContactNotifiableType, GKAgentDelegate {
         agent.maxSpeed = isFollowing ? GameplayConfiguration.Enemy.movementSpeedWhenFollowing : GameplayConfiguration.Enemy.movementSpeedWhenEscaping
         agent.maxAcceleration = isFollowing ? GameplayConfiguration.Enemy.movementSpeedWhenFollowing : GameplayConfiguration.Enemy.movementSpeedWhenEscaping
         agent.radius = Float(GameplayConfiguration.Enemy.physicsBodyRadius)
-        agent.mass = 0.5
+        agent.mass = 0.1
         agent.behavior = GKBehavior()
         
         // GKAgent2D is subclass of GKComponent. So, adding the agent as a subclass means it will be updated during the component update cycle. Nice!
