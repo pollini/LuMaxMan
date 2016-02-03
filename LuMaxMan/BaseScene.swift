@@ -190,6 +190,9 @@ class BaseScene: SKScene, ControlInputSourceGameStateDelegate, ButtonNodeRespond
         case .SelectLevel2:
             sceneManager.transitionToSceneWithSceneIdentifier(.Level(2))
             
+        case .SelectLevel3:
+            sceneManager.transitionToSceneWithSceneIdentifier(.Level(3))
+            
         case .SelectLevel5:
             sceneManager.transitionToSceneWithSceneIdentifier(.Level(5))
             
