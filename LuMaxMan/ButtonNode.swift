@@ -30,11 +30,12 @@ enum ButtonIdentifier: String {
     case SelectLevel1
     case SelectLevel2
     case SelectLevel3
+    case SelectLevel4
     case SelectLevel5
     
     /// Convenience array of all available button identifiers.
     static let allButtonIdentifiers: [ButtonIdentifier] = [
-        .Resume, .Home, .Highscore, .Settings, .ProceedToNextScene, .BackToMenu, .Replay, .Retry, .Cancel, .SelectLevel, .SelectLevel1, .SelectLevel2, .SelectLevel3, .SelectLevel5
+        .Resume, .Home, .Highscore, .Settings, .ProceedToNextScene, .BackToMenu, .Replay, .Retry, .Cancel, .SelectLevel, .SelectLevel1, .SelectLevel2, .SelectLevel3, .SelectLevel4, .SelectLevel5
     ]
 }
 
