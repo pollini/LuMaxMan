@@ -72,6 +72,8 @@
 		C04078451C18760900D3EEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04078431C18760900D3EEE4 /* LaunchScreen.storyboard */; };
 		C040784D1C1884F100D3EEE4 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C040784C1C1884F100D3EEE4 /* MenuScene.sks */; };
 		C04421661C5938E100A6FDC8 /* EnemyBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04421651C5938E100A6FDC8 /* EnemyBehavior.swift */; };
+		C0758D111C62B04900B8913A /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = C0758D101C62B04900B8913A /* Level4.sks */; };
+		C0758D131C62B7FC00B8913A /* Level4.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0758D121C62B7FC00B8913A /* Level4.plist */; };
 		C0FC0C7F1C467870008AE09D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FC0C7E1C467870008AE09D /* GameKit.framework */; };
 		C0FC0C821C469797008AE09D /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C811C469797008AE09D /* EnemyEntity.swift */; };
 		C0FC0C841C469A5F008AE09D /* EnemyAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FC0C831C469A5F008AE09D /* EnemyAgent.swift */; };
@@ -149,6 +151,8 @@
 		C04078461C18760900D3EEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C040784C1C1884F100D3EEE4 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		C04421651C5938E100A6FDC8 /* EnemyBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyBehavior.swift; sourceTree = "<group>"; };
+		C0758D101C62B04900B8913A /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level4.sks; path = Scenes/SKS/Level4/Level4.sks; sourceTree = "<group>"; };
+		C0758D121C62B7FC00B8913A /* Level4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Level4.plist; path = Scenes/SKS/Level4/Level4.plist; sourceTree = "<group>"; };
 		C0C81D1264C033C7C69BB01B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C0FC0C7E1C467870008AE09D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		C0FC0C811C469797008AE09D /* EnemyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 				91FFF79A1C20792900B7EC45 /* Level1 */,
 				84CF25131C59191D00960560 /* Level2 */,
 				91AE8FE11C626E5F005ED1B0 /* Level3 */,
+				C0758D0F1C62AD3D00B8913A /* Level4 */,
 				84471F1C1C61F8530087958D /* Level5 */,
 			);
 			name = SKS;
@@ -415,6 +420,15 @@
 				913D27781C5ADCA900338100 /* Physics */,
 			);
 			path = LuMaxMan;
+			sourceTree = "<group>";
+		};
+		C0758D0F1C62AD3D00B8913A /* Level4 */ = {
+			isa = PBXGroup;
+			children = (
+				C0758D121C62B7FC00B8913A /* Level4.plist */,
+				C0758D101C62B04900B8913A /* Level4.sks */,
+			);
+			name = Level4;
 			sourceTree = "<group>";
 		};
 		C0FC0C801C4678CC008AE09D /* Frameworks */ = {
@@ -506,6 +520,7 @@
 				91CA49BD1C20EC7600AFA41A /* PauseScene.sks in Resources */,
 				C04078421C18760900D3EEE4 /* Assets.xcassets in Resources */,
 				84CF25151C59194D00960560 /* Level2.sks in Resources */,
+				C0758D111C62B04900B8913A /* Level4.sks in Resources */,
 				84471F1E1C61F8790087958D /* Level5.sks in Resources */,
 				84967C971C4693D3005D5CFD /* SettingsScene.sks in Resources */,
 				9142B5CA1C57C1A200F1B7DC /* Objects.xcassets in Resources */,
@@ -518,6 +533,7 @@
 				91CA49C11C20ECB000AFA41A /* SuccessScene.sks in Resources */,
 				84471F201C61F88A0087958D /* Level5.plist in Resources */,
 				C0FC0C921C492B9D008AE09D /* Level1.plist in Resources */,
+				C0758D131C62B7FC00B8913A /* Level4.plist in Resources */,
 				84CF25171C591E8A00960560 /* Level2.plist in Resources */,
 				C0FC0C901C492B56008AE09D /* Level1.sks in Resources */,
 				C04078401C18760900D3EEE4 /* Main.storyboard in Resources */,

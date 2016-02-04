@@ -42,6 +42,12 @@
 		<key>sceneType</key>
 		<string>LevelScene</string>
 		<key>fileName</key>
+		<string>Level4</string>
+	</dict>
+	<dict>
+		<key>sceneType</key>
+		<string>LevelScene</string>
+		<key>fileName</key>
 		<string>Level5</string>
 	</dict>
 	<dict>
